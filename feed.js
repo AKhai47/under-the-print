@@ -105,9 +105,20 @@ async function json(url, ms = 6000) {
   } finally { clearTimeout(t); }
 }
 
-async function fetchQuotes(key) {
+async function fetchQuotes(propKey) {
   const symbols = KEYED.map(k => k.symbol).join(',');
-  const d = await json('https://api.twelvedata.com/quote?symbol=' + symbols + '&apikey=' + encodeURIComponent(key));
+  let d;
+  try {
+    // Preferred: same-origin serverless proxy (Vercel /api/quotes) that holds the
+    // Twelve Data key server-side, so it never ships to the browser.
+    d = await json('/api/quotes?symbol=' + encodeURIComponent(symbols));
+  } catch (e) {
+    // Fallback for a plain static host with no proxy (e.g. GitHub Pages): call
+    // Twelve Data directly with a ?feedkey= / build-injected key if one exists.
+    const key = resolveKey(propKey || await injectedKey());
+    if (!key) throw e;
+    d = await json('https://api.twelvedata.com/quote?symbol=' + symbols + '&apikey=' + encodeURIComponent(key));
+  }
   if (d.code && d.code >= 400) throw new Error(d.message || 'quote error');
   const out = [];
   for (const k of KEYED) {
@@ -171,16 +182,16 @@ function writeCache(payload) {
  *         'static' — nothing came back; showing the July 24 snapshot
  */
 export async function loadTape(propKey) {
-  const key = resolveKey(propKey || await injectedKey());
   const cached = readCache();
   if (cached && !cached.stale) return { ...cached, cached: true };
 
-  const jobs = [fetchStables().catch(() => null), fetchFx().catch(() => null)];
-  if (key) jobs.unshift(fetchQuotes(key).catch(() => null));
-  const res = await Promise.all(jobs);
-  const quotes = key ? res[0] : null;
-  const stables = key ? res[1] : res[0];
-  const fx = key ? res[2] : res[1];
+  // fetchQuotes prefers the server-side proxy and lazily resolves a fallback key
+  // only if the proxy is absent, so the tape always attempts equity quotes.
+  const [quotes, stables, fx] = await Promise.all([
+    fetchQuotes(propKey).catch(() => null),
+    fetchStables().catch(() => null),
+    fetchFx().catch(() => null),
+  ]);
 
   const live = [];
   if (quotes && quotes.length) live.push(...quotes);
