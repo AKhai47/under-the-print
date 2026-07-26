@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "war-premium-unwind-relief",
+    date: "2026-07-26", dateLabel: "JUL 26 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "relief",
+    title: "The war premium is unwinding, and that unwind is the relief rally",
+    dek: "Sunday-night futures ripped and crude fell hard as the U.S.-Iran fighting paused. The relief is not the war ending, it is the premium leaving the tape.",
+    thesis: "The drawdown was an energy supply shock, so the reversal is symmetric: as the Strait of Hormuz risk premium unwinds with the pause in fighting, the inflation impulse eases and de-risked books are forced to re-risk, which is the setup for a relief move that rips rather than drifts.",
+    breaks: "The pause fails and the Strait premium snaps back within days, since a headline premium reverses on a headline, or crude keeps falling because demand is cracking and equities roll over with it, making this a growth scare rather than relief.",
+    blocks: [
+      { mark: "open", color: "var(--up)", text: "The Sunday-night reopen did the talking. S&P 500 futures gapped back toward 7,500, up about 0.6%, and Nasdaq-100 futures ran 1.1% to around 28,620, clawing back a week that had bled into the low 7,410s and the 28,300s. Crude went the other way, fast: Brent fell to roughly $93 from above $101 last week and WTI to about $85.60 from a $94 high, the war premium coming out into a weekend pause in the U.S.-Iran fighting." },
+      { mark: "premium", color: "var(--faint)", text: "This is March in reverse. The first leg up in crude was a geopolitical risk premium, not a spot shortage, and a premium that inflates on a headline deflates on one. Brent has already handed back more than half of what it built, from above $101 toward $93, while the barrel itself never went missing. The market is un-pricing the disruption it spent two weeks pricing in." },
+      { mark: "bid", color: "var(--accent)", text: "Why equities rip and do not just drift: the sell-off since Q1 was a supply shock running through inflation, so duration was no hedge and books got defensive. Run the constraint in reverse and the plumbing reverses with it. The inflation impulse eases, real yields get room to fall, and positioning that de-risked into the war has to buy its risk back. Forced re-risking is what turns relief into a rip." },
+      { mark: "read", color: "var(--accent)", text: "My read is that this is genuine relief, not a head-fake. The overhang was one identifiable thing, the Strait, and that one thing is easing on the tape in real time. I would rather be long risk into this than fade it here, and I think the path of least resistance for the next leg is higher." },
+      { mark: "watch", color: "var(--down)", text: "The discipline: a premium that unwinds on a headline can be re-imposed by one. A pause is not a settlement, and if the Strait re-freezes, $93 becomes the floor again fast. And if crude keeps sliding while stocks turn down with it, this is not relief, it is demand cracking. The tell is divergence. Stocks and oil pulling apart is relief; falling together is a growth scare." }
+    ]
+  },
+  {
     slug: "genius-93-day-rule",
     date: "2026-07-20", dateLabel: "JUL 20 2026", tag: "CRYPTO", color: "var(--amber)", mark: "93d",
     title: "The 93-day rule is a Treasury demand story before it is a crypto story",
