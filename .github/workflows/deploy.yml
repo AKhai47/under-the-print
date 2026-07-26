@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+# Static deploy for "Under the Print". No build step or bundler — the pages are
+# plain HTML/JS. The one bit of "build" is injecting the Twelve Data API key from
+# a repo secret into a generated feed-key.js so the key never lands in source.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a newer run supersede an in-flight one, but never cancel a live deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject Twelve Data key
+        env:
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+        run: |
+          # Always emit feed-key.js so feed.js's import never 404s. The value is
+          # JSON-encoded into a JS string literal so any characters are safe, and
+          # is empty when no secret is set (site runs keyless: FX + stablecoins
+          # stay live; equity/ETF lines show the static snapshot).
+          printf 'export const FEED_KEY = %s;\n' \
+            "$(printf '%s' "${TWELVEDATA_API_KEY}" | jq -R -s '. | rtrimstr("\n")')" \
+            > feed-key.js
+          if [ -n "${TWELVEDATA_API_KEY}" ]; then
+            echo "feed-key.js generated with key (equity/ETF tier enabled)."
+          else
+            echo "feed-key.js generated empty (no secret) — deploying keyless."
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

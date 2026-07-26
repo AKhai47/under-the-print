@@ -67,6 +67,23 @@ export function resolveKey(propKey) {
   return (propKey || '').trim();
 }
 
+// Deploy-time key: the GitHub Pages workflow writes feed-key.js from a repo
+// secret (TWELVEDATA_API_KEY) at build time — it is never committed to source.
+// Absent in dev, or empty on a keyless deploy, in which case this resolves to
+// '' and the tape runs keyless. A visitor's own ?feedkey=/localStorage key still
+// wins, since resolveKey checks those before this fallback.
+let _injected;
+async function injectedKey() {
+  if (_injected !== undefined) return _injected;
+  try {
+    const m = await import('./feed-key.js');
+    _injected = (m && m.FEED_KEY) || '';
+  } catch (e) {
+    _injected = '';
+  }
+  return _injected;
+}
+
 function num(n, digits) {
   return Number(n).toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits });
 }
@@ -154,7 +171,7 @@ function writeCache(payload) {
  *         'static' — nothing came back; showing the July 24 snapshot
  */
 export async function loadTape(propKey) {
-  const key = resolveKey(propKey);
+  const key = resolveKey(propKey || await injectedKey());
   const cached = readCache();
   if (cached && !cached.stale) return { ...cached, cached: true };
 
