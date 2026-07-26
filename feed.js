@@ -11,7 +11,7 @@
 // static site's network tab. That is the trade for having no backend.
 
 const LS_KEY = 'utp-feed-key';
-const LS_CACHE = 'utp-feed-cache';
+const LS_CACHE = 'utp-feed-cache-v2';
 const CACHE_MS = 12 * 60 * 60 * 1000;
 
 export const STATIC_AS_OF = 'JUL 24 2026';
