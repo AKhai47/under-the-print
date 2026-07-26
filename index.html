@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#fafafa; --grid:rgba(0,0,0,.045);
+    --ink:#0b0d10; --text:#1c1f23; --text2:#3a3f45; --muted:#6b7078; --faint:#8a8f97;
+    --line:rgba(0,0,0,.09); --lineSoft:rgba(0,0,0,.07);
+    --bar:#0b0d10; --barInk:#ffffff;
+    --accent:#0057ff; --accentHover:#003fbf; --accentSoft:rgba(0,87,255,.08);
+    --up:#0f9d58; --down:#d93636; --amber:#c76a00; --amberSoft:rgba(199,106,0,.08);
+    --purple:#6b46c1; --purpleSoft:rgba(107,70,193,.08); --neutralSoft:rgba(0,0,0,.05);
+  }
+  html[data-theme="dark"]{
+    --bg:#0e1116; --panel:#161a21; --grid:rgba(255,255,255,.045);
+    --ink:#eef1f5; --text:#dfe4ea; --text2:#c3cad3; --muted:#9aa3ad; --faint:#7d8691;
+    --line:rgba(255,255,255,.12); --lineSoft:rgba(255,255,255,.08);
+    --bar:#05070a; --barInk:#f2f5f9;
+    --accent:#79a5ff; --accentHover:#a9c4ff; --accentSoft:rgba(121,165,255,.13);
+    --up:#3ddc84; --down:#ff6b6b; --amber:#e8a84a; --amberSoft:rgba(232,168,74,.14);
+    --purple:#b39cff; --purpleSoft:rgba(179,156,255,.14); --neutralSoft:rgba(255,255,255,.07);
+  }
+  html[data-theme="dark"] ::selection{background:#79a5ff;color:#0e1116}
+  body{margin:0;background:var(--bg);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--accentHover);text-decoration:underline}
+  ::selection{background:var(--accent);color:#fff}
+  .tabular{font-variant-numeric:tabular-nums}
+  .tickertrack{animation:tickerscroll 70s linear infinite}
+  .tickertrack:hover{animation-play-state:paused}
+  @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.tickertrack{animation:none}}
+</style>
+<script>try{var t=localStorage.getItem('utp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 24px">
+
+  <div style="background:var(--bar);color:var(--barInk);overflow:hidden;position:relative">
+    <div class="tickertrack tabular" style="display:flex;width:max-content;padding:11px 0;font:500 10.5px/1.2 'IBM Plex Mono',monospace;white-space:nowrap">
+      <div style="display:flex;gap:20px;padding-right:20px;align-items:center">
+        <span style="display:flex;align-items:center;gap:6px;color:var(--faint)">
+          <span style="width:5px;height:5px;border-radius:50%;background:{{ feedDot }}"></span>{{ feedStamp }}
+        </span>
+        <sc-for list="{{ tape }}" as="q" hint-placeholder-count="14">
+          <span>{{ q.label }}&nbsp;<b style="color:{{ q.color }}">{{ q.value }}</b></span>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:20px;padding-right:20px;align-items:center" aria-hidden="true">
+        <span style="display:flex;align-items:center;gap:6px;color:var(--faint)">
+          <span style="width:5px;height:5px;border-radius:50%;background:{{ feedDot }}"></span>{{ feedStamp }}
+        </span>
+        <sc-for list="{{ tape }}" as="q" hint-placeholder-count="14">
+          <span>{{ q.label }}&nbsp;<b style="color:{{ q.color }}">{{ q.value }}</b></span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <header style="display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);background:var(--bg)">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};display:flex;align-items:center;justify-content:space-between;padding:18px 20px">
+      <a href="./" style="font:700 15px 'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;text-decoration:none">UNDER THE PRINT</a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
+        <a href="./" style="color:var(--ink)">Home</a>
+        <a href="#writing" style="color:var(--faint)">Writing</a>
+        <a href="About.dc.html" style="color:var(--faint)">About</a>
+      </nav>
+        <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
+      </div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:center;border-left:1px solid var(--lineSoft);border-right:1px solid var(--lineSoft);max-width:{{ shellMaxWidth }};margin:0 auto">
+  <div style="width:100%;display:grid;grid-template-columns:{{ gridCols }};grid-template-areas:{{ gridAreas }};gap:{{ gridGap }};padding:{{ shellPad }}">
+
+    <section style="grid-area:main;padding:{{ mainPad }}">
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:22px">
+        <div>
+          <div style="font:700 13px 'Space Grotesk',sans-serif;color:var(--ink)">Anthony Khaimov</div>
+        </div>
+      </div>
+      <h1 style="font:700 {{ h1Size }}/1.15 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 16px;letter-spacing:-.01em">Read the plumbing.<br>Not the print.</h1>
+      <p style="font:400 14.5px/1.6 'Space Grotesk',sans-serif;color:var(--text2);margin:0 0 14px;max-width:52ch">I write about rates, FX, equities, and digital assets. My focus is on the mechanics under a move, who has to buy or sell, how it gets funded, what limits the people on the other side, instead of guessing where a price goes next. Every post says what I think and what would prove me wrong.</p>
+      <p style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--faint);margin:0 0 8px">Building toward an S&amp;T seat, 2027</p>
+
+      <div id="writing" style="margin-top:28px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
+          <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink);text-transform:uppercase">Latest theses</div>
+          <a href="#writing" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">All writing →</a>
+        </div>
+
+        <a href="post-open-weights.dc.html" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--purple),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--purple);writing-mode:vertical-rl;letter-spacing:.04em">25 sig</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">JUL 25 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Huang is right about open weights</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> AI leadership runs through open weights, not one benchmark-topping model · <b style="color:var(--ink)">BREAKS IF</b> a breach needs local weight access and open models stay a year behind through 2027</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=genius-93-day-rule" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--amber),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--amber);writing-mode:vertical-rl;letter-spacing:.04em">93d</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--amber);background:var(--amberSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CRYPTO</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">JUL 20 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The 93-day rule is a Treasury demand story before it is a crypto story</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> the reserve maturity limit concentrates $230bn of demand in one slice of the bill curve · <b style="color:var(--ink)">BREAKS IF</b> issuers move reserves into repo and deposits, or the final rule widens the maturity band</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=cracks-over-crude" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">crack</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CROSS-ASSET</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">JUL 06 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Crude fell back and the pump did not. The crack spread is the honest print</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> refining and product logistics are the binding constraint, not crude supply · <b style="color:var(--ink)">BREAKS IF</b> product cracks compress back to pre-war levels while crude holds under $75</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=forward-guidance-vol" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">vol</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">RATES</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">JUN 18 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Dropping forward guidance is a volatility decision, not a communication style</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> removing guidance sends uncertainty back to the front end as a structural change · <b style="color:var(--ink)">BREAKS IF</b> front-end implied vol stays in its pre-June range through year-end</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=warsh-inherits-a-hiking-dot" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">hike?</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">RATES</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">MAY 26 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Warsh was hired to cut and the data is asking for a hike</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> the market is pricing the chair rather than the committee that votes · <b style="color:var(--ink)">BREAKS IF</b> inflation decelerates over the summer and the cut path returns without a fight</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=cit-strikes-section-122" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--purple),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--purple);writing-mode:vertical-rl;letter-spacing:.04em">122</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">MAY 11 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The trade court struck down the replacement tariff and nothing moved</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> the market prices the availability of authority, not the individual ruling · <b style="color:var(--ink)">BREAKS IF</b> a struck-down program goes unreplaced and the effective rate stays lower</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=tariff-stacking" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--purple),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--purple);writing-mode:vertical-rl;letter-spacing:.04em">stack</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">APR 20 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The headline tariff rate is not the rate anyone pays</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> effective incidence is set by overlapping programs, exemptions and drawback · <b style="color:var(--ink)">BREAKS IF</b> reported input costs converge toward the announced headline rate</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=worst-quarter-since-2022" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">−4.6%</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CROSS-ASSET</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">APR 03 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Worst quarter since 2022, and the diversification did not work</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> a supply shock raises inflation and lowers growth at once, so duration is no hedge · <b style="color:var(--ink)">BREAKS IF</b> stock-bond correlation goes negative and holds through a second risk-off</div>
+          </div>
+        </a>
+
+        <div style="display:{{ moreDisplay }};flex-direction:column">
+        <a href="Note.dc.html?p=shadow-fleet-pricing" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--purple),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--purple);writing-mode:vertical-rl;letter-spacing:.04em">fleet</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">MAR 30 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">When the shadow fleet sets the clearing price</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> the marginal carrier, not the marginal barrel, sets price during a blockade · <b style="color:var(--ink)">BREAKS IF</b> freight and war-risk premia normalise while crude stays elevated</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=hormuz-risk-premium" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">+13%</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CROSS-ASSET</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">MAR 04 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The first move in crude was a premium, not a shortage</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> the initial repricing was geopolitical risk premium rather than tight spot supply · <b style="color:var(--ink)">BREAKS IF</b> physical differentials and time spreads tighten in line with flat price</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=ieepa-struck-down" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--purple),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--purple);writing-mode:vertical-rl;letter-spacing:.04em">6-3</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">FEB 23 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The tariff regime was struck down and replaced on the same day</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> which statute is available matters more than which tariff is announced · <b style="color:var(--ink)">BREAKS IF</b> a struck-down program goes unreplaced for a full quarter</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=fed-chair-race-is-a-curve-trade" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">42%</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">RATES</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">JAN 14 2026</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The Fed chair succession is a curve trade, not a level trade</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> a chair change reprices the reaction function and balance sheet, not today’s level · <b style="color:var(--ink)">BREAKS IF</b> the announcement moves the front end more than the belly</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=yen-carry-transmission" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--accent),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--accent);writing-mode:vertical-rl;letter-spacing:.04em">carry</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--accent);background:var(--accentSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CROSS-ASSET</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">DEC 15 2025</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">Yen carry is the transmission line nobody puts on the chart</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> rising JGB yields drain global liquidity and the most levered assets sell first · <b style="color:var(--ink)">BREAKS IF</b> Japanese yields rise without a matching drawdown in high-beta risk</div>
+          </div>
+        </a>
+
+        <a href="Note.dc.html?p=november-unwind-was-funding" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none">
+          <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
+            <div style="width:1px;flex:1;background:linear-gradient(var(--amber),var(--line))"></div>
+            <div style="font:600 8px 'IBM Plex Mono',monospace;color:var(--amber);writing-mode:vertical-rl;letter-spacing:.04em">391k</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--amber);background:var(--amberSoft);padding:2px 6px;border-radius:2px;letter-spacing:.04em">CRYPTO</span>
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)" class="tabular">NOV 24 2025</span>
+            </div>
+            <div style="font:700 16px/1.3 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:6px">The November unwind was a funding event wearing a crypto costume</div>
+            <div style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--muted)"><b style="color:var(--ink)">THESIS</b> a leverage cascade through thin books, not a change of mind about fundamentals · <b style="color:var(--ink)">BREAKS IF</b> a comparable drawdown happens with open interest and funding unchanged</div>
+          </div>
+        </a>
+        </div>
+        <div style="display:{{ btnDisplay }};justify-content:center;padding:18px 0 4px;border-top:1px solid var(--line)">
+          <button onClick="{{ showMore }}" style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:2px;padding:9px 18px;cursor:pointer" style-hover="background:var(--accentSoft);border-color:var(--accent)">Load earlier notes</button>
+        </div>
+      </div>
+    </section>
+
+    <aside style="grid-area:rail;padding:{{ railPad }};position:{{ railPosition }};top:{{ railTop }};align-self:start">
+      <div id="about" style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">About</div>
+        <div style="font:400 12px/1.6 'Space Grotesk',sans-serif;color:var(--text2);margin-bottom:12px">I'm a junior at Weber State University studying cybersecurity and network management. I've spent the last couple of years running validator infrastructure and auditing smart contracts, which is where I got interested in how money actually moves. I write these notes while working toward a sales &amp; trading seat.</div>
+        <a href="About.dc.html" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">Full story →</a>
+      </div>
+    </aside>
+
+  </div>
+  </div>
+
+  <footer style="border-top:1px solid var(--line);display:flex;justify-content:center">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};padding:24px 20px 40px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)">© 2026 Anthony Khaimov</div>
+      <div style="display:flex;gap:14px;font:500 10.5px 'IBM Plex Mono',monospace">
+        <a href="mailto:anthonykhaimovcyb@gmail.com" style="color:var(--accent)">Email</a>
+        <a href="https://github.com/AKhai47" style="color:var(--accent)">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;feedApiKey&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Market tape&quot;}}">
+class Component extends DCLogic {
+  state = {
+    wide: typeof window !== 'undefined' ? window.innerWidth >= 980 : false,
+    expanded: false,
+    feed: null
+  };
+
+  async _loadFeed() {
+    try {
+      const m = await import('./feed.js');
+      this._feed = m;
+      const feed = await m.loadTape(); // key comes only from ?feedkey= -> localStorage, never source
+      this.setState({ feed });
+    } catch (e) {
+      this.setState({ feed: { items: null, mode: 'static', asOf: 'JUL 24 2026' } });
+    }
+  }
+
+  componentDidMount() {
+    this._loadFeed();
+    // Refresh every 12h while the tab is open; cache covers reloads in between.
+    this._feedTimer = setInterval(() => this._loadFeed(), 12 * 60 * 60 * 1000);
+    this._onVis = () => { if (!document.hidden) this._loadFeed(); };
+    document.addEventListener('visibilitychange', this._onVis);
+
+    this._onResize = () => {
+      const wide = window.innerWidth >= 980;
+      if (wide !== this.state.wide) this.setState({ wide });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    document.removeEventListener('visibilitychange', this._onVis);
+    clearInterval(this._feedTimer);
+  }
+
+  _tapeVals() {
+    return this._feed ? this._feed.tapeVals(this.state.feed) : { tape: [], feedStamp: 'CLOSE JUL 24 2026', feedDot: 'var(--faint)' };
+  }
+
+  _isDark() {
+    try { return document.documentElement.getAttribute('data-theme') === 'dark'; } catch(e) { return false; }
+  }
+  _toggle() {
+    const next = this._isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('utp-theme', next); } catch(e) {}
+    this.forceUpdate();
+  }
+
+  renderVals() {
+    const wide = this.state.wide;
+    const dark = this._isDark();
+    return {
+      ...this._tapeVals(),
+      themeLabel: dark ? 'Light' : 'Dark',
+      toggleTheme: () => this._toggle(),
+      shellMaxWidth: wide ? '1160px' : '640px',
+      gridCols: wide ? '1fr 300px' : '1fr',
+      gridAreas: wide ? '"main rail"' : '"main" "rail"',
+      gridGap: wide ? '56px' : '0px',
+      shellPad: wide ? '40px 0' : '0',
+      mainPad: wide ? '0' : '16px 20px 0',
+      railPad: wide ? '0' : '8px 20px 0',
+      railPosition: wide ? 'sticky' : 'static',
+      railTop: wide ? '24px' : 'auto',
+      h1Size: wide ? '40px' : '32px',
+      moreDisplay: this.state.expanded ? 'flex' : 'none',
+      btnDisplay: this.state.expanded ? 'none' : 'flex',
+      showMore: () => this.setState({ expanded: true }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

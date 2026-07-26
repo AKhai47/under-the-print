@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --panel:#fafafa; --grid:rgba(0,0,0,.045);
+    --ink:#0b0d10; --text:#1c1f23; --text2:#3a3f45; --muted:#6b7078; --faint:#8a8f97;
+    --line:rgba(0,0,0,.09); --lineSoft:rgba(0,0,0,.07);
+    --bar:#0b0d10; --barInk:#ffffff;
+    --accent:#0057ff; --accentHover:#003fbf; --accentSoft:rgba(0,87,255,.08);
+    --up:#0f9d58; --down:#d93636; --amber:#c76a00; --amberSoft:rgba(199,106,0,.08);
+    --purple:#6b46c1; --purpleSoft:rgba(107,70,193,.08); --neutralSoft:rgba(0,0,0,.05);
+  }
+  html[data-theme="dark"]{
+    --bg:#0e1116; --panel:#161a21; --grid:rgba(255,255,255,.045);
+    --ink:#eef1f5; --text:#dfe4ea; --text2:#c3cad3; --muted:#9aa3ad; --faint:#7d8691;
+    --line:rgba(255,255,255,.12); --lineSoft:rgba(255,255,255,.08);
+    --bar:#05070a; --barInk:#f2f5f9;
+    --accent:#79a5ff; --accentHover:#a9c4ff; --accentSoft:rgba(121,165,255,.13);
+    --up:#3ddc84; --down:#ff6b6b; --amber:#e8a84a; --amberSoft:rgba(232,168,74,.14);
+    --purple:#b39cff; --purpleSoft:rgba(179,156,255,.14); --neutralSoft:rgba(255,255,255,.07);
+  }
+  html[data-theme="dark"] ::selection{background:#79a5ff;color:#0e1116}
+  body{margin:0;background:var(--bg);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--accentHover);text-decoration:underline}
+  ::selection{background:var(--accent);color:#fff}
+  .tabular{font-variant-numeric:tabular-nums}
+  .note{display:flex;gap:12px;padding:16px 0}
+  .ruler{flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px}
+  .rulerline{width:1px;flex:1}
+  .rulerlabel{font:600 8px 'IBM Plex Mono',monospace;writing-mode:vertical-rl;letter-spacing:.04em}
+  .tickertrack{animation:tickerscroll 80s linear infinite}
+  .tickertrack:hover{animation-play-state:paused}
+  @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.tickertrack{animation:none}}
+</style>
+<script>try{var t=localStorage.getItem('utp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 24px">
+
+  <div style="background:var(--bar);color:var(--barInk);overflow:hidden;position:relative">
+    <div class="tickertrack tabular" style="display:flex;width:max-content;padding:11px 0;font:500 10.5px/1.2 'IBM Plex Mono',monospace;white-space:nowrap">
+      <div style="display:flex;gap:20px;padding-right:20px;align-items:center">
+        <span style="display:flex;align-items:center;gap:6px;color:var(--faint)">
+          <span style="width:5px;height:5px;border-radius:50%;background:{{ feedDot }}"></span>{{ feedStamp }}
+        </span>
+        <sc-for list="{{ tape }}" as="q" hint-placeholder-count="14">
+          <span>{{ q.label }}&nbsp;<b style="color:{{ q.color }}">{{ q.value }}</b></span>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:20px;padding-right:20px;align-items:center" aria-hidden="true">
+        <span style="display:flex;align-items:center;gap:6px;color:var(--faint)">
+          <span style="width:5px;height:5px;border-radius:50%;background:{{ feedDot }}"></span>{{ feedStamp }}
+        </span>
+        <sc-for list="{{ tape }}" as="q" hint-placeholder-count="14">
+          <span>{{ q.label }}&nbsp;<b style="color:{{ q.color }}">{{ q.value }}</b></span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <header style="display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);background:var(--bg)">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};display:flex;align-items:center;justify-content:space-between;padding:18px 20px">
+      <a href="./" style="font:700 15px 'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;text-decoration:none">UNDER THE PRINT</a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
+        <a href="./" style="color:var(--faint)">Home</a>
+        <a href="./#writing" style="color:var(--ink)">Writing</a>
+        <a href="About.dc.html" style="color:var(--faint)">About</a>
+      </nav>
+        <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
+      </div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:center;border-left:1px solid var(--lineSoft);border-right:1px solid var(--lineSoft);max-width:{{ shellMaxWidth }};margin:0 auto">
+  <div style="width:100%;display:grid;grid-template-columns:{{ gridCols }};grid-template-areas:{{ gridAreas }};gap:{{ gridGap }};padding:{{ shellPad }}">
+
+    <article style="grid-area:main;padding:{{ mainPad }}">
+      <div style="padding-bottom:8px">
+        <a href="./#writing" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">← All writing</a>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin:14px 0">
+        <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:{{ post.color }};background:var(--neutralSoft);padding:3px 7px;border-radius:2px;letter-spacing:.04em">{{ post.tag }}</span>
+      </div>
+      <div style="font:700 13px 'IBM Plex Mono',monospace;color:var(--ink);letter-spacing:.01em;margin-bottom:10px" class="tabular">{{ post.dateLabel }}</div>
+      <h1 style="font:700 {{ h1Size }}/1.25 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em">{{ post.title }}</h1>
+      <p style="font:400 15px/1.6 'Space Grotesk',sans-serif;color:var(--muted);margin:0 0 20px;max-width:56ch">{{ post.dek }}</p>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;color:var(--muted);margin-bottom:22px">Anthony Khaimov</div>
+
+      <div style="border:1px solid var(--ink);border-radius:2px;margin-bottom:26px;overflow:hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;background:var(--bar);padding:8px 14px">
+          <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--barInk);letter-spacing:.08em;text-transform:uppercase">Thesis / Invalidation</span>
+          <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--up)">OPEN</span>
+        </div>
+        <div style="padding:14px 16px 16px">
+          <div style="font:500 12px/1.6 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:10px"><span style="font:700 10px 'IBM Plex Mono',monospace;color:var(--accent);display:block;margin-bottom:3px;letter-spacing:.04em">THESIS</span>{{ post.thesis }}</div>
+          <div style="font:500 12px/1.6 'Space Grotesk',sans-serif;color:var(--ink)"><span style="font:700 10px 'IBM Plex Mono',monospace;color:var(--down);display:block;margin-bottom:3px;letter-spacing:.04em">BREAKS IF</span>{{ post.breaks }}</div>
+        </div>
+      </div>
+
+      <sc-for list="{{ post.blocks }}" as="b" hint-placeholder-count="4">
+        <div class="note">
+          <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--faint),var(--line))"></div><div class="rulerlabel" style="color:{{ b.color }}">{{ b.mark }}</div></div>
+          <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">{{ b.text }}</p>
+        </div>
+      </sc-for>
+
+      <div style="border-top:1px solid var(--line);margin-top:14px;padding:20px 0 30px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font:500 10px 'IBM Plex Mono',monospace;color:var(--muted);background:var(--neutralSoft);padding:3px 8px;border-radius:2px">{{ post.tag }}</span>
+        <a href="./#writing" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">More writing →</a>
+      </div>
+    </article>
+
+    <aside style="grid-area:rail;padding:{{ railPad }};position:{{ railPosition }};top:{{ railTop }};align-self:start">
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px">
+        <div style="font:700 12.5px 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:4px">Anthony Khaimov</div>
+        <div style="font:400 11.5px/1.55 'Space Grotesk',sans-serif;color:var(--muted);margin-bottom:10px">Market structure notes across rates, FX, equities and digital assets. Every post states a thesis and what would prove it wrong.</div>
+        <a href="About.dc.html" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">About →</a>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">More notes</div>
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+          <a href="{{ r.href }}" style="display:block;font:500 12px/1.4 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:10px">{{ r.title }}</a>
+        </sc-for>
+      </div>
+    </aside>
+
+  </div>
+  </div>
+
+  <footer style="border-top:1px solid var(--line);display:flex;justify-content:center">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};padding:20px 20px 40px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)">© 2026 Anthony Khaimov</div>
+      <div style="display:flex;gap:14px;font:500 10.5px 'IBM Plex Mono',monospace">
+        <a href="mailto:anthonykhaimovcyb@gmail.com" style="color:var(--accent)">Email</a>
+        <a href="https://github.com/AKhai47" style="color:var(--accent)">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {
+    wide: typeof window !== 'undefined' ? window.innerWidth >= 980 : false,
+    posts: null,
+    feed: null
+  };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const wide = window.innerWidth >= 980;
+      if (wide !== this.state.wide) this.setState({ wide });
+    };
+    window.addEventListener('resize', this._onResize);
+    import('./posts-data.js').then(m => this.setState({ posts: m.default }));
+    this._loadFeed();
+    this._feedTimer = setInterval(() => this._loadFeed(), 12 * 60 * 60 * 1000);
+    this._onVis = () => { if (!document.hidden) this._loadFeed(); };
+    document.addEventListener('visibilitychange', this._onVis);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    document.removeEventListener('visibilitychange', this._onVis);
+    clearInterval(this._feedTimer);
+  }
+
+  async _loadFeed() {
+    try {
+      const m = await import('./feed.js');
+      this._feed = m;
+      this.setState({ feed: await m.loadTape() }); // key comes only from ?feedkey= -> localStorage, never source
+    } catch (e) {
+      this.setState({ feed: { items: null, mode: 'static', asOf: 'JUL 24 2026' } });
+    }
+  }
+  _tapeVals() {
+    return this._feed ? this._feed.tapeVals(this.state.feed) : { tape: [], feedStamp: 'CLOSE JUL 24 2026', feedDot: 'var(--faint)' };
+  }
+
+  _isDark() {
+    try { return document.documentElement.getAttribute('data-theme') === 'dark'; } catch(e) { return false; }
+  }
+  _toggle() {
+    const next = this._isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('utp-theme', next); } catch(e) {}
+    this.forceUpdate();
+  }
+
+  renderVals() {
+    const wide = this.state.wide;
+    const posts = this.state.posts || [];
+    const slug = new URLSearchParams(location.search).get('p');
+    const idx = Math.max(0, posts.findIndex(p => p.slug === slug));
+    const post = posts[idx] || { blocks: [] };
+    const related = posts.filter(p => p.slug !== post.slug).slice(0, 3)
+      .map(p => ({ href: 'Note.dc.html?p=' + p.slug, title: p.title }));
+    if (post.title && typeof document !== 'undefined') document.title = post.title;
+    const dark = this._isDark();
+    return {
+      ...this._tapeVals(),
+      post, related,
+      themeLabel: dark ? 'Light' : 'Dark',
+      toggleTheme: () => this._toggle(),
+      shellMaxWidth: wide ? '1160px' : '640px',
+      gridCols: wide ? '1fr 300px' : '1fr',
+      gridAreas: wide ? '"main rail"' : '"main" "rail"',
+      gridGap: wide ? '56px' : '0px',
+      shellPad: wide ? '40px 0' : '0',
+      mainPad: wide ? '0' : '16px 20px 0',
+      railPad: wide ? '0' : '8px 20px 0',
+      railPosition: wide ? 'sticky' : 'static',
+      railTop: wide ? '24px' : 'auto',
+      h1Size: wide ? '34px' : '27px'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

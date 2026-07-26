@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#fafafa; --grid:rgba(0,0,0,.045);
+    --ink:#0b0d10; --text:#1c1f23; --text2:#3a3f45; --muted:#6b7078; --faint:#8a8f97;
+    --line:rgba(0,0,0,.09); --lineSoft:rgba(0,0,0,.07);
+    --bar:#0b0d10; --barInk:#ffffff;
+    --accent:#0057ff; --accentHover:#003fbf; --accentSoft:rgba(0,87,255,.08);
+    --up:#0f9d58; --down:#d93636; --amber:#c76a00; --amberSoft:rgba(199,106,0,.08);
+    --purple:#6b46c1; --purpleSoft:rgba(107,70,193,.08); --neutralSoft:rgba(0,0,0,.05);
+  }
+  html[data-theme="dark"]{
+    --bg:#0e1116; --panel:#161a21; --grid:rgba(255,255,255,.045);
+    --ink:#eef1f5; --text:#dfe4ea; --text2:#c3cad3; --muted:#9aa3ad; --faint:#7d8691;
+    --line:rgba(255,255,255,.12); --lineSoft:rgba(255,255,255,.08);
+    --bar:#05070a; --barInk:#f2f5f9;
+    --accent:#79a5ff; --accentHover:#a9c4ff; --accentSoft:rgba(121,165,255,.13);
+    --up:#3ddc84; --down:#ff6b6b; --amber:#e8a84a; --amberSoft:rgba(232,168,74,.14);
+    --purple:#b39cff; --purpleSoft:rgba(179,156,255,.14); --neutralSoft:rgba(255,255,255,.07);
+  }
+  html[data-theme="dark"] ::selection{background:#79a5ff;color:#0e1116}
+  body{margin:0;background:var(--bg);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--accentHover);text-decoration:underline}
+  ::selection{background:var(--accent);color:#fff}
+  .tabular{font-variant-numeric:tabular-nums}
+  .tickertrack{animation:tickerscroll 70s linear infinite}
+  .tickertrack:hover{animation-play-state:paused}
+  @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.tickertrack{animation:none}}
+  .note{display:flex;gap:12px;padding:16px 0}
+  .ruler{flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px}
+  .rulerline{width:1px;flex:1}
+  .rulerlabel{font:600 8px 'IBM Plex Mono',monospace;writing-mode:vertical-rl;letter-spacing:.04em}
+</style>
+<script>try{var t=localStorage.getItem('utp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 24px">
+
+  <div style="background:var(--bar);color:var(--barInk);overflow:hidden;position:relative">
+    <div class="tickertrack tabular" style="display:flex;width:max-content;padding:11px 0;font:500 10.5px/1.2 'IBM Plex Mono',monospace;white-space:nowrap">
+      <div style="display:flex;gap:20px;padding-right:20px">
+        <span style="color:var(--faint)">CLOSE&nbsp;JUL&nbsp;24&nbsp;2026</span>
+        <span>S&amp;P&nbsp;fut&nbsp;<b style="color:var(--down)">7,441.50&nbsp;▾3.50</b></span>
+        <span>Dow&nbsp;fut&nbsp;<b style="color:var(--up)">51,911&nbsp;▲17</b></span>
+        <span>Nasdaq&nbsp;fut&nbsp;<b style="color:var(--down)">28,548&nbsp;▾72.75</b></span>
+        <span>Russell&nbsp;fut&nbsp;<b style="color:var(--down)">2,944.90&nbsp;▾6.80</b></span>
+        <span>VIX&nbsp;<b style="color:var(--down)">18.70&nbsp;▲2.06</b></span>
+        <span>Gold&nbsp;<b style="color:var(--down)">4,029.40&nbsp;▾20.80</b></span>
+        <span>Brent&nbsp;<b style="color:var(--up)">&lt;75</b></span>
+        <span>Fed&nbsp;funds&nbsp;<b style="color:var(--faint)">3.50–3.75%</b></span>
+        <span>CPI&nbsp;YoY&nbsp;<b style="color:var(--down)">4.1%</b></span>
+        <span>Core&nbsp;PCE&nbsp;<b style="color:var(--down)">3.4%</b></span>
+        <span>Stablecoins&nbsp;<b style="color:var(--faint)">$230bn</b></span>
+        <span>USDT&nbsp;<b style="color:var(--faint)">$142bn</b></span>
+        <span>USDC&nbsp;<b style="color:var(--faint)">$60bn</b></span>
+        <span>Sec&nbsp;301&nbsp;<b style="color:var(--down)">10–12.5%</b></span>
+      </div>
+      <div style="display:flex;gap:20px;padding-right:20px" aria-hidden="true">
+        <span style="color:var(--faint)">CLOSE&nbsp;JUL&nbsp;24&nbsp;2026</span>
+        <span>S&amp;P&nbsp;fut&nbsp;<b style="color:var(--down)">7,441.50&nbsp;▾3.50</b></span>
+        <span>Dow&nbsp;fut&nbsp;<b style="color:var(--up)">51,911&nbsp;▲17</b></span>
+        <span>Nasdaq&nbsp;fut&nbsp;<b style="color:var(--down)">28,548&nbsp;▾72.75</b></span>
+        <span>Russell&nbsp;fut&nbsp;<b style="color:var(--down)">2,944.90&nbsp;▾6.80</b></span>
+        <span>VIX&nbsp;<b style="color:var(--down)">18.70&nbsp;▲2.06</b></span>
+        <span>Gold&nbsp;<b style="color:var(--down)">4,029.40&nbsp;▾20.80</b></span>
+        <span>Brent&nbsp;<b style="color:var(--up)">&lt;75</b></span>
+        <span>Fed&nbsp;funds&nbsp;<b style="color:var(--faint)">3.50–3.75%</b></span>
+        <span>CPI&nbsp;YoY&nbsp;<b style="color:var(--down)">4.1%</b></span>
+        <span>Core&nbsp;PCE&nbsp;<b style="color:var(--down)">3.4%</b></span>
+        <span>Stablecoins&nbsp;<b style="color:var(--faint)">$230bn</b></span>
+        <span>USDT&nbsp;<b style="color:var(--faint)">$142bn</b></span>
+        <span>USDC&nbsp;<b style="color:var(--faint)">$60bn</b></span>
+        <span>Sec&nbsp;301&nbsp;<b style="color:var(--down)">10–12.5%</b></span>
+      </div>
+    </div>
+  </div>
+
+  <header style="display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);background:var(--bg)">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};display:flex;align-items:center;justify-content:space-between;padding:18px 20px">
+      <a href="./" style="font:700 15px 'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;text-decoration:none">UNDER THE PRINT</a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
+        <a href="./" style="color:var(--faint)">Home</a>
+        <a href="./#writing" style="color:var(--ink)">Writing</a>
+        <a href="About.dc.html" style="color:var(--faint)">About</a>
+      </nav>
+        <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
+      </div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:center;border-left:1px solid var(--lineSoft);border-right:1px solid var(--lineSoft);max-width:{{ shellMaxWidth }};margin:0 auto">
+  <div style="width:100%;display:grid;grid-template-columns:{{ gridCols }};grid-template-areas:{{ gridAreas }};gap:{{ gridGap }};padding:{{ shellPad }}">
+
+    <article style="grid-area:main;padding:{{ mainPad }}">
+      <div style="padding-bottom:8px">
+        <a href="./#writing" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">← All writing</a>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin:14px 0">
+        <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--purple);background:var(--purpleSoft);padding:3px 7px;border-radius:2px;letter-spacing:.04em">MKT STRUCTURE</span>
+      </div>
+      <div style="font:700 13px 'IBM Plex Mono',monospace;color:var(--ink);letter-spacing:.01em;margin-bottom:10px" class="tabular">JULY 25 2026</div>
+      <h1 style="font:700 {{ h1Size }}/1.25 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em">Huang is right about open weights</h1>
+      <p style="font:400 15px/1.6 'Space Grotesk',sans-serif;color:var(--muted);margin:0 0 20px;max-width:56ch">NVIDIA's CEO used his first X post to argue that American AI leadership runs through open models. The signatory list is self-interested. The argument is still correct.</p>
+
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:22px">
+        <div style="font:500 11px 'IBM Plex Mono',monospace;color:var(--muted)">Anthony Khaimov · 5 min read</div>
+      </div>
+
+      <div style="border:1px solid var(--ink);border-radius:2px;margin-bottom:26px;overflow:hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;background:var(--bar);padding:8px 14px">
+          <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--barInk);letter-spacing:.08em;text-transform:uppercase">Thesis / Invalidation</span>
+          <span style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--up)">OPEN</span>
+        </div>
+        <div style="padding:14px 16px 16px">
+          <div style="font:500 12px/1.6 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:10px"><span style="font:700 10px 'IBM Plex Mono',monospace;color:var(--accent);display:block;margin-bottom:3px;letter-spacing:.04em">THESIS</span>American AI leadership runs through open weights, the same way the software layer under everything else got built. Leadership is an ecosystem other people build on, not one model topping a benchmark.</div>
+          <div style="font:500 12px/1.6 'Space Grotesk',sans-serif;color:var(--ink)"><span style="font:700 10px 'IBM Plex Mono',monospace;color:var(--down);display:block;margin-bottom:3px;letter-spacing:.04em">BREAKS IF</span>A breach or misuse incident is traced to public weights where the attacker needed local access and an API-mediated closed model would have contained it — and open models stay more than a year behind the frontier on standard evaluations through the end of 2027.</div>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--accent),var(--line))"></div><div class="rulerlabel" style="color:var(--accent)">JUL 24</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">Jensen Huang posted on X for the first time on July 24 to publish an open letter titled "Open Weights and American AI Leadership." I agree with it. Open source is the reason the stack we build on exists. If the United States wants to lead in AI, it should develop AI the way it developed the software layer under everything else, in the open. Leadership is not one model topping a benchmark. It is an ecosystem other people build on.</p>
+      </div>
+
+      <div style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin:30px 0 6px">What the letter argues</div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--faint),var(--line))"></div><div class="rulerlabel" style="color:var(--faint)">25 / 3</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">Twenty-five organizations signed. NVIDIA, Microsoft, Meta, IBM, Dell, Palantir, CrowdStrike, Cisco, Mistral, Hugging Face, Mozilla, The Linux Foundation, a16z, Y Combinator, Perplexity, Replit, ServiceNow, Box, Cohere, GitHub, and DoorDash are on it. OpenAI, Anthropic, and Google are not.</p>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The historical parallel is 1980s software. Tight control over source code was treated as the precondition for progress. Shared code turned out to be the substrate for the internet, for enterprise systems, for federal agencies, and for the military. The letter's strongest claim is that open source did not only make software cheaper. It created a shared base of knowledge that gave American engineers institutional sovereignty. They could read the thing they depended on, fix it, and fork it if the vendor went a direction they did not like.</p>
+      </div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--up),var(--line))"></div><div class="rulerlabel" style="color:var(--up)">unit cost</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The economic argument is right model, right job, right cost. Frontier-scale compute gets reserved for frontier problems. Everything else runs on smaller specialized models. That is the only structure under which AI is viable at billions of daily tasks, because the unit economics of routing every request to a frontier model do not work and never will.</p>
+      </div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--down),var(--line))"></div><div class="rulerlabel" style="color:var(--down)">SPOF</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The security argument is the part worth sitting with. Closed is not the same as safe. Closed models get breached. They get misused. They fail in ways nobody outside the company can detect, which means nobody outside the company can warn you. Concentrating capability inside a handful of closed systems creates a small number of single points of failure. That is a familiar shape to anyone who has worked on infrastructure. Monoculture is a security property, and it is a bad one.</p>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The letter does not skip the risk. Once weights are public they are outside the developer's control. Modified versions are hard to trace and impossible to recall. That is a real and permanent asymmetry, and the letter states it rather than burying it.</p>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The policy asks are compute access for startups and researchers, investment in shared training assets, no premature restrictions, and an explicit defense of distillation as a legitimate technique rather than theft. That last one is not abstract. It is in the letter because Washington is questioning the origins of Kimi K3, and the signatories want the definition settled before it gets settled against them.</p>
+      </div>
+
+      <div style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin:30px 0 6px">The conflict of interest, stated plainly</div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--amber),var(--line))"></div><div class="rulerlabel" style="color:var(--amber)">who wins</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">That every organization on that list makes money if models get cheap and portable is not a coincidence, and pretending otherwise is not analysis. A chip supplier, a hyperscaler, a security vendor, two venture funds, and a code-hosting platform signed the same document.</p>
+      </div>
+
+
+      <div style="margin:14px 0 26px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px">Where the value lands if the model layer commoditizes</div>
+        <table style="width:100%;border-collapse:collapse;font:500 12px/1.4 'IBM Plex Mono',monospace" class="tabular">
+          <thead>
+            <tr style="border-bottom:1px solid var(--ink)">
+              <th style="text-align:left;padding:6px 4px;color:var(--faint);font-weight:600">Signatory</th>
+              <th style="text-align:left;padding:6px 4px;color:var(--faint);font-weight:600">Layer</th>
+              <th style="text-align:right;padding:6px 4px;color:var(--faint);font-weight:600">Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:7px 4px;color:var(--ink)">NVIDIA, Dell</td><td style="padding:7px 4px;color:var(--muted)">Compute</td><td style="padding:7px 4px;text-align:right;color:var(--up)">gains</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:7px 4px;color:var(--ink)">Microsoft</td><td style="padding:7px 4px;color:var(--muted)">Compute + apps</td><td style="padding:7px 4px;text-align:right;color:var(--up)">gains</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:7px 4px;color:var(--ink)">a16z, Y Combinator</td><td style="padding:7px 4px;color:var(--muted)">App-layer capital</td><td style="padding:7px 4px;text-align:right;color:var(--up)">gains</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:7px 4px;color:var(--ink)">CrowdStrike</td><td style="padding:7px 4px;color:var(--muted)">Security</td><td style="padding:7px 4px;text-align:right;color:var(--up)">gains</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:7px 4px;color:var(--ink)">Hugging Face, GitHub</td><td style="padding:7px 4px;color:var(--muted)">Distribution</td><td style="padding:7px 4px;text-align:right;color:var(--up)">gains</td></tr>
+            <tr><td style="padding:7px 4px;color:var(--ink)">OpenAI, Anthropic, Google</td><td style="padding:7px 4px;color:var(--muted)">Model</td><td style="padding:7px 4px;text-align:right;color:var(--down)">did not sign</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">So the letter is an argument advanced by the people who profit from it winning. Both things are true at once: it is self-interested and it is correct. Self-interest is not a refutation. In 1998 the companies arguing hardest for open standards on the web were the ones losing the browser war, and they were still right about standards. What matters is whether the mechanism they describe actually works. Here it does. The claim that open weights broaden the base of people who can audit, adapt, and deploy models does not stop being true because NVIDIA sells the hardware those people rent.</p>
+      </div>
+
+      <div style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin:30px 0 6px">What it means</div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The closed-model position rests on an argument I do not think survives contact with how security works in practice. It holds that capability is safest when access is restricted. But restriction is not containment. It means the people with access are a fixed set chosen by a company, and everyone else has to trust an assertion they cannot check. That works until it does not, and when it fails you find out from a disclosure rather than from your own instrumentation.</p>
+      </div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--accent),var(--line))"></div><div class="rulerlabel" style="color:var(--accent)">legible</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">I have spent enough time auditing contracts and running nodes to have an opinion about this. The infrastructure people trust with real money is public. Anyone can read the client, run the client, and file a finding. That does not make it safe, and I am not claiming it does. What it makes it is legible. When something breaks, the failure is visible to people who are not employed by the entity that broke it. Legibility is not a substitute for security, but the absence of it is a serious problem, and it is the default condition of a closed-weight ecosystem.</p>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The strategic version of the argument is the one that should carry weight in Washington. If American frontier labs keep weights closed and other countries ship capable open models, developers build on the open ones. Not because they are better on evaluations, but because they can be run locally, modified, and deployed without a vendor relationship. Standards form around what people build on. That is how the open-source software layer ended up American, and it is how it could end up not being.</p>
+      </div>
+
+      <div style="font:600 9.5px 'IBM Plex Mono',monospace;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin:30px 0 6px">What would prove me wrong</div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--down),var(--line))"></div><div class="rulerlabel" style="color:var(--down)">test 1</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The specific thing that would move me is a security incident where public weights were the necessary condition. Not a jailbreak, not a fine-tune that produces content an API would refuse. An incident where the attacker needed local access to the weights to do what they did, and where an API-mediated closed model would have contained it. That is the case the closed-weight position needs and does not yet have.</p>
+      </div>
+
+      <div class="note">
+        <div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--down),var(--line))"></div><div class="rulerlabel" style="color:var(--down)">test 2</div></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">The second condition is a capability gap that widens rather than closes. If open-weight models fall more than a year behind the frontier on standard evaluations and stay there through the end of 2027, the ecosystem argument stops holding. An ecosystem built on a permanently second-tier substrate is not leadership. It is a long-term concession dressed up as one.</p>
+      </div>
+
+      <div class="note"><div class="ruler"></div>
+        <p style="flex:1;font:400 14.5px/1.7 'Space Grotesk',sans-serif;color:var(--text);margin:0">Both of those are observable. If either happens, I will say so here.</p>
+      </div>
+
+
+      <div style="border-top:1px solid var(--line);padding:20px 0 30px;display:flex;justify-content:space-between;align-items:center">
+        <div style="display:flex;gap:8px">
+          <span style="font:500 10px 'IBM Plex Mono',monospace;color:var(--muted);background:var(--neutralSoft);padding:3px 8px;border-radius:2px">#market-structure</span>
+          <span style="font:500 10px 'IBM Plex Mono',monospace;color:var(--muted);background:var(--neutralSoft);padding:3px 8px;border-radius:2px">#ai</span>
+        </div>
+        <a href="./#writing" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">More writing →</a>
+      </div>
+    </article>
+
+    <aside style="grid-area:rail;padding:{{ railPad }};position:{{ railPosition }};top:{{ railTop }};align-self:start">
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px;display:flex;gap:10px;align-items:center">
+        <div>
+          <div style="font:700 12.5px 'Space Grotesk',sans-serif;color:var(--ink)">Anthony Khaimov</div>
+          <div style="font:500 10px 'IBM Plex Mono',monospace;color:var(--faint)">Weber State University '27 · Cybersecurity</div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">Sources</div>
+        <div style="display:flex;flex-direction:column;gap:5px;font:500 10.5px 'IBM Plex Mono',monospace">
+          <a href="https://x.com/JensenHuang/status/2080643682408321103" style="color:var(--accent)">The post on X →</a>
+          <a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf" style="color:var(--accent)">Read the letter (PDF) →</a>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">Related</div>
+        <a href="Note.dc.html?p=genius-93-day-rule" style="display:block;font:500 12px/1.4 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:10px">The 93-day rule is a Treasury demand story</a>
+        <a href="Note.dc.html?p=cracks-over-crude" style="display:block;font:500 12px/1.4 'Space Grotesk',sans-serif;color:var(--ink)">Crude fell back and the pump did not</a>
+      </div>
+    </aside>
+
+  </div>
+  </div>
+
+  <footer style="border-top:1px solid var(--line);display:flex;justify-content:center">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};padding:20px 20px 40px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)">© 2026 Anthony Khaimov</div>
+      <div style="display:flex;gap:14px;font:500 10.5px 'IBM Plex Mono',monospace">
+        <a href="mailto:anthonykhaimovcyb@gmail.com" style="color:var(--accent)">Email</a>
+        <a href="https://github.com/AKhai47" style="color:var(--accent)">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: typeof window !== 'undefined' ? window.innerWidth >= 980 : false };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const wide = window.innerWidth >= 980;
+      if (wide !== this.state.wide) this.setState({ wide });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  _isDark() {
+    try { return document.documentElement.getAttribute('data-theme') === 'dark'; } catch(e) { return false; }
+  }
+  _toggle() {
+    const next = this._isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('utp-theme', next); } catch(e) {}
+    this.forceUpdate();
+  }
+
+  renderVals() {
+    const wide = this.state.wide;
+    const dark = this._isDark();
+    return {
+      themeLabel: dark ? 'Light' : 'Dark',
+      toggleTheme: () => this._toggle(),
+      shellMaxWidth: wide ? '1160px' : '640px',
+      gridCols: wide ? '1fr 300px' : '1fr',
+      gridAreas: wide ? '"main rail"' : '"main" "rail"',
+      gridGap: wide ? '56px' : '0px',
+      shellPad: wide ? '40px 0' : '0',
+      mainPad: wide ? '0' : '16px 20px 0',
+      railPad: wide ? '0' : '8px 20px 0',
+      railPosition: wide ? 'sticky' : 'static',
+      railTop: wide ? '24px' : 'auto',
+      h1Size: wide ? '34px' : '27px',
+    };
+  }
+}
+
+</script>
+</body>
+</html>

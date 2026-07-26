@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#fafafa; --grid:rgba(0,0,0,.045);
+    --ink:#0b0d10; --text:#1c1f23; --text2:#3a3f45; --muted:#6b7078; --faint:#8a8f97;
+    --line:rgba(0,0,0,.09); --lineSoft:rgba(0,0,0,.07);
+    --bar:#0b0d10; --barInk:#ffffff;
+    --accent:#0057ff; --accentHover:#003fbf; --accentSoft:rgba(0,87,255,.08);
+    --up:#0f9d58; --down:#d93636; --amber:#c76a00; --amberSoft:rgba(199,106,0,.08);
+    --purple:#6b46c1; --purpleSoft:rgba(107,70,193,.08); --neutralSoft:rgba(0,0,0,.05);
+  }
+  html[data-theme="dark"]{
+    --bg:#0e1116; --panel:#161a21; --grid:rgba(255,255,255,.045);
+    --ink:#eef1f5; --text:#dfe4ea; --text2:#c3cad3; --muted:#9aa3ad; --faint:#7d8691;
+    --line:rgba(255,255,255,.12); --lineSoft:rgba(255,255,255,.08);
+    --bar:#05070a; --barInk:#f2f5f9;
+    --accent:#79a5ff; --accentHover:#a9c4ff; --accentSoft:rgba(121,165,255,.13);
+    --up:#3ddc84; --down:#ff6b6b; --amber:#e8a84a; --amberSoft:rgba(232,168,74,.14);
+    --purple:#b39cff; --purpleSoft:rgba(179,156,255,.14); --neutralSoft:rgba(255,255,255,.07);
+  }
+  html[data-theme="dark"] ::selection{background:#79a5ff;color:#0e1116}
+  body{margin:0;background:var(--bg);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--accentHover);text-decoration:underline}
+  ::selection{background:var(--accent);color:#fff}
+  .tabular{font-variant-numeric:tabular-nums}
+  .tickertrack{animation:tickerscroll 70s linear infinite}
+  .tickertrack:hover{animation-play-state:paused}
+  @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.tickertrack{animation:none}}
+  .note{display:flex;gap:12px;padding:16px 0}
+  .ruler{flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px}
+  .rulerline{width:1px;flex:1}
+  .rulerlabel{font:600 8px 'IBM Plex Mono',monospace;writing-mode:vertical-rl;letter-spacing:.04em}
+</style>
+<script>try{var t=localStorage.getItem('utp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 24px">
+
+  <div style="background:var(--bar);color:var(--barInk);overflow:hidden;position:relative">
+    <div class="tickertrack tabular" style="display:flex;width:max-content;padding:11px 0;font:500 10.5px/1.2 'IBM Plex Mono',monospace;white-space:nowrap">
+      <div style="display:flex;gap:20px;padding-right:20px">
+        <span style="color:var(--faint)">CLOSE&nbsp;JUL&nbsp;24&nbsp;2026</span>
+        <span>S&amp;P&nbsp;fut&nbsp;<b style="color:var(--down)">7,441.50&nbsp;▾3.50</b></span>
+        <span>Dow&nbsp;fut&nbsp;<b style="color:var(--up)">51,911&nbsp;▲17</b></span>
+        <span>Nasdaq&nbsp;fut&nbsp;<b style="color:var(--down)">28,548&nbsp;▾72.75</b></span>
+        <span>Russell&nbsp;fut&nbsp;<b style="color:var(--down)">2,944.90&nbsp;▾6.80</b></span>
+        <span>VIX&nbsp;<b style="color:var(--down)">18.70&nbsp;▲2.06</b></span>
+        <span>Gold&nbsp;<b style="color:var(--down)">4,029.40&nbsp;▾20.80</b></span>
+        <span>Brent&nbsp;<b style="color:var(--up)">&lt;75</b></span>
+        <span>Fed&nbsp;funds&nbsp;<b style="color:var(--faint)">3.50–3.75%</b></span>
+        <span>CPI&nbsp;YoY&nbsp;<b style="color:var(--down)">4.1%</b></span>
+        <span>Core&nbsp;PCE&nbsp;<b style="color:var(--down)">3.4%</b></span>
+        <span>Stablecoins&nbsp;<b style="color:var(--faint)">$230bn</b></span>
+        <span>USDT&nbsp;<b style="color:var(--faint)">$142bn</b></span>
+        <span>USDC&nbsp;<b style="color:var(--faint)">$60bn</b></span>
+        <span>Sec&nbsp;301&nbsp;<b style="color:var(--down)">10–12.5%</b></span>
+      </div>
+      <div style="display:flex;gap:20px;padding-right:20px" aria-hidden="true">
+        <span style="color:var(--faint)">CLOSE&nbsp;JUL&nbsp;24&nbsp;2026</span>
+        <span>S&amp;P&nbsp;fut&nbsp;<b style="color:var(--down)">7,441.50&nbsp;▾3.50</b></span>
+        <span>Dow&nbsp;fut&nbsp;<b style="color:var(--up)">51,911&nbsp;▲17</b></span>
+        <span>Nasdaq&nbsp;fut&nbsp;<b style="color:var(--down)">28,548&nbsp;▾72.75</b></span>
+        <span>Russell&nbsp;fut&nbsp;<b style="color:var(--down)">2,944.90&nbsp;▾6.80</b></span>
+        <span>VIX&nbsp;<b style="color:var(--down)">18.70&nbsp;▲2.06</b></span>
+        <span>Gold&nbsp;<b style="color:var(--down)">4,029.40&nbsp;▾20.80</b></span>
+        <span>Brent&nbsp;<b style="color:var(--up)">&lt;75</b></span>
+        <span>Fed&nbsp;funds&nbsp;<b style="color:var(--faint)">3.50–3.75%</b></span>
+        <span>CPI&nbsp;YoY&nbsp;<b style="color:var(--down)">4.1%</b></span>
+        <span>Core&nbsp;PCE&nbsp;<b style="color:var(--down)">3.4%</b></span>
+        <span>Stablecoins&nbsp;<b style="color:var(--faint)">$230bn</b></span>
+        <span>USDT&nbsp;<b style="color:var(--faint)">$142bn</b></span>
+        <span>USDC&nbsp;<b style="color:var(--faint)">$60bn</b></span>
+        <span>Sec&nbsp;301&nbsp;<b style="color:var(--down)">10–12.5%</b></span>
+      </div>
+    </div>
+  </div>
+
+  <header style="display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);background:var(--bg)">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};display:flex;align-items:center;justify-content:space-between;padding:18px 20px">
+      <a href="./" style="font:700 15px 'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;text-decoration:none">UNDER THE PRINT</a>
+      <div style="display:flex;align-items:center;gap:16px">
+        <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
+        <a href="./" style="color:var(--faint)">Home</a>
+        <a href="./#writing" style="color:var(--ink)">Writing</a>
+        <a href="About.dc.html" style="color:var(--ink)">About</a>
+      </nav>
+        <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
+      </div>
+    </div>
+  </header>
+
+  <div style="display:flex;justify-content:center;border-left:1px solid var(--lineSoft);border-right:1px solid var(--lineSoft);max-width:{{ shellMaxWidth }};margin:0 auto">
+  <div style="width:100%;display:grid;grid-template-columns:{{ gridCols }};grid-template-areas:{{ gridAreas }};gap:{{ gridGap }};padding:{{ shellPad }}">
+
+    <article style="grid-area:main;padding:{{ mainPad }}">
+      <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin:14px 0 10px">About</div>
+      <h1 style="font:700 {{ h1Size }}/1.2 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 20px;letter-spacing:-.01em">Anthony Khaimov</h1>
+
+      <div class="note"><div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--accent),var(--line))"></div><div class="rulerlabel" style="color:var(--accent)">start</div></div>
+        <p style="flex:1;font:400 15px/1.75 'Space Grotesk',sans-serif;color:var(--text);margin:0">A teacher of mine handed me <i>Market Wizards</i> in high school and that was the start of it. The chapter that stuck was Paul Tudor Jones. He was not memorable to me because of the returns. It was that he treated being wrong as a normal operating condition, something to find out about early and cheaply, rather than something to argue with. He talked about how his job was defense first and how quickly he would cut a position once the reason he put it on stopped being true. I was sixteen and I had assumed the whole game was about being right. Reading someone that good say the opposite reframed it for me. After that I took every finance class my school offered, started paper trading, and ran the investment clubs there.</p>
+      </div>
+
+      <div class="note"><div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--up),var(--line))"></div><div class="rulerlabel" style="color:var(--up)">edge</div></div>
+        <p style="flex:1;font:400 15px/1.75 'Space Grotesk',sans-serif;color:var(--text);margin:0">I study cybersecurity and network management at Weber State University, and I spend a lot of time on the technical side, running validator infrastructure and auditing smart contracts. That work is the reason I look at markets the way I do. Someone with a traditional finance background reads the financials. I can also read the system underneath, how the thing actually settles, where it depends on someone else staying online, what happens to it under load. That view does not always agree with the numbers, and when it does not, that gap is usually where the interesting question is.</p>
+      </div>
+
+      <div class="note"><div class="ruler"><div class="rulerline" style="background:linear-gradient(var(--down),var(--line))"></div><div class="rulerlabel" style="color:var(--down)">rule</div></div>
+        <p style="flex:1;font:400 15px/1.75 'Space Grotesk',sans-serif;color:var(--text);margin:0">This site is where I write that down. Rates, FX, equities, digital assets, whichever one has something worth explaining that week. I care about the mechanics under a move more than the forecast, and every post has to say what would prove it wrong. If I cannot write the invalidation, I do not have a thesis yet, I have an opinion.</p>
+      </div>
+
+      <div style="border-top:1px solid var(--line);margin-top:14px;padding:20px 0 30px;display:flex;gap:18px;flex-wrap:wrap;font:500 11px 'IBM Plex Mono',monospace">
+        <a href="mailto:anthonykhaimovcyb@gmail.com" style="color:var(--accent)">anthonykhaimovcyb@gmail.com</a>
+        <a href="https://github.com/AKhai47" style="color:var(--accent)">github.com/AKhai47</a>
+      </div>
+    </article>
+    <aside style="grid-area:rail;padding:{{ railPad }};position:{{ railPosition }};top:{{ railTop }};align-self:start">
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">At a glance</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font:500 11.5px 'IBM Plex Mono',monospace">
+          <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">School</span><span style="color:var(--ink);text-align:right">Weber State University '27</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">Study</span><span style="color:var(--ink);text-align:right">Cybersecurity &amp; Network Mgmt</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">Covers</span><span style="color:var(--ink);text-align:right">Rates · FX · Equities · Digital</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px"><span style="color:var(--muted)">Target</span><span style="color:var(--ink);text-align:right">S&amp;T, cross-asset, 2027</span></div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:2px;padding:16px">
+        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">Recent writing</div>
+        <a href="post-open-weights.dc.html" style="display:block;font:500 12px/1.4 'Space Grotesk',sans-serif;color:var(--ink);margin-bottom:10px">Huang is right about open weights</a>
+        <a href="Note.dc.html?p=cracks-over-crude" style="display:block;font:500 12px/1.4 'Space Grotesk',sans-serif;color:var(--ink)">Crude fell back and the pump did not</a>
+      </div>
+    </aside>
+
+  </div>
+  </div>
+
+  <footer style="border-top:1px solid var(--line);display:flex;justify-content:center">
+    <div style="width:100%;max-width:{{ shellMaxWidth }};padding:20px 20px 40px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint)">© 2026 Anthony Khaimov</div>
+      <div style="display:flex;gap:14px;font:500 10.5px 'IBM Plex Mono',monospace">
+        <a href="mailto:anthonykhaimovcyb@gmail.com" style="color:var(--accent)">Email</a>
+        <a href="https://github.com/AKhai47" style="color:var(--accent)">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: typeof window !== 'undefined' ? window.innerWidth >= 980 : false };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const wide = window.innerWidth >= 980;
+      if (wide !== this.state.wide) this.setState({ wide });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  _isDark() {
+    try { return document.documentElement.getAttribute('data-theme') === 'dark'; } catch(e) { return false; }
+  }
+  _toggle() {
+    const next = this._isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('utp-theme', next); } catch(e) {}
+    this.forceUpdate();
+  }
+
+  renderVals() {
+    const wide = this.state.wide;
+    const dark = this._isDark();
+    return {
+      themeLabel: dark ? 'Light' : 'Dark',
+      toggleTheme: () => this._toggle(),
+      shellMaxWidth: wide ? '1160px' : '640px',
+      gridCols: wide ? '1fr 300px' : '1fr',
+      gridAreas: wide ? '"main rail"' : '"main" "rail"',
+      gridGap: wide ? '56px' : '0px',
+      shellPad: wide ? '40px 0' : '0',
+      mainPad: wide ? '0' : '16px 20px 0',
+      railPad: wide ? '0' : '8px 20px 0',
+      railPosition: wide ? 'sticky' : 'static',
+      railTop: wide ? '24px' : 'auto',
+      h1Size: wide ? '34px' : '27px',
+      photoWidth: wide ? '100%' : '168px',
+    };
+  }
+}
+
+</script>
+</body>
+</html>
