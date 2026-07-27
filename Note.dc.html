@@ -76,7 +76,7 @@
       <div style="display:flex;align-items:center;gap:16px">
         <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
         <a href="./" style="color:var(--faint)">Home</a>
-        <a href="./#writing" style="color:{{ navWriting }}">Writing</a>
+        <a href="Finance.dc.html" style="color:{{ navWriting }}">Finance</a>
         <a href="AI.dc.html" style="color:{{ navAi }}">AI / Cyber</a>
         <a href="About.dc.html" style="color:var(--faint)">About</a>
       </nav>
@@ -238,9 +238,9 @@ class Component extends DCLogic {
       h1Size: wide ? '34px' : '27px',
       navWriting: isAi ? 'var(--faint)' : 'var(--ink)',
       navAi: isAi ? 'var(--ink)' : 'var(--faint)',
-      backHref: isAi ? 'AI.dc.html' : './#writing',
-      backLabel: isAi ? '← All AI & Cyber' : '← All writing',
-      moreLabel: isAi ? 'More in AI & Cyber →' : 'More writing →'
+      backHref: isAi ? 'AI.dc.html' : 'Finance.dc.html',
+      backLabel: isAi ? '← All AI & Cyber' : '← All finance',
+      moreLabel: isAi ? 'More in AI & Cyber →' : 'More in Finance →'
     };
   }
 }

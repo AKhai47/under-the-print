@@ -10,7 +10,6 @@
 <helmet data-dc-atomics>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
 <style>
   :root{
     --bg:#ffffff; --panel:#fafafa; --grid:rgba(0,0,0,.045);
@@ -36,7 +35,7 @@
   a:hover{color:var(--accentHover);text-decoration:underline}
   ::selection{background:var(--accent);color:#fff}
   .tabular{font-variant-numeric:tabular-nums}
-  .tickertrack{animation:tickerscroll 70s linear infinite}
+  .tickertrack{animation:tickerscroll 80s linear infinite}
   .tickertrack:hover{animation-play-state:paused}
   @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media (prefers-reduced-motion:reduce){.tickertrack{animation:none}}
@@ -72,8 +71,8 @@
       <a href="./" style="font:700 15px 'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-.01em;text-decoration:none">UNDER THE PRINT</a>
       <div style="display:flex;align-items:center;gap:16px">
         <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
-        <a href="./" style="color:var(--ink)">Home</a>
-        <a href="Finance.dc.html" style="color:var(--faint)">Finance</a>
+        <a href="./" style="color:var(--faint)">Home</a>
+        <a href="Finance.dc.html" style="color:var(--ink)">Finance</a>
         <a href="AI.dc.html" style="color:var(--faint)">AI / Cyber</a>
         <a href="About.dc.html" style="color:var(--faint)">About</a>
       </nav>
@@ -83,28 +82,15 @@
   </header>
 
   <div style="display:flex;justify-content:center;border-left:1px solid var(--lineSoft);border-right:1px solid var(--lineSoft);max-width:{{ shellMaxWidth }};margin:0 auto">
-  <div style="width:100%;display:grid;grid-template-columns:{{ gridCols }};grid-template-areas:{{ gridAreas }};gap:{{ gridGap }};padding:{{ shellPad }}">
+  <div style="width:100%;padding:{{ shellPad }}">
 
-    <section style="grid-area:main;padding:{{ mainPad }}">
-      <div style="display:flex;gap:14px;align-items:center;margin-bottom:22px">
-        <div>
-          <div style="font:700 13px 'Space Grotesk',sans-serif;color:var(--ink)">Anthony Khaimov</div>
-        </div>
-      </div>
-      <h1 style="font:700 {{ h1Size }}/1.15 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 16px;letter-spacing:-.01em">Read the plumbing.<br>Not the print.</h1>
-      <p style="font:400 14.5px/1.6 'Space Grotesk',sans-serif;color:var(--text2);margin:0 0 14px;max-width:52ch">I write about rates, FX, equities, and digital assets, plus the AI systems and security underneath them. My focus is on the mechanics under a move, who has to buy or sell, how it gets funded, what limits the people on the other side, instead of guessing where a price goes next. Every post says what I think and what would prove me wrong.</p>
-      <p style="font:500 11px/1.5 'IBM Plex Mono',monospace;color:var(--faint);margin:0 0 8px">Building toward an S&amp;T seat, 2027</p>
+    <section style="padding:{{ mainPad }}">
+      <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin:14px 0 10px">Finance</div>
+      <h1 style="font:700 {{ h1Size }}/1.15 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em">Read the plumbing.<br>Not the print.</h1>
+      <p style="font:400 14.5px/1.65 'Space Grotesk',sans-serif;color:var(--text2);margin:0 0 28px;max-width:54ch">Notes on rates, FX, equities, and digital assets. The mechanics under a move, who has to buy or sell, how it gets funded, and what would prove the thesis wrong.</p>
 
-      <div id="writing" style="margin-top:28px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
-          <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--ink);text-transform:uppercase">Latest</div>
-          <div style="display:flex;gap:14px;font:500 10.5px 'IBM Plex Mono',monospace">
-            <a href="Finance.dc.html" style="color:var(--accent)">Finance →</a>
-            <a href="AI.dc.html" style="color:var(--accent)">AI / Cyber →</a>
-          </div>
-        </div>
-
-        <sc-for list="{{ posts }}" as="p" hint-placeholder-count="8">
+      <div id="writing">
+        <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
           <a href="{{ p.href }}" style="display:flex;gap:12px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none">
             <div style="flex:none;width:20px;display:flex;flex-direction:column;align-items:center;padding-top:2px">
               <div style="width:1px;flex:1;background:linear-gradient({{ p.color }},var(--line))"></div>
@@ -122,14 +108,6 @@
         </sc-for>
       </div>
     </section>
-
-    <aside style="grid-area:rail;padding:{{ railPad }};position:{{ railPosition }};top:{{ railTop }};align-self:start">
-      <div id="about" style="border:1px solid var(--line);border-radius:2px;padding:16px;margin-bottom:16px">
-        <div style="font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:10px">About</div>
-        <div style="font:400 12px/1.6 'Space Grotesk',sans-serif;color:var(--text2);margin-bottom:12px">I'm a senior at Weber State University studying cybersecurity and network management. My interest in digital assets came out of working with blockchain technology, and a banking internship showed me the financial side of operations up close. I write these notes while working toward a sales &amp; trading seat.</div>
-        <a href="About.dc.html" style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--accent)">Full story →</a>
-      </div>
-    </aside>
 
   </div>
   </div>
@@ -155,29 +133,17 @@ class Component extends DCLogic {
     feed: null
   };
 
-  async _loadFeed() {
-    try {
-      const m = await import('./feed.js');
-      this._feed = m;
-      const feed = await m.loadTape();
-      this.setState({ feed });
-    } catch (e) {
-      this.setState({ feed: { items: null, mode: 'static', asOf: 'JUL 24 2026' } });
-    }
-  }
-
   componentDidMount() {
-    import('./posts-data.js').then(m => this.setState({ posts: m.default }));
-    this._loadFeed();
-    this._feedTimer = setInterval(() => this._loadFeed(), 12 * 60 * 60 * 1000);
-    this._onVis = () => { if (!document.hidden) this._loadFeed(); };
-    document.addEventListener('visibilitychange', this._onVis);
-
     this._onResize = () => {
       const wide = window.innerWidth >= 980;
       if (wide !== this.state.wide) this.setState({ wide });
     };
     window.addEventListener('resize', this._onResize);
+    import('./posts-data.js').then(m => this.setState({ posts: m.default }));
+    this._loadFeed();
+    this._feedTimer = setInterval(() => this._loadFeed(), 12 * 60 * 60 * 1000);
+    this._onVis = () => { if (!document.hidden) this._loadFeed(); };
+    document.addEventListener('visibilitychange', this._onVis);
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this._onResize);
@@ -185,6 +151,15 @@ class Component extends DCLogic {
     clearInterval(this._feedTimer);
   }
 
+  async _loadFeed() {
+    try {
+      const m = await import('./feed.js');
+      this._feed = m;
+      this.setState({ feed: await m.loadTape() });
+    } catch (e) {
+      this.setState({ feed: { items: null, mode: 'static', asOf: 'JUL 24 2026' } });
+    }
+  }
   _tapeVals() {
     return this._feed ? this._feed.tapeVals(this.state.feed) : { tape: [], feedStamp: 'CLOSE JUL 24 2026', feedDot: 'var(--faint)' };
   }
@@ -201,26 +176,19 @@ class Component extends DCLogic {
 
   renderVals() {
     const wide = this.state.wide;
+    const posts = (this.state.posts || [])
+      .filter(p => p.section !== 'ai')
+      .map(p => ({ href: 'Note.dc.html?p=' + p.slug, color: p.color, mark: p.mark, tag: p.tag, dateLabel: p.dateLabel, title: p.title, dek: p.dek }));
     const dark = this._isDark();
-    const posts = (this.state.posts || []).map(p => ({
-      href: 'Note.dc.html?p=' + p.slug,
-      color: p.color, mark: p.mark, tag: p.tag, dateLabel: p.dateLabel, title: p.title, dek: p.dek
-    }));
     return {
       ...this._tapeVals(),
       posts,
       themeLabel: dark ? 'Light' : 'Dark',
       toggleTheme: () => this._toggle(),
-      shellMaxWidth: wide ? '1160px' : '640px',
-      gridCols: wide ? '1fr 300px' : '1fr',
-      gridAreas: wide ? '"main rail"' : '"main" "rail"',
-      gridGap: wide ? '56px' : '0px',
-      shellPad: wide ? '40px 0' : '0',
+      shellMaxWidth: wide ? '760px' : '640px',
+      shellPad: wide ? '40px 24px' : '0',
       mainPad: wide ? '0' : '16px 20px 0',
-      railPad: wide ? '0' : '8px 20px 0',
-      railPosition: wide ? 'sticky' : 'static',
-      railTop: wide ? '24px' : 'auto',
-      h1Size: wide ? '40px' : '32px'
+      h1Size: wide ? '36px' : '30px'
     };
   }
 }
