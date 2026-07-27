@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "nvidia-backstops-its-own-demand",
+    date: "2026-07-26", dateLabel: "JUL 26 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "circular",
+    source: "The Wall Street Journal",
+    sourceUrl: "https://www.wsj.com/tech/ai/nvidia-in-talks-with-openai-to-guarantee-250-billion-financing-for-data-center-3dd6eae3",
+    title: "Nvidia is backstopping its own demand, and the circle is the risk",
+    dek: "Nvidia is in talks to guarantee $250bn of the financing for OpenAI's 10-gigawatt Ohio megacampus. When the vendor underwrites the customer, demand looks larger than the balance sheets behind it.",
+    thesis: "This is vendor financing at a scale the market has not seen, the chip supplier guaranteeing the customer's ability to fund the buildings that will house its chips. It pulls demand forward and hands the capex supply chain a near-certain windfall, while quietly moving the cycle's credit risk onto Nvidia's balance sheet instead of dispersing it to lenders. The spend is real; whether the structure is healthy depends on AI revenue catching up to it.",
+    breaks: "OpenAI's revenue and realized compute demand scale into the committed capex, so the guarantee is never drawn and the chip orders convert on schedule, in which case the circularity was just efficient capital allocation and the concentrated risk never mattered.",
+    blocks: [
+      { mark: "$250B", color: "var(--purple)", text: "The Wall Street Journal reports Nvidia is in talks to guarantee roughly $250bn of the financing behind OpenAI's buildout: a 10-gigawatt campus in southern Ohio that SoftBank's energy arm, SB Energy, is developing, with OpenAI taking a long-term lease. Masayoshi Son has put the total project near $500bn." },
+      { mark: "circular", color: "var(--accent)", text: "Read the structure, not the headline. A guarantee is not cash up front, it is Nvidia promising to cover the obligations if OpenAI or the project falls short, which lets SoftBank borrow more, cheaper, and longer. Follow the loop: the guarantee unlocks the financing, the financing builds the center, OpenAI leases it and buys Nvidia chips to fill it, and Nvidia books the revenue. The chip vendor is underwriting the demand for its own chips." },
+      { mark: "rhyme", color: "var(--faint)", text: "Vendor financing is not new, and its track record is the reason to watch. In the late 1990s Lucent and Nortel lent telecom customers the money to buy their gear, and revenue looked spectacular until the end demand did not show and the receivables became the losses. I am not calling this a bubble. I am saying the structure rhymes, and what decides which way it breaks is whether the demand being financed turns out to be real." },
+      { mark: "shovels", color: "var(--up)", text: "Near term the winners are not ambiguous. Whatever happens to the OpenAI credit story, roughly half a trillion dollars of committed spend flows to the capex supply chain: power and the grid, turbines, construction, cooling, high-bandwidth memory, networking, and Nvidia's own order book. The money is contracted and has to be spent to build the thing. If you supply the picks and shovels, this is about as good as it gets." },
+      { mark: "read", color: "var(--down)", text: "So I hold both at once. Long term I am not sure circular financing at this scale is healthy, because it concentrates the cycle's risk on the vendor instead of spreading it across lenders who priced it independently, and it makes reported demand harder to trust. Near term the capex beneficiaries are going to be very happy. The number I would watch is how much of this is truly on Nvidia's hook versus dispersed, and whether OpenAI's revenue is scaling into the compute it is contracting for. That gap, if it opens, is the whole story." }
+    ]
+  },
+  {
     slug: "war-premium-unwind-relief",
     date: "2026-07-26", dateLabel: "JUL 26 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "relief",
     title: "The war premium is unwinding, and that unwind is the relief rally",

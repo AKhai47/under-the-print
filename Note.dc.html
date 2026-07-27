@@ -99,6 +99,9 @@
       <h1 style="font:700 {{ h1Size }}/1.25 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em">{{ post.title }}</h1>
       <p style="font:400 15px/1.6 'Space Grotesk',sans-serif;color:var(--muted);margin:0 0 20px;max-width:56ch">{{ post.dek }}</p>
       <div style="font:500 11px 'IBM Plex Mono',monospace;color:var(--muted);margin-bottom:22px">Anthony Khaimov</div>
+      <sc-if value="{{ post.sourceUrl }}">
+        <div style="font:500 10.5px 'IBM Plex Mono',monospace;color:var(--faint);margin:-14px 0 22px">Source: <a href="{{ post.sourceUrl }}" style="color:var(--accent)">{{ post.source }}</a></div>
+      </sc-if>
 
       <div style="border:1px solid var(--ink);border-radius:2px;margin-bottom:26px;overflow:hidden">
         <div style="display:flex;justify-content:space-between;align-items:center;background:var(--bar);padding:8px 14px">
