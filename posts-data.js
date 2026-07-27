@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "agentforger-zero-trust-ai",
+    section: "ai",
+    date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "gateway",
+    source: "SecurityWeek",
+    sourceUrl: "https://www.securityweek.com/openai-fixes-chatgpt-agent-flaw-that-could-let-attackers-forge-an-ai-insider/",
+    title: "One link could forge an AI insider. Put the enforcement at the tool call.",
+    dek: "OpenAI patched a flaw that let one phishing link create a hidden agent inside a company, controlled by an outside attacker and using the victim's own app access. The defense is zero trust: a gateway between agents and their tools, enforced in code.",
+    blocks: [
+      { mark: "flaw", color: "var(--down)", text: "Zenity Labs found a flaw in OpenAI's ChatGPT Workspace agents, named AgentForger. It was a cross-site request forgery: a link that makes your browser take an action you did not intend while you are signed in to a site. Here the action was creating an agent. One phishing link, clicked by an employee who was already signed in, built an autonomous agent the attacker had configured in advance through two URL parameters, the agent template and its opening instructions. The instructions told it to watch email for tasks, hide itself, and disable the approval prompts. Zenity reported it on June 4, 2026, and OpenAI fixed it by June 8. There is no evidence it was used in the wild." },
+      { mark: "insider", color: "var(--amber)", text: "Forging an AI insider means the agent ran inside the company's trust boundary. It inherited the employee's approved connectors, including Gmail, Outlook, Slack, Teams, and cloud storage. From those it could read email, harvest credentials and MFA codes, impersonate the employee, and phish coworkers from a trusted account. The agent starts with a real employee's permissions and runs where most monitoring assumes the traffic is legitimate." },
+      { mark: "trust", color: "var(--accent)", text: "This is not specific to ChatGPT. It is the problem zero trust already solved for users and services: do not trust something because it sits inside the network, verify every request. An agent is another identity that can be hijacked, by a forged configuration here, or by prompt injection that hides instructions in a page or document it reads. Treat every agent as untrusted by default." },
+      { mark: "code", color: "var(--accent)", text: "The attack's instructions arrived in a prompt, and they turned off the approvals. A control the model can be told to ignore is not a control. Enforcement has to run in code at the boundary, not in the model's instructions. A rule in a system prompt can be overridden by a later instruction. A check in code cannot." },
+      { mark: "boundary", color: "var(--purple)", text: "The point of failure in an agent system is the tool call, the moment it sends an email, reads a file, or hits an API. That is where actions have effects, so that is where enforcement belongs. It matters more as MCP (Model Context Protocol) becomes the standard interface between agents and tools, since it makes those connections uniform and easy to add. The rule: an agent should never call an MCP server, or any tool, directly. Route every call through a gateway." },
+      { mark: "bouncer", color: "var(--up)", text: "The gateway has two parts. A registry, an AI phonebook of the agents and tools you allow and what each may do. And the gateway as the bouncer: every tool call presents an identity, the gateway checks it against the registry and the policy, and only allowed calls pass. With that in place, a forged agent like AgentForger has an identity that is not in the registry, so its calls are denied. The forgery still happens. The damage does not." }
+    ]
+  },
+  {
     slug: "cxmt-shanghai-debut",
     date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "+470%",
     source: "CNBC",
