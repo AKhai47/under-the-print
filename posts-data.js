@@ -1,6 +1,24 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "semi-trade-fragility",
+    date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "fragile",
+    source: "Bloomberg",
+    sourceUrl: "https://www.bloomberg.com/news/articles/2026-07-27/asml-slides-after-report-of-china-beginning-duv-tool-production",
+    title: "One headline took more than $500bn off semis, and that fragility is the story",
+    dek: "China moved on both semiconductor chokepoints on the same day, its own DUV lithography and a scaling domestic memory maker. Semis sold off as if the scarcity behind their pricing power was already gone. It is not, yet.",
+    thesis: "The selloff prices China adding supply at both chokepoints at once, homegrown DUV lithography and a scaling domestic memory maker, as if the scarcity that gives semis their pricing power is already gone. It is not, yet. The tools are previous generation and few, and the memory entrant is still small, so the move says more about how crowded the trade is after a 200% run than about earnings that change this quarter.",
+    breaks: "Chinese DUV output and CXMT capacity ramp faster than expected and actually compress memory prices and equipment orders over the next few quarters, in which case the constraint really is eroding and today was early rather than wrong.",
+    blocks: [
+      { mark: "tape", color: "var(--down)", text: "Semis had one of their worst days of the year. On the board, AMD fell 7.8%, Nvidia 5.2%, Micron 5.1%, and Intel 2.6%, with the memory names hit hardest: SanDisk down about 12%, Western Digital about 7%, SK Hynix about 6%. ASML dropped 6.6% in Europe. The context matters, because this group ran enormous into today, Micron up 217% on the year and SanDisk up 580%, so the positioning was crowded on one side." },
+      { mark: "litho", color: "var(--accent)", text: "The new catalyst is lithography. A Chinese consortium of Shanghai Yuliangsheng, SiCarrier, and Huawei began mass producing homegrown immersion DUV machines, targeting roughly 5 units in 2026 and 20 in 2027 for SMIC, Hua Hong, and CXMT. ASML's grip on lithography is one of the sector's hardest chokepoints, so a domestic tool reads as less future equipment demand and less leverage over China. The caveat the tape skipped: these are DUV, not the EUV that makes the most advanced chips, and the machines reportedly lag ASML on performance and reliability." },
+      { mark: "memory", color: "var(--purple)", text: "The second worry is memory, and it has a face now: CXMT, the Chinese DRAM maker that just held the country's second largest IPO. Memory pricing works because supply is disciplined across an oligopoly of three, Samsung, SK Hynix, and Micron. A Chinese entrant with deep backing adding capacity threatens that discipline, which is the whole basis for the DRAM and NAND price cycle that drove memory earnings. That is why Micron, Western Digital, SanDisk, and Hynix took the brunt." },
+      { mark: "circular", color: "var(--amber)", text: "The third is Nvidia fatigue. On top of guaranteeing $250bn of OpenAI's data center financing, Nvidia said it will put $5bn into Ilya Sutskever's Safe Superintelligence, which in turn gets Nvidia compute and hardware. The market increasingly reads Nvidia funding its own customers as circular, and that discount is spreading across the complex." },
+      { mark: "oil", color: "var(--faint)", text: "Watch what did not work. Trump said the US and Iran are talking, oil fell about 7%, and a drop like that usually rips high beta names like semis higher. It did not. When the group ignores a tailwind that normally works and sells on a supply headline instead, the supply story, not the macro, is doing the pricing." },
+      { mark: "read", color: "var(--accent)", text: "My read: the threat is real but slower than a single day of selling implies. A handful of DUV tools that lag, and a memory maker that still holds only a small share, do not change this quarter's earnings. What today actually priced is fragility. A sector up 200 to 580% on the year is crowded enough that one headline took more than $500bn off it. The money did not leave, it rotated, which is why software rallied as semis fell. I would treat this as a positioning shock first and a fundamentals shock second, and I am watching whether China's supply arrives faster than the tape assumes." }
+    ]
+  },
+  {
     slug: "agentforger-zero-trust-ai",
     section: "ai",
     date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "gateway",
