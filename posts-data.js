@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "cxmt-shanghai-debut",
+    date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "+470%",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2026/07/27/cxmt-china-market-debut-chipmaker-ipo.html",
+    title: "CXMT popped about 470% on debut and took China's market-cap crown",
+    dek: "China's largest DRAM maker opened up roughly 470% on Shanghai's STAR Market, vaulting past the country's banks to become the most valuable company listed in China. A neutral note on what that number is measuring.",
+    thesis: "The debut is two stories at once, worth keeping apart: a real fundamentals story, the world's fourth-largest DRAM maker into an AI memory shortage, and a listing-mechanics story, a thin 10% float against a retail book oversubscribed 212 times. A roughly 470% first day prices both the demand and the scarcity of shares, not the demand alone.",
+    breaks: "The premium holds and builds as the float widens and early lockups expire, which would say the debut priced fundamentals rather than scarcity, and that the memory cycle is not about to remind everyone it is a cycle.",
+    blocks: [
+      { mark: "+470%", color: "var(--up)", text: "CXMT, China's largest DRAM maker, opened up about 470% on its Shanghai STAR Market debut on July 27, from an 8.66-yuan offer. The IPO raised roughly 57.9bn yuan, near $8.6bn, the largest mainland listing since Agricultural Bank of China in 2010, and the pop lifted CXMT's market value to around 3.3tn yuan, near $480bn, past ICBC to the top of every company listed in China." },
+      { mark: "float", color: "var(--faint)", text: "Two things are being priced, and they are worth separating. The float is thin: only about 10% of the company was sold, and the retail tranche was oversubscribed 212 times, with individual orders worth some 7tn yuan. When that much demand meets that few shares, a debut gaps far above the offer regardless of fundamentals. Part of a 470% move is the scarcity of stock, not a verdict on the business." },
+      { mark: "chip", color: "var(--accent)", text: "The fundamentals are not nothing either. CXMT held roughly 7.7% of the global DRAM market by late 2025, the fourth producer behind Samsung, SK Hynix and Micron, and reported first-quarter revenue near 50.8bn yuan, up more than 700% year on year, into an AI-driven memory shortage. What a debut cannot answer is whether a cyclical memory business grows into a valuation that now tops China's banks, or whether the float widens into a different price. Worth watching, not calling." }
+    ]
+  },
+  {
     slug: "nvidia-backstops-its-own-demand",
     date: "2026-07-26", dateLabel: "JUL 26 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "circular",
     source: "The Wall Street Journal",
