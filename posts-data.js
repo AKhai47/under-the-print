@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "microsoft-cyber-model-perception",
+    section: "ai",
+    date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "defense",
+    source: "TechCrunch",
+    sourceUrl: "https://techcrunch.com/2026/07/27/microsoft-launches-its-first-cyber-model-and-a-new-agentic-cybersecurity-system/",
+    title: "Microsoft shipped a cybersecurity model and an agentic system, and defenders need to keep pace",
+    dek: "Microsoft launched MAI-Cyber-1-Flash, its first security model, and Project Perception, a system of more than 100 agents that finds and fixes vulnerabilities. Attackers already have tools like these, so defenders getting them is the point.",
+    blocks: [
+      { mark: "what", color: "var(--accent)", text: "Microsoft launched two things on July 27. MAI-Cyber-1-Flash is its first model built specifically for cybersecurity, made to find hard vulnerabilities in complex codebases, and it powers a framework called MDASH. Microsoft says it beats the leading general models on Cyber Gym, the industry benchmark, and that it runs at lower cost. The second is Project Perception, an agentic system built on top of it, with a public preview coming later this year." },
+      { mark: "teams", color: "var(--faint)", text: "Perception runs on agent teams. Red teams simulate attacks with real threat actor context, blue teams find and triage the bugs that already exist, and green teams execute the fixes. Underneath, it orchestrates more than 100 specialized agents that prepare a codebase, flag candidate vulnerabilities, validate them, remove duplicates, and try to prove whether a bug is actually exploitable. The lead engineer, Dave Weston, says it compresses work that took hours from several specialists into minutes." },
+      { mark: "race", color: "var(--purple)", text: "This is a race, not a one off. Anthropic shipped a security model called Mythos in April, OpenAI shipped Daybreak in May, and now Microsoft. Defensive AI is becoming its own product category because offensive AI already is. Attackers use models to find bugs and write exploits at machine speed, and a defender scanning by hand loses that race on volume alone." },
+      { mark: "take", color: "var(--up)", text: "My take is that this is the right direction and defenders should have it. Security has always been asymmetric. The attacker needs one bug, the defender has to cover everything. A system that finds and proves exploitable bugs at machine speed, cheaply, narrows that gap. The attackers undoubtedly have tools like these already, so the question is not whether AI belongs in security, it is who gets it into production first. Putting it in defenders' hands is how you stay ahead." },
+      { mark: "caveat", color: "var(--down)", text: "The discipline is the same one worth repeating. An agentic system that can execute corrective actions and rewrite code is itself a high privilege agent with deep access, the same surface a forged or hijacked agent abuses. Autonomy that can patch code can also break it at scale, or be steered into harm if the tool boundary is not enforced. And the cheap automation that helps defenders lowers the bar for attackers too. So ship it, deploy it, and put the same guardrails on it you would put on any agent that can touch real systems." }
+    ]
+  },
+  {
     slug: "semi-trade-fragility",
     date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "fragile",
     source: "Bloomberg",
