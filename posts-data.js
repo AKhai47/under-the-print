@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "kospi-memory-concentration",
+    date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "half",
+    source: "Korea JoongAng Daily",
+    sourceUrl: "https://www.koreajoongangdaily.com/business/kospi-slides-over-7-as-investors-dump-chip-stocks-on-concerns-of-excess-ai-capacity/12752742",
+    title: "The KOSPI is not a Korea index anymore, it is a leveraged bet on memory",
+    dek: "The KOSPI opened sharply lower again, sliding toward 6,224, about a third below its June high. Samsung and SK Hynix are now half the index, so the global chip selloff lands on Korea at double the concentration.",
+    thesis: "The KOSPI is no longer a broad Korean index, it is a leveraged position on memory pricing. Samsung and SK Hynix now make up about half its weight, so the same China supply fear driving the global chip selloff lands on Korea at double the concentration, and the index has given back roughly a third from its June high rather than a sector's worth.",
+    breaks: "Chinese memory supply stays years away and DRAM and NAND prices hold, so Samsung and SK Hynix earnings do not fall and the index re-rates back toward its highs, which would show this was a positioning flush rather than a repricing of Korea's core export.",
+    blocks: [
+      { mark: "open", color: "var(--down)", text: "The KOSPI opened sharply lower again and slid to around 6,224, extending a decline that has now taken the index down about a third from its mid June peak near 9,300. This is the Asia leg of the same chip selloff that hit Wall Street, and Korea is taking the concentrated version of it." },
+      { mark: "half", color: "var(--accent)", text: "Here is why Korea moves more than a sector should. Samsung and SK Hynix now make up around half the KOSPI's entire weight, up from roughly a quarter at the end of last year. The index stopped being a broad read on Korea and became a leveraged position on memory. When memory sells off, there is no diversification left in the benchmark to cushion it." },
+      { mark: "why", color: "var(--faint)", text: "The driver is the one from the global tape: fear that Chinese supply erases the scarcity behind memory pricing. CXMT just listed and is scaling DRAM, China is moving toward its own lithography, and the market is pricing lower memory prices and thinner Samsung and SK Hynix earnings. Korea has already tripped sell sidecars and circuit breakers on these drops this month, which is what forced selling looks like when everyone owns the same two names." },
+      { mark: "read", color: "var(--accent)", text: "So the KOSPI is now a cleaner memory trade than most memory stocks. If you think the China supply threat is early, as I argued on the semis, the index is oversold on a narrative that does not change this quarter's DRAM contracts. If you think the threat is real and near, Korea is where it shows up first, because half the index is the two companies with the most to lose. Watch the memory contract prices and the Samsung and SK Hynix order books, not the KOSPI level, for which one it is." }
+    ]
+  },
+  {
     slug: "microsoft-cyber-model-perception",
     section: "ai",
     date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "defense",
