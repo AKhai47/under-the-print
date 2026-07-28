@@ -73,8 +73,8 @@
         <nav style="display:flex;gap:20px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase">
         <a href="./" style="color:var(--faint)">Home</a>
         <a href="Finance.dc.html" style="color:var(--faint)">Finance</a>
-        <a href="AI.dc.html" style="color:var(--ink)">AI / Cyber</a>
-        <a href="RealEstate.dc.html" style="color:var(--faint)">Real Estate</a>
+        <a href="AI.dc.html" style="color:var(--faint)">AI / Cyber</a>
+        <a href="RealEstate.dc.html" style="color:var(--ink)">Real Estate</a>
         <a href="About.dc.html" style="color:var(--faint)">About</a>
       </nav>
         <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
@@ -86,9 +86,9 @@
   <div style="width:100%;padding:{{ shellPad }}">
 
     <section style="padding:{{ mainPad }}">
-      <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin:14px 0 10px">AI / Cyber</div>
-      <h1 style="font:700 {{ h1Size }}/1.15 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em">Read the system.<br>Not the slogan.</h1>
-      <p style="font:400 14.5px/1.65 'Space Grotesk',sans-serif;color:var(--text2);margin:0 0 28px;max-width:54ch">Teardowns and notes on AI systems, security, and the infrastructure underneath, from someone who works with it. Less forecasting, more how the thing actually works and where it breaks.</p>
+      <div style="font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin:14px 0 10px">Real Estate</div>
+      <h1 style="font:700 {{ h1Size }}/1.15 'Space Grotesk',sans-serif;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em">Read the leverage.<br>Not the listing.</h1>
+      <p style="font:400 14.5px/1.65 'Space Grotesk',sans-serif;color:var(--text2);margin:0 0 28px;max-width:54ch">Notes on housing, mortgage rates, commercial real estate, and REITs. What actually moves property, the cost of debt, supply, and who is forced to transact, not the headline price.</p>
 
       <div id="writing">
         <sc-for list="{{ posts }}" as="p" hint-placeholder-count="3">
@@ -109,7 +109,7 @@
         </sc-for>
 
         <sc-if value="{{ showEmpty }}">
-          <div style="border:1px dashed var(--line);border-radius:2px;padding:22px;margin-top:8px;font:400 13px/1.65 'Space Grotesk',sans-serif;color:var(--muted)">First write-ups are landing soon. Teardowns and notes on AI systems, security, and the infrastructure underneath.</div>
+          <div style="border:1px dashed var(--line);border-radius:2px;padding:22px;margin-top:8px;font:400 13px/1.65 'Space Grotesk',sans-serif;color:var(--muted)">First real estate write-ups are landing soon. Notes on housing, mortgage rates, commercial real estate, and the cost of debt underneath property prices.</div>
         </sc-if>
       </div>
     </section>
@@ -183,7 +183,7 @@ class Component extends DCLogic {
     const wide = this.state.wide;
     const loaded = this.state.posts;
     const posts = (loaded || [])
-      .filter(p => p.section === 'ai')
+      .filter(p => p.section === 'realestate')
       .map(p => ({ href: 'Note.dc.html?p=' + p.slug, color: p.color, mark: p.mark, tag: p.tag, dateLabel: p.dateLabel, title: p.title, dek: p.dek }));
     const dark = this._isDark();
     return {

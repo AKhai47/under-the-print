@@ -78,6 +78,7 @@
         <a href="./" style="color:var(--faint)">Home</a>
         <a href="Finance.dc.html" style="color:{{ navWriting }}">Finance</a>
         <a href="AI.dc.html" style="color:{{ navAi }}">AI / Cyber</a>
+        <a href="RealEstate.dc.html" style="color:{{ navRe }}">Real Estate</a>
         <a href="About.dc.html" style="color:var(--faint)">About</a>
       </nav>
         <button onClick="{{ toggleTheme }}" title="Toggle theme" style="display:flex;align-items:center;gap:5px;font:600 9.5px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);background:transparent;border:1px solid var(--line);border-radius:2px;padding:5px 8px;cursor:pointer" style-hover="color:var(--accent);border-color:var(--accent)">{{ themeLabel }}</button>
@@ -217,6 +218,7 @@ class Component extends DCLogic {
     const post = posts[idx] || { blocks: [] };
     const section = post.section || 'markets';
     const isAi = section === 'ai';
+    const isRe = section === 'realestate';
     const related = posts.filter(p => p.slug !== post.slug && (p.section || 'markets') === section).slice(0, 3)
       .map(p => ({ href: 'Note.dc.html?p=' + p.slug, title: p.title }));
     if (post.title && typeof document !== 'undefined') document.title = post.title;
@@ -236,11 +238,12 @@ class Component extends DCLogic {
       railPosition: wide ? 'sticky' : 'static',
       railTop: wide ? '24px' : 'auto',
       h1Size: wide ? '34px' : '27px',
-      navWriting: isAi ? 'var(--faint)' : 'var(--ink)',
+      navWriting: (!isAi && !isRe) ? 'var(--ink)' : 'var(--faint)',
       navAi: isAi ? 'var(--ink)' : 'var(--faint)',
-      backHref: isAi ? 'AI.dc.html' : 'Finance.dc.html',
-      backLabel: isAi ? '← All AI & Cyber' : '← All finance',
-      moreLabel: isAi ? 'More in AI & Cyber →' : 'More in Finance →'
+      navRe: isRe ? 'var(--ink)' : 'var(--faint)',
+      backHref: isAi ? 'AI.dc.html' : isRe ? 'RealEstate.dc.html' : 'Finance.dc.html',
+      backLabel: isAi ? '← All AI & Cyber' : isRe ? '← All real estate' : '← All finance',
+      moreLabel: isAi ? 'More in AI & Cyber →' : isRe ? 'More in Real Estate →' : 'More in Finance →'
     };
   }
 }
