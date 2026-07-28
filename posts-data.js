@@ -323,6 +323,156 @@ const POSTS = [
       { mark: "seq", color: "var(--amber)", text: "The order of events is the argument. Price approaches a level where a cluster of positions is margined, those positions are closed by the exchange rather than the owner, the closes are market orders into a book that has thinned out because everyone is de-risking at once, and the next cluster gets hit. Nobody in that chain is expressing a view." },
       { mark: "macro", color: "var(--accent)", text: "The macro context set the table, with a divided Fed, rising Japanese yields, and ETF redemptions after a year of inflows. But the shape and speed of the move were structural, and structure is why it went so much further than the news justified." }
     ]
+  },
+  {
+    slug: "gold-crosses-4000",
+    date: "2025-10-07", dateLabel: "OCT 07 2025", tag: "CROSS-ASSET", color: "var(--accent)", mark: "$4,000",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/10/07/gold-4000-record.html",
+    title: "Gold crossed $4,000 for the first time, and it is a dollar trade, not a fear trade",
+    dek: "Gold printed a four thousand dollar handle for the first time. The tell is that it did it while stocks were near highs, so this is not the usual panic bid.",
+    thesis: "Gold breaking $4,000 while equities sit near record highs is a bid on a weaker dollar rather than a fear bid. A softening dollar, a Fed that just started cutting, and a government shutdown that blacked out the data all point at the currency, which is why gold and stocks rose together instead of trading against each other.",
+    breaks: "Gold sells off alongside equities in the next broad selloff, which would show it was a late fear hedge rather than a store of value bid against the dollar.",
+    blocks: [
+      { mark: "$4,000", color: "var(--up)", text: "Gold crossed $4,000 an ounce for the first time on October 7, part of a historic run, and pushed on toward $4,300 within days. The context is the point. It happened with the S&P near its highs, so the usual story, that gold rises when investors are scared, does not fit." },
+      { mark: "dollar", color: "var(--accent)", text: "What fits is the dollar. The Fed cut in September and the market expects more, real yields are drifting lower, and the shutdown that began October 1 froze the economic data the dollar is priced off. When the thing you measure everything in looks softer, hard assets reprice higher without anyone panicking." },
+      { mark: "read", color: "var(--faint)", text: "So read this as a monetary signal, not a market one. Gold and equities rising together is not a contradiction, it is what a weakening currency looks like when growth is fine. The thing that would change the read is the next selloff, when you find out whether gold is a store of value or just another long that gets sold for cash." }
+    ]
+  },
+  {
+    slug: "shutdown-data-blackout",
+    date: "2025-10-01", dateLabel: "OCT 01 2025", tag: "RATES", color: "var(--accent)", mark: "blackout",
+    source: "Fox Business",
+    sourceUrl: "https://www.foxbusiness.com/economy/government-shutdown-delays-october-jobs-report-when-economic-reports-released-after-shutdown-ends",
+    title: "The government shut down and the market lost its instruments",
+    dek: "The shutdown that began October 1 froze the jobs report, GDP, and the Fed's preferred inflation gauge. The Fed has to steer its next decision with the dashboard dark.",
+    thesis: "A shutdown is a data event more than a fiscal one. With the statistical agencies furloughed, the jobs report, GDP, and PCE stop printing, so the Fed and the market have to price the economy on private data and guesses right as the Fed is trying to calibrate a cutting cycle. The uncertainty premium rises because the instruments are off, not because the economy changed.",
+    breaks: "The data resumes on schedule with no revisions of consequence and the Fed's path is unchanged, which would show the blackout was noise rather than a real loss of visibility.",
+    blocks: [
+      { mark: "Oct 1", color: "var(--down)", text: "The federal government shut down on October 1 when Congress missed the funding deadline, and it became the longest shutdown on record before it ended on November 12. Most of the workers who produce the official economic data were furloughed with it." },
+      { mark: "dark", color: "var(--accent)", text: "That is the part markets underrate. The October jobs report, GDP, and the PCE inflation gauge, the number the Fed watches most, were delayed or in some cases cancelled outright. The Fed was in the middle of a cutting cycle and lost the readings it uses to decide how far to go." },
+      { mark: "read", color: "var(--faint)", text: "So the trade during a blackout is not the fiscal impact, which is usually small and reversed. It is the widening of outcomes because nobody can see clearly. Private data gets overweighted, every rumor moves more than it should, and the first real prints after the lights come back on carry the risk of a large surprise." }
+    ]
+  },
+  {
+    slug: "nvidia-openai-100b",
+    date: "2025-09-22", dateLabel: "SEP 22 2025", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "$100B",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/09/22/nvidia-openai-data-center.html",
+    title: "Nvidia will fund OpenAI to buy Nvidia chips, and that circle is the whole AI trade now",
+    dek: "Nvidia said it will invest up to $100bn in OpenAI to deploy 10 gigawatts of its own systems. The chip vendor is financing its largest customer's ability to buy its chips.",
+    thesis: "Nvidia investing up to $100bn in OpenAI to deploy Nvidia systems is vendor financing at the center of the AI trade. It pulls demand forward and makes Nvidia's revenue look more certain, while quietly tying that revenue to a customer Nvidia is itself funding. The buildout is real, the circularity is what makes it only as sound as OpenAI's eventual economics.",
+    breaks: "OpenAI's revenue scales into the committed compute so the investment is validated by usage, which would show the arrangement was ordinary strategic capital rather than demand Nvidia had to manufacture.",
+    blocks: [
+      { mark: "$100B", color: "var(--purple)", text: "On September 22 Nvidia said it would invest up to $100bn in OpenAI as the two deploy at least 10 gigawatts of Nvidia systems, with the first phase on the upcoming Vera Rubin platform in the second half of 2026. Jensen Huang called it the biggest AI infrastructure project in history." },
+      { mark: "circle", color: "var(--accent)", text: "Follow the money and it loops. Nvidia puts capital into OpenAI, OpenAI uses it to buy and run Nvidia chips, and Nvidia books the revenue. That is vendor financing, the same structure telecom equipment makers used in the late 1990s to lend customers the money to buy their gear. It flatters demand while the end market is still being proven." },
+      { mark: "read", color: "var(--faint)", text: "This is the deal to watch most, because it set the template. Over the next year the pattern repeats and scales, and the question is never whether the compute gets built. It is whether the revenue that is supposed to pay for it shows up before the financing has to be tested." }
+    ]
+  },
+  {
+    slug: "fed-first-cut-2025",
+    date: "2025-09-17", dateLabel: "SEP 17 2025", tag: "RATES", color: "var(--accent)", mark: "−25",
+    source: "Federal Reserve",
+    sourceUrl: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a1.htm",
+    title: "The Fed finally cut, and it cut because the jobs data cracked, not because inflation is beaten",
+    dek: "The Fed lowered rates 25bp to 4.00 to 4.25%, its first cut of 2025, after holding all year. The trigger was a weakening labor market, not victory on inflation.",
+    thesis: "The September cut is a labor market cut, not an inflation cut. The Fed held all year while inflation stayed sticky, and it moved only once the jobs data turned, including the large downward revisions from August. That means the cutting path is hostage to employment data, and the market is pricing a smooth glide that a single firm inflation print could interrupt.",
+    breaks: "Inflation reaccelerates over the following months and the Fed pauses or reverses, which would show September was a one off insurance cut rather than the start of a cycle.",
+    blocks: [
+      { mark: "−25", color: "var(--accent)", text: "On September 17 the Fed cut the funds rate by a quarter point to a range of 4.00 to 4.25%, the first reduction of 2025 after holding steady through the whole first half. It followed the cuts of late 2024 and a long pause." },
+      { mark: "why", color: "var(--faint)", text: "The reason matters more than the move. Inflation had not been tamed. What changed was the labor market, with hiring slowing and the August report revising May and June down by a combined 258,000. The Fed cut to get ahead of a softening job market, not because it won the inflation fight." },
+      { mark: "read", color: "var(--down)", text: "So the path from here runs through the jobs data, not the inflation data. If employment keeps cooling, the cuts continue and the front end rallies. If inflation firms while the labor market stabilizes, the Fed is caught, and the smooth cutting path the market has priced gets a lot bumpier." }
+    ]
+  },
+  {
+    slug: "jackson-hole-2025-pivot",
+    date: "2025-08-22", dateLabel: "AUG 22 2025", tag: "RATES", color: "var(--accent)", mark: "JH",
+    source: "CBS News",
+    sourceUrl: "https://www.cbsnews.com/news/jerome-powell-jackson-hole-speech-interest-rate-federal-reserve/",
+    title: "Powell opened the door to cuts at Jackson Hole, and the balance of risks did the talking",
+    dek: "In his last Jackson Hole as chair, Powell said the shifting balance of risks may warrant adjusting policy. The market heard September and rallied.",
+    thesis: "Powell's Jackson Hole shift is a change in which risk the Fed fears most. By naming a slowing labor market next to still sticky inflation and saying the balance of risks may warrant adjusting policy, he moved the reaction function from fighting inflation first toward protecting employment, and that is what set up the September cut. The signal, not the eventual cut, was the repricing event.",
+    breaks: "The Fed does not cut in September despite the signal, which would show Jackson Hole was Powell keeping options open rather than a genuine pivot.",
+    blocks: [
+      { mark: "JH", color: "var(--accent)", text: "On August 22, in what would be his final Jackson Hole speech as chair, Powell said the shifting balance of risks may warrant adjusting our policy stance. He flagged both a cooling labor market and lingering inflation, and stopped short of promising anything. The S&P still jumped more than 1%." },
+      { mark: "pivot", color: "var(--faint)", text: "The words were careful but the meaning was not subtle. For two years the Fed's default was that inflation was the risk to manage. Putting the labor market on equal footing, weeks after a weak jobs report, is the tell that the next move is a cut. The market does not need a promise, it needs to know which way the committee is leaning." },
+      { mark: "read", color: "var(--faint)", text: "Central bank communication is a volatility tool. Guidance like this transfers uncertainty from the market to the Fed and lets the front end settle before the meeting even happens. The September cut was almost priced the moment he spoke, which is the point of speaking that way." }
+    ]
+  },
+  {
+    slug: "jobs-print-and-the-messenger",
+    date: "2025-08-01", dateLabel: "AUG 01 2025", tag: "RATES", color: "var(--accent)", mark: "−258k",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/08/01/trump-erika-mcentarfer-jobs-report-fired.html",
+    title: "The jobs print got revised away and the messenger got fired",
+    dek: "July payrolls came in soft and May and June were revised down by a combined 258,000, the biggest two month cut since 2020. Hours later the president fired the head of the BLS.",
+    thesis: "The real story in the July jobs report is the revision, and the real risk is what came after it. A 258,000 two month downward revision means the labor market was weaker than anyone was told for months, and firing the statistician who reported it introduces a new tail risk, that the data itself becomes something the market has to discount for politics.",
+    breaks: "Future revisions stay small and the incoming BLS leadership publishes on the same methodology and calendar, which would show the firing was noise rather than a threat to the integrity of the print.",
+    blocks: [
+      { mark: "−258k", color: "var(--down)", text: "On August 1 the BLS reported 73,000 jobs added in July, well short of forecasts, and revised May and June down by a combined 258,000 to just 33,000. It was the largest two month downward revision since April 2020. Markets sold off on the news that the labor market had been much softer than reported." },
+      { mark: "fired", color: "var(--amber)", text: "Hours later, the president called the numbers rigged, without evidence, and fired the commissioner of the BLS, Erika McEntarfer. The revision is a normal statistical event. The response is not, and it is the more important one for anyone who prices off official data." },
+      { mark: "read", color: "var(--faint)", text: "This site is named for the print, so here is the point plainly. The value of a government statistic is that you can trust it was produced the same way regardless of who it helps or hurts. Threaten that and every number after it carries a small discount for doubt, and a market that cannot trust the print has to widen its error bars on everything the Fed does next." }
+    ]
+  },
+  {
+    slug: "genius-act-signed",
+    date: "2025-07-18", dateLabel: "JUL 18 2025", tag: "CRYPTO", color: "var(--amber)", mark: "1:1",
+    source: "The White House",
+    sourceUrl: "https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/",
+    title: "A stablecoin law is a Treasury demand law",
+    dek: "Trump signed the GENIUS Act, the first federal stablecoin framework. It requires full reserve backing in cash and short Treasuries, which turns every dollar of stablecoin growth into a bid for bills.",
+    thesis: "The GENIUS Act reads as consumer protection but functions as bill demand. By requiring stablecoins to hold reserves fully in cash and short term Treasuries, it wires the growth of the entire sector directly into the front of the Treasury curve. A fast growing pool of dollar liabilities now has to be backed by government paper, and that is a structural buyer, not a cyclical one.",
+    breaks: "Issuers concentrate reserves in bank deposits and repo rather than bills, or stablecoin growth stalls, either of which would break the direct line from adoption to bill demand.",
+    blocks: [
+      { mark: "signed", color: "var(--amber)", text: "On July 18 the president signed the GENIUS Act into law, the first federal framework for payment stablecoins, after the House passed it 308 to 122 the day before. It sets up licensing and supervision for issuers and requires monthly public disclosure of what backs each coin." },
+      { mark: "1:1", color: "var(--accent)", text: "The provision that matters for markets is the reserve rule. Every permitted stablecoin has to be backed at least one to one by cash, insured deposits, and short term Treasuries. There is no fractional reserve. That means the sector cannot grow without buying more of the safest, shortest government paper." },
+      { mark: "read", color: "var(--faint)", text: "So trade a stablecoin law as a Treasury story. Adoption becomes mechanical demand for the front of the bill curve, and contraction becomes mechanical supply. A clear framework is exactly what lets the sector scale, and scaling it means a new, price insensitive, structural buyer of bills. This is the setup the maturity rules being written now will sharpen." }
+    ]
+  },
+  {
+    slug: "nvidia-4-trillion",
+    date: "2025-07-09", dateLabel: "JUL 09 2025", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "$4T",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/07/09/nvidia-4-trillion.html",
+    title: "Nvidia became the first $4 trillion company, and the index rides one story now",
+    dek: "Nvidia touched a $4 trillion market cap, a first for any company. The milestone is really a statement about how concentrated the whole market has become in a single trade.",
+    thesis: "Nvidia crossing $4 trillion is less a company milestone than an index concentration milestone. One name carrying that much weight means the S&P is increasingly a levered position on AI capex, so the benchmark's risk is no longer diversified across the economy, it is the durability of one spending cycle. The move up and the fragility are the same fact.",
+    breaks: "AI capex plateaus and Nvidia derates without dragging the index down proportionally, which would show breadth had quietly returned and the concentration was overstated.",
+    blocks: [
+      { mark: "$4T", color: "var(--purple)", text: "On July 9 Nvidia became the first public company to touch a $4 trillion market cap in intraday trading, closing just under it near $3.97 trillion. It got there on the generative AI boom, passing Microsoft and Apple to become the most valuable company in the world." },
+      { mark: "weight", color: "var(--accent)", text: "The number to watch is not the price, it is the weight. When a single stock is that large a share of the S&P, the index stops being a broad read on the economy and becomes a concentrated bet on AI spending. Everyone who owns the index owns that trade whether they meant to or not." },
+      { mark: "read", color: "var(--faint)", text: "This is the same concentration risk that shows up later in other markets, where a couple of names come to define a whole benchmark. It cuts both ways. The concentration is why the index kept making highs, and it is why a change of heart on AI capex would take the whole tape down with it." }
+    ]
+  },
+  {
+    slug: "meta-buys-scale-ai",
+    date: "2025-06-12", dateLabel: "JUN 12 2025", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "$14.3B",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/06/12/scale-ai-founder-wang-announces-exit-for-meta-part-of-14-billion-deal.html",
+    title: "Meta paid $14.3bn for a data pipeline and one person, and structured it to dodge review",
+    dek: "Meta took 49% of Scale AI and hired its founder to run a new lab. The stake is large, the voting power is zero, and the shape of the deal is the tell.",
+    thesis: "Meta's Scale AI deal is a talent grab dressed as an investment, and the structure is deliberate. Paying $14.3bn for 49% with no voting power lets Meta absorb the founder and the training data pipeline while staying under the threshold that triggers a full antitrust review. The scarce input in AI is not compute, it is the people and the labeled data, and this is what it costs to corner both without buying the company.",
+    breaks: "Regulators treat the deal as a de facto acquisition and challenge it anyway, or Scale's data business fades without Wang, either of which would show the structure did not achieve what it was built to.",
+    blocks: [
+      { mark: "$14.3B", color: "var(--purple)", text: "On June 12 Meta announced it would invest $14.3bn for a 49% stake in Scale AI and install its founder, Alexandr Wang, to lead a new superintelligence lab. The deal valued Scale above $29bn. Meta took the stake with no voting power." },
+      { mark: "why", color: "var(--accent)", text: "That structure is not an accident. A 49% non voting stake plus hiring the founder gets Meta the two things it actually wants, the person and the pipeline that labels the raw material models learn from, while staying below the line that forces a full merger review. It is an acquisition that is careful not to look like one." },
+      { mark: "read", color: "var(--faint)", text: "The signal for the sector is where the scarcity sits. It is not chips, it is talent and proprietary training data, and the biggest players will pay acquisition prices to lock those up. Expect more deals shaped like this one, large stakes and key hires structured to move fast and avoid the regulator." }
+    ]
+  },
+  {
+    slug: "circle-stablecoin-ipo",
+    date: "2025-06-05", dateLabel: "JUN 05 2025", tag: "CRYPTO", color: "var(--amber)", mark: "+168%",
+    source: "CNBC",
+    sourceUrl: "https://www.cnbc.com/2025/06/05/stablecoin-issuer-circle-soars-in-nyse-debut-after-pricing-ipo-above-expected-range.html",
+    title: "Circle's IPO priced the float, not the coin",
+    dek: "Circle, the issuer of USDC, went public and rocketed 168% on day one, tripping circuit breakers. The market was paying for a small float and a rate bet as much as for stablecoins.",
+    thesis: "Circle's blowout debut is a float and rates story wearing a crypto label. A small offering met enormous demand for the first pure public stablecoin, and the business itself is largely a bet on short rates, since Circle earns the yield on the Treasuries backing USDC. Buyers were long scarce stock and long carry, not simply long crypto adoption.",
+    breaks: "The stock holds its debut gains as the float widens and lockups expire, which would show the move was durable demand for the business rather than scarcity and a rate trade.",
+    blocks: [
+      { mark: "+168%", color: "var(--up)", text: "On June 5 Circle, the company behind the USDC stablecoin, went public on the NYSE. It priced at $31, opened far higher, and closed up 168% at $83.23, tripping the exchange's single stock circuit breakers three times in the first 40 minutes. The offering raised over $1.1bn and valued Circle above $16bn." },
+      { mark: "float", color: "var(--faint)", text: "Two things drove that. The float was small against huge demand for the first clean public way to own the stablecoin theme, so the stock gapped regardless of fundamentals. And the fundamentals are a rate trade. USDC is backed by Treasuries, and Circle keeps the interest, so its earnings rise and fall with short rates more than with crypto prices." },
+      { mark: "read", color: "var(--accent)", text: "So a stablecoin issuer is a stranger business than the ticker suggests. It is a money market fund that hands its depositors a token instead of the yield, which is excellent while rates are high and a squeeze when they fall. The debut priced the scarcity and the carry. Whether it priced a durable business is what the next few quarters, and the next rate cut, decide." }
+    ]
   }
 ];
 export default POSTS;
