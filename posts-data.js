@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "semis-macro-positioning-reset",
+    date: "2026-07-28", dateLabel: "JUL 28 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "reset",
+    source: "Bloomberg",
+    sourceUrl: "https://www.bloomberg.com/news/articles/2026-07-17/chips-stocks-tumble-into-bear-market-as-105-ai-rally-fizzles",
+    title: "The worst month for semis since 2022 is a positioning reset, not the AI cycle breaking at every layer",
+    dek: "Semiconductors are on pace for their worst month since 2022 as war fears, oil, rates and Kimi K3 hit the market's most crowded trade at once. This reads as a macro and positioning reset, not evidence the AI cycle is breaking simultaneously across the whole chain.",
+    thesis: "This is a macro and positioning reset in the most crowded trade in the market, not evidence that the AI cycle is breaking at the same time across every layer of the semiconductor chain. War mode, oil, rates and a new China model all hit a sector that had doubled on the year, so a group leaning one way got flushed. None of it has yet shown up as cut orders or lowered guidance from Nvidia, TSMC, ASML or the memory makers.",
+    breaks: "The damage moves from price into the actual orders, TSMC and ASML trim capex commentary, HBM contracts get renegotiated lower, and Nvidia or the memory makers cut guidance, in which case this was a repricing of AI demand and not just a positioning washout.",
+    blocks: [
+      { mark: "tape", color: "var(--down)", text: "The PHLX Semiconductor Index is down about 18% for July, its worst month since the 2022 bear market, after the index had doubled in the first half of the year. It sits more than 20% below its late June record, its thirteenth bear market since 1995. Micron fell 13% in a single session, roughly $138bn of value, with Intel down 9% and AMD down 7%, and SK Hynix dropped about 15% on its worst day. A group that ran that hard is the definition of a crowded trade, and crowded trades unwind fast." },
+      { mark: "shocks", color: "var(--faint)", text: "The macro regime flipped first. The US and Iran traded strikes, with Iranian attacks on American facilities in Kuwait and Jordan, and the market went back into war mode: oil, inflation, rates and supply chains all back in play. Brent ran up about 11% on the week before falling 8.7% to $88 once the two sides paused, and a firm jobs report pushed a hawkish Fed under new chair Kevin Warsh toward hikes rather than cuts. Higher rates hit the highest multiple part of the market hardest, and that is semis." },
+      { mark: "kimi", color: "var(--purple)", text: "Then the demand scare arrived. Moonshot released Kimi K3 at the Shanghai AI conference on July 16, a 2.8 trillion parameter open weight model that benchmarks behind only Claude Fable 5 and GPT-5.6, with the weights public on July 27. Traders read it as another DeepSeek moment: if a Chinese lab can reach frontier performance more efficiently, the market questions whether the West needs as much compute as the capex plans assume. The release wiped more than $3tn off global chip value in days and took the SOX down 10% in a week." },
+      { mark: "returns", color: "var(--amber)", text: "Under that sits the return question the market keeps circling back to. SK Hynix signaled it would slow its high bandwidth memory expansion, the exact component Nvidia's chips depend on, and Nvidia funding its own customers, $250bn behind OpenAI's data centers and a stake in Safe Superintelligence, increasingly reads as circular. The doubt is no longer whether AI demand is real, it is whether the spending earns its return on the schedule the multiples require." },
+      { mark: "read", color: "var(--accent)", text: "My read is that this is a macro and positioning reset, not simultaneous proof that the AI cycle is breaking across every layer from Nvidia, AMD and Intel to TSMC, ASML, Micron and SK Hynix. A war premium, a rates repricing and a new China model all landing on the most crowded trade in the market in the same few weeks is exactly how you get an 18% month without a single company cutting guidance. The tape has repriced. The orders have not. I am watching TSMC and ASML capex commentary and the memory contract prices, because that is where a real break in the cycle would show up first, well before the index tells you." }
+    ]
+  },
+  {
     slug: "kospi-memory-concentration",
     date: "2026-07-27", dateLabel: "JUL 27 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "half",
     source: "Korea JoongAng Daily",
