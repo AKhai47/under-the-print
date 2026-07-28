@@ -1,6 +1,24 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "chicago-office-debt-reset",
+    section: "realestate",
+    date: "2026-07-28", dateLabel: "JUL 28 2026", tag: "CRE", color: "var(--purple)", mark: "-90%",
+    source: "CoStar",
+    sourceUrl: "https://www.costar.com/article/3150163/chicago-office-tower-sells-at-massive-discount-spotlighting-national-plunge-in-prices",
+    title: "Chicago office towers are reselling up to 94% below their last sale, and that is a debt reset",
+    dek: "Twenty-one downtown Chicago office buildings have resold at 44% to 94% below their last price, some near land value. This is office debt repricing to today's rates and empty floors, not the end of Chicago.",
+    thesis: "The 90% markdowns are a debt reset, not the end of Chicago office. A building's value is its net operating income divided by a cap rate, and both inputs reversed at once: rates went from near zero to over 5%, and remote work pushed downtown vacancy to a record near 28%. Lower income divided by a higher cap rate is a fraction of the old price. These are forced sales by owners and lenders who financed at the top and cannot refinance, clearing near land value, and the all cash buyers paying $17 to $67 a foot are buying below replacement cost, the level where the cash flow works again.",
+    breaks: "The distress stays contained to older commodity towers. The thesis breaks if the same markdowns hit trophy Class A buildings and the banks that lent against them, because that turns a repricing of obsolete space into a solvency event moving through the lenders.",
+    blocks: [
+      { mark: "-90%", color: "var(--down)", text: "The tracker runs 21 downtown buildings, all reselling far below their last price. 401 S. State St. went for $4.2M against $68.1M in 2016, down 94%. 175 W. Jackson Blvd. sold for $41M, down 87% from the $306M Brookfield paid in 2018. 311 S. Wacker Drive fetched $45M against $302M in 2014, down 85%. 600 W. Chicago Ave. traded at $89M against $510M in 2018, and 131 S. Dearborn St. at $137M against $560M in 2006. These are not distressed corners, they are named Loop and West Loop towers." },
+      { mark: "why", color: "var(--faint)", text: "An office building is worth its net operating income divided by a cap rate, and both moved the wrong way at the same time. The Fed took rates from near zero to over 5%, which raises the return a buyer demands and roughly triples the cost of the debt. Remote work emptied floors, and downtown Chicago office vacancy hit a record near 28% by late 2025. Less income divided by a higher cap rate is a fraction of the old price. That is the whole 90%." },
+      { mark: "debt", color: "var(--down)", text: "Almost none of these owners chose to sell. They bought at the top, 2005 to 2019, with cheap debt at low cap rates, and the loans are maturing into a market where the building is worth less than the mortgage. It cannot be refinanced, so the owner hands back the keys or the lender forecloses and clears the asset at whatever it brings, often near land value. 300 W. Adams sold with the building split off from the land, and 100 N. Riverside was only a leasehold interest. Forced selling sets the print." },
+      { mark: "buyers", color: "var(--up)", text: "The other side is all cash opportunistic investors, not lenders rolling debt forward. At $17 to $67 a foot they are buying below what it would cost to build, so even a half empty tower can carry itself and still pencil for a residential conversion. That low basis is the level that clears, where the price finally drops far enough that the cash flow works again." },
+      { mark: "read", color: "var(--accent)", text: "My read is that this is a debt reset, not the end of Chicago. Towers financed for a zero rate, full occupancy world are repricing to what their cash flow supports at today's cost of capital, and for tired commodity office that is close to the dirt. Chicago is the sharpest version because it stacked record vacancy and a heavy property tax picture on top of the rate move, which is why it is the national headline. What I am watching is whether it stays in Class B and C space or climbs into the trophy Class A towers and the banks behind them. Contained, it is a repricing. If it spreads up the quality curve and into the lenders, it is a solvency problem." }
+    ]
+  },
+  {
     slug: "semis-macro-positioning-reset",
     date: "2026-07-28", dateLabel: "JUL 28 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "reset",
     source: "Bloomberg",
