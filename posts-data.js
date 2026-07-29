@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "korea-crash-us-transmission",
+    date: "2026-07-29", dateLabel: "JUL 29 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "-37%",
+    source: "Bloomberg",
+    sourceUrl: "https://www.bloomberg.com/news/articles/2026-07-29/korean-stocks-tumble-a-second-day-as-sk-hynix-results-disappoint",
+    title: "Korea's market crash has gone mechanical, and it is exporting straight into US chips",
+    dek: "The KOSPI fell about 6% overnight, its second straight circuit breaker and down roughly 37% in 27 trading days. SK Hynix printed its best quarter ever and still fell 15%, and the selloff is now pulling US semis down with it.",
+    thesis: "The Korea crash has stopped being a repricing and become a mechanical, leverage-driven event, and it is now the transmission line into US chips. The tell is SK Hynix posting the most profitable quarter in its history and still falling about 15%: when record earnings get sold, the market has quit pricing this quarter and started pricing the end of the memory scarcity premium. Because Samsung and SK Hynix set global memory pricing and sentiment, that repricing exports straight into SOXX, already down on the month by the most since 2021.",
+    breaks: "DRAM and HBM contract prices hold and Chinese supply stays years out, so Samsung and SK Hynix earnings keep climbing and the two names re-rate back up. That would make this a forced deleveraging flush, brutal but temporary, rather than the market correctly calling the top of the memory cycle.",
+    blocks: [
+      { mark: "-37%", color: "var(--down)", text: "The KOSPI fell about 6% overnight and tripped a circuit breaker for the second day in a row, the first back to back halt in the market's history and the eighth of 2026. That leaves it down roughly 37% in 27 trading days from its June 19 record of 9,385, and on track for the worst calendar month the index has ever recorded. The day before it fell 10.8% in a single session. Samsung and SK Hynix, each down 13 to 15% on Tuesday, are pulling the whole market with them, because together the two of them are close to half the index." },
+      { mark: "tell", color: "var(--amber)", text: "What tipped it is the part worth sitting with. SK Hynix reported the most profitable quarter in its history and the stock still fell about 15%. When a record print gets sold that hard, the market has stopped pricing this quarter's earnings and started pricing what comes after the memory scarcity that produced them. Good news sold off is the clearest sign a story has flipped from earnings to expectations." },
+      { mark: "leverage", color: "var(--down)", text: "This is now a mechanical crash, not an orderly decline. Korea's retail base carries heavy margin, and a 37% drop in five weeks forces that leverage to sell, which trips the circuit breaker, which forces more selling when trading reopens. Back to back halts are what a disorderly crash driven by leverage looks like, and it is a different animal from the slower repricing US semis have had this month. The move is feeding on the plumbing now, not just the headlines." },
+      { mark: "contagion", color: "var(--accent)", text: "This is not staying in Seoul. SOXX is down about 3.6% today and more than 20% on the month, its worst stretch since 2021. Korea is the transmission line because Samsung and SK Hynix set global memory pricing and sentiment, and the high bandwidth memory they build is the exact piece of the AI buildout that US names are valued on. When the two companies at the center of memory crack, Micron and the whole AI memory trade crack with them, and the selloff jumps the Pacific into US chips." },
+      { mark: "read", color: "var(--accent)", text: "My read is to watch the memory contract prices, not the KOSPI level. If DRAM and HBM prices hold and Chinese supply stays years away, this is a leverage flush, the record earnings will matter again, and Samsung and SK Hynix re-rate off the bottom. If those contract prices actually roll over, the market was right to sell the record quarter, and this is the memory cycle turning with US chips next in line through SOXX. Either way, the good news selloff has shifted the burden of proof onto the bulls." }
+    ]
+  },
+  {
     slug: "mythos-cryptanalysis",
     section: "ai",
     date: "2026-07-28", dateLabel: "JUL 28 2026", tag: "CRYPTANALYSIS", color: "var(--accent)", mark: "crypto",
