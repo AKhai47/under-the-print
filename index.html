@@ -122,6 +122,10 @@
             </div>
           </a>
         </sc-for>
+
+        <sc-if value="{{ showMore }}">
+          <button onClick="{{ loadMore }}" style="width:100%;margin-top:22px;padding:13px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:transparent;border:1px solid var(--line);border-radius:2px;cursor:pointer" style-hover="border-color:var(--accent);background:var(--accentSoft)">Load {{ remaining }} more →</button>
+        </sc-if>
       </div>
     </section>
 
@@ -154,7 +158,8 @@ class Component extends DCLogic {
   state = {
     wide: typeof window !== 'undefined' ? window.innerWidth >= 980 : false,
     posts: null,
-    feed: null
+    feed: null,
+    visible: 8
   };
 
   async _loadFeed() {
@@ -204,13 +209,18 @@ class Component extends DCLogic {
   renderVals() {
     const wide = this.state.wide;
     const dark = this._isDark();
-    const posts = (this.state.posts || []).map(p => ({
+    const all = (this.state.posts || []).map(p => ({
       href: 'Note.dc.html?p=' + p.slug,
       color: p.color, mark: p.mark, tag: p.tag, dateLabel: p.dateLabel, title: p.title, dek: p.dek
     }));
+    const posts = all.slice(0, this.state.visible);
+    const remaining = all.length - posts.length;
     return {
       ...this._tapeVals(),
       posts,
+      showMore: remaining > 0,
+      remaining,
+      loadMore: () => this.setState({ visible: this.state.visible + 8 }),
       themeLabel: dark ? 'Light' : 'Dark',
       toggleTheme: () => this._toggle(),
       shellMaxWidth: wide ? '1160px' : '640px',
