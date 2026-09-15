@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "spare-capacity-is-exported",
+    date: "2026-09-14", dateLabel: "SEP 14 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "30%",
+    source: "UNIDO via Visual Capitalist",
+    sourceUrl: "https://www.visualcapitalist.com/charted-chinas-rise-to-manufacturing-dominance-over-30-years/",
+    title: "China makes 30% of the world's manufacturing value added, more than the US, Japan and Germany combined, so its spare capacity is everyone else's price level",
+    dek: "The share went from 6% in 2000 to roughly 30% today. The interesting part is not the size, it is that share is the coefficient that decides whether a Chinese overcapacity problem stays a Chinese problem.",
+    thesis: "Share of value added is the multiplier that turns a domestic Chinese condition into a global price. At 6% of world manufacturing, a capacity overhang cleared inside China through closures and price cuts nobody else felt. At 30%, and more than the next three industrial economies put together, it cannot clear domestically, so it clears through export prices instead. That makes Chinese factory utilization an input into other countries' goods CPI and other countries' industrial margins, which is a strange position for a variable no Western central bank has a mandate over.",
+    breaks: "Chinese producer prices turn positive and hold while capacity utilization rises, which would say domestic demand is finally absorbing the output and the exported disinflation stops. Or the share keeps climbing while Chinese export prices climb with it, which would mean 30% is pricing power rather than surplus, and the transmission runs the other way.",
+    blocks: [
+      { mark: "30%", color: "var(--up)", text: "China's share of global manufacturing value added is roughly 30%, up from 6% in 2000. That output now exceeds the combined manufacturing value added of the United States, Japan and Germany, the next three largest industrial economies. A quarter century moved five times the share of the world's manufacturing base into one country, and the comparison set is not one peer, it is three." },
+      { mark: "why", color: "var(--faint)", text: "Share is the transmission coefficient. At 6%, a Chinese overhang cleared inside China and nobody else saw it. At 30% it cannot, so it clears through export prices. The same logic runs on the input side: a country holding that share sets the marginal cost for the goods everyone else assembles, which is why an industrial policy decision in Beijing shows up as a margin in Stuttgart." },
+      { mark: "read", color: "var(--accent)", text: "My read is that the number to watch is not the share, it is Chinese producer prices against capacity utilization. Tariffs do not reduce the tonnage produced, they reroute it, so a wall in one market pushes the same output into the markets without one. The 30% tells you how large that reroute can be. PPI tells you whether it is happening." }
+    ]
+  },
+  {
     slug: "the-gap-is-a-queue",
     section: "realestate",
     date: "2026-09-14", dateLabel: "SEP 14 2026", tag: "HOUSING", color: "var(--purple)", mark: "562,618",
