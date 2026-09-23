@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "thirty-year-real-yield-not-inflation",
+    date: "2026-09-23", dateLabel: "SEP 23 2026", tag: "RATES", color: "var(--accent)", mark: "3.0% real",
+    source: "Federal Reserve H.15",
+    sourceUrl: "https://www.federalreserve.gov/releases/h15/",
+    title: "The 30-year is back above 5.37% on oil, but breakevens fell through the Fed hike and the level is sitting in real yields",
+    dek: "The headline reads as an inflation scare: WTI back near $90, Brent above $100, the long bond at a two-decade high. The Fed's own H.15 data says long-run inflation expectations barely moved through last week's hike. What the market is charging for is a 3% real rate.",
+    thesis: "The long end is pricing an oil shock as a Fed problem, not an inflation problem. Breakevens are flat to lower and the 30-year real yield is holding above 3%, so the move is a higher real policy path plus term premium, and it is what the market charges for a Fed hiking into a supply shock.",
+    breaks: "The 30-year breakeven pushes clearly above its roughly 2.25% to 2.30% range while real yields hold, meaning oil is de-anchoring long-run inflation expectations, or the 30-year real yield falls back below 3% as oil retraces, meaning the level was fear rather than price.",
+    blocks: [
+      { mark: "5.37%", color: "var(--down)", text: "The 30-year is trading above 5.37% Wednesday, and the tape headline puts it on track for its highest settlement in roughly two decades. NBC called the September 14 print of 5.37% the highest since 2007. Oil is the stated trigger. Brent is back at $101.61, up 2.37% on the day per Trading Economics, and WTI is near $90, after Saudi Arabia shut the East-West pipeline and the Hormuz talks were postponed. Diesel hit an all-time $6.23 a gallon on September 14. The story being told is that oil is pushing both inflation and hike expectations higher. Half of that is in the data." },
+      { mark: "+25bp", color: "var(--faint)", text: "The hike already happened. Effective fed funds went from 3.63% on September 16 to 3.88% on September 17, a 25bp move at last week's meeting, with odds above 90% going in. So the front end has repriced once and the question is how many more. The 2-year went from 4.67% on September 15 to 4.76% on September 21. The 30-year went from 5.36% to 5.29% over the same days. 2s30s flattened from 69bp to 53bp. That is the normal response to a credible hike, the front end rises and the long end relaxes." },
+      { mark: "2.27%", color: "var(--up)", text: "Now split the long bond. On September 15 the 30-year was 5.36% nominal against 3.07% on the 30-year TIPS, a 2.29% breakeven. On September 21 it was 5.29% against 3.02%, a 2.27% breakeven. The 5-year breakeven fell from 2.41% to 2.33% and the 10-year from 2.38% to 2.34%. Through a week with Brent over $100 and a Fed hike, the market's long-run inflation expectation did not move up. It moved down slightly. The oil shock is not getting into the 30-year through breakevens." },
+      { mark: "3.0% real", color: "var(--purple)", text: "It is getting in through real yields. The 30-year TIPS spent the whole week between 3.02% and 3.09%, which means more than half of a 5.3% long bond is real rate. A real rate that high is the price of lending to a government for thirty years while the central bank hikes into a supply shock and the fiscal deficit keeps issuance heavy. The 20-year yielding above the 30-year, 5.40% against 5.36% on September 15, shows the same thing. That kink is about who buys each tenor and in what size, not inflation. The long end is being cleared by price, and the price is set in real terms." },
+      { mark: "read", color: "var(--accent)", text: "So the headline gets the mechanism half right. Hike expectations are pushing yields up. Inflation expectations are not, at least not yet. That matters for positioning. If this were de-anchoring you would own breakevens and fear the Fed losing control. With breakevens flat and real yields at 3%, the risk is the opposite: the Fed stays credible and keeps real rates high enough to hurt duration, housing and anything funded at the long end. The number to watch today is not 5.37%. It is whether the 30-year breakeven breaks above about 2.30%. If it does, the thesis is wrong and oil is finally reaching long-run inflation. If it doesn't, this is a real rate story." }
+    ]
+  },
+  {
     slug: "shinyhunters-fbi-retraction-demand",
     section: "ai",
     date: "2026-09-23", dateLabel: "SEP 23 2026", tag: "CYBER", color: "var(--purple)", mark: "retract",
