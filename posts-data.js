@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "agentic-bank-run",
+    date: "2026-09-28", dateLabel: "SEP 28 2026", tag: "RATES", color: "var(--accent)", mark: "0.1%",
+    title: "AI agents remove the inertia that keeps bank deposits cheap",
+    dek: "Apollo's Torsten Slok warns that agents like Meta's Muse could sweep household cash from 0.1% checking into fintech accounts paying 3.3% to 5.0%.",
+    thesis: "Cheap deposits have been protected by customer inertia, not by the rate they pay. An agent that moves cash automatically removes that inertia, and banks would have to pay up to keep their funding.",
+    breaks: "Households don't hand cash-management authority to agents, or banks reprice deposits fast enough that the yield gap closes before much cash moves.",
+    blocks: [
+      { mark: "0.1%", color: "var(--down)", text: "The national average checking account pays 0.1%, per the FDIC data in Slok's chart. The average savings account pays 0.4%." },
+      { mark: "3.3-5.0%", color: "var(--up)", text: "The fintech deposit rates in the chart run from 3.3% (AlumniFi) to 5.0% (Adelfi). SoFi is at 4.5%, Revolut standard at 3.5%, Varo at 3.8%." },
+      { mark: "agent", color: "var(--faint)", text: "Torsten Slok, chief economist at Apollo Global Management, says Muse and similar agentic assistants could soon sweep household cash automatically into accounts paying 3.3% to 5.0%, instead of the 0.1% average on checking." },
+      { mark: "funding", color: "var(--faint)", text: "If every household used agents to optimize the return on cash balances, banks could lose a large share of the cheap deposits they rely on to make loans. Slok calls that a problem for the entire financial system." },
+      { mark: "inertia", color: "var(--faint)", text: "The yield gap is not new. What changes is the friction. Most households leave cash in checking because moving it takes effort, and an agent takes the effort out." },
+      { mark: "read", color: "var(--accent)", text: "The likely response is that banks raise deposit rates. That would push up funding costs and speed up the industry's shift toward paying for deposits." }
+    ]
+  },
+  {
     slug: "office-delinquencies-above-2008",
     section: "realestate",
     date: "2026-09-24", dateLabel: "SEP 24 2026", tag: "CRE", color: "var(--purple)", mark: "11.91%",
