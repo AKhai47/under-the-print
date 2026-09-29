@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "jolts-surplus-collapses",
+    date: "2026-09-29", dateLabel: "SEP 29 2026", tag: "RATES", color: "var(--accent)", mark: "1.0x",
+    source: "Bureau of Labor Statistics, JOLTS",
+    sourceUrl: "https://www.bls.gov/news.release/archives/jolts_09292026.htm",
+    title: "Job openings missed for a third straight month, and the labor market's cushion over the unemployed is nearly gone",
+    dek: "August JOLTS put openings at 7.079 million against a 7.228 million consensus, the third consecutive miss. The surplus of openings over unemployed workers fell to 48,000 from 419,000 in July.",
+    thesis: "The openings-to-unemployed ratio is the number the Fed has been citing as evidence of a balanced, not weak, labor market. That balance was resting on a razor-thin surplus, and August cut it by nearly 90% in one print. A market priced for a soft landing needs that surplus to hold, not to keep shrinking toward zero.",
+    breaks: "September's JOLTS or the payrolls report reverses the openings decline and the surplus rebuilds, or the drop turns out to be concentrated in one sector (real estate) rather than broadening across the report.",
+    blocks: [
+      { mark: "7.079mn", color: "var(--down)", text: "August job openings came in at 7.079 million, seasonally adjusted, below the 7.228 million consensus and down from July's 7.335 million (revised up from 7.271 million). It's the third straight month openings have missed expectations. The openings rate fell to 4.3% from 4.4%." },
+      { mark: "48k", color: "var(--down)", text: "The gap between job openings and the number of unemployed people fell to just 48,000, from 419,000 in July. That gap is the plainest read on labor market slack, and it just collapsed by close to 90% in a single month. The openings-to-unemployed ratio dropped to 1.0x from 1.1x." },
+      { mark: "real estate", color: "var(--faint)", text: "The sharpest sector move was real estate and rental/leasing, where openings roughly halved to 50,000, the lowest since February 2014. Manufacturing openings fell 54,000 and health care fell 115,000. Information was one of the few sectors to add openings, up 45,000." },
+      { mark: "quits", color: "var(--faint)", text: "Quits fell 23,000 to 3.066 million, a 1.9% rate, unchanged from July. Workers quitting less is a read on confidence: fewer people are walking away from a job because they think something better is available. Hires rose 46,000 to 5.2 million, a 3.3% rate, still not enough to offset the pullback in openings." },
+      { mark: "read", color: "var(--accent)", text: "The openings miss has been building for three months, not a one-off. The move that matters most is the openings-over-unemployed surplus, because that's the metric that's kept the \"labor market is balanced, not weakening\" narrative intact. An 88% drop in one print, even before Friday's payrolls report, is a harder story to wave off as noise." }
+    ]
+  },
+  {
     slug: "agentic-bank-run",
     date: "2026-09-28", dateLabel: "SEP 28 2026", tag: "RATES", color: "var(--accent)", mark: "0.1%",
     title: "AI agents remove the inertia that keeps bank deposits cheap",
