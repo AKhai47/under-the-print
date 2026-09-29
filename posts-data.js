@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "rotation-out-of-small-caps",
+    date: "2026-09-29", dateLabel: "SEP 29 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "32%",
+    source: "Goldman Sachs, CME FedWatch, Federal Reserve",
+    sourceUrl: "https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html",
+    title: "The small-cap trade runs on floating-rate debt, and the Fed just started hiking again",
+    dek: "IWM beat SPY by a wide margin from June 2025 through July 2026 as rate cuts eased the pressure on small-cap balance sheets. That reversed over the past three months, and the mechanism is the same one that drove the rally: floating-rate debt.",
+    thesis: "The Russell 2000's outperformance was a rate-cut trade, not a small-cap-quality trade. About a third of Russell 2000 companies carry floating-rate debt versus roughly 6% of the S&P 500, so their interest expense moves with the policy rate almost immediately. Cuts were pure earnings relief. Now that the Fed is hiking again, that same leverage runs in reverse, and it should keep pressuring IWM relative to SPY as long as the hiking path stays priced in.",
+    breaks: "The Fed signals September's hike was a one-off rather than the start of a cycle and the market stops pricing more increases, or small-cap earnings hold up despite higher financing costs, showing the floating-rate linkage isn't driving the relative move as much as the debt composition data implies.",
+    blocks: [
+      { mark: "32% v 6%", color: "var(--down)", text: "Goldman Sachs puts floating-rate debt exposure at roughly 32% of Russell 2000 companies versus about 6% of S&P 500 companies. That gap is the entire mechanism. A rate move that barely touches a mega-cap's fixed, pandemic-era debt hits a small-cap borrower's interest line right away." },
+      { mark: "hike", color: "var(--down)", text: "The Fed raised its target range 25bp to 3.75-4.00% on September 16, the first hike since 2023, citing inflation still running above target. The dot plot points to one more 25bp hike before year-end. The 10-year yield ran up to roughly 5.16%, the highest since 2007." },
+      { mark: "5 weeks", color: "var(--faint)", text: "SPY has now outperformed IWM for five straight weeks, on pace for the longest streak of large-cap leadership over small caps in eight years if it continues. IWM saw roughly $3.3bn of outflows in a single week as the streak built." },
+      { mark: "the setup", color: "var(--faint)", text: "The prior leg ran the other way for the same reason. From June 2025 through July 2026, IWM outperformed SPY by a wide margin as the Fed cut rates three times, which unwound the floating-rate drag that had been crushing small-cap earnings. That's why IWM was up roughly 22% year to date at its high versus SPY's roughly 13%. The trade was never really about small caps being better businesses, it was about their debt repricing down." },
+      { mark: "read", color: "var(--accent)", text: "Positioning for this as a continued rotation out of small caps only works if the hiking path holds. The debt composition gap between the two indexes doesn't change, so whichever way the policy rate goes next is what decides which side of this trade keeps working." }
+    ]
+  },
+  {
     slug: "jolts-surplus-collapses",
     date: "2026-09-29", dateLabel: "SEP 29 2026", tag: "RATES", color: "var(--accent)", mark: "1.0x",
     source: "Bureau of Labor Statistics, JOLTS",
