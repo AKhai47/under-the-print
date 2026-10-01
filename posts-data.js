@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "ta419-anthropic-phishing-ai-policy",
+    section: "ai",
+    date: "2026-10-01", dateLabel: "OCT 01 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "TA419",
+    source: "Cybersecurity News (Proofpoint research)",
+    sourceUrl: "https://cybersecuritynews.com/chinese-hackers-posing-as-anthropic-employee/",
+    title: "China-Linked Group Impersonated an Anthropic Employee to Target US AI Policy Experts",
+    dek: "TA419 posed as Anthropic staff and a former White House science deputy, then used fake OneDrive pages to steal session cookies and bypass MFA on policy researchers' Microsoft accounts.",
+    blocks: [
+      { mark: "feb 2026", color: "var(--down)", text: "TA419, a China-aligned group Proofpoint has tracked since April 2025, contacted a US think tank AI policy analyst posing as a senior Anthropic employee. Subject line: 'Request for Feedback on Military Integration of Claude.'" },
+      { mark: "aitm", color: "var(--faint)", text: "The follow-up links led to fake OneDrive pages running a modified Evilginx proxy of the real Microsoft login flow. Custom JavaScript auto-accepted 'Keep me signed in' and relayed the victim's own one-time code back to the real login, stealing the session rather than the password. That's how it gets past MFA." },
+      { mark: "scale-up", color: "var(--faint)", text: "By July 2026 the campaign widened. TA419 impersonated Lynne Parker, former deputy at the White House science office, and economist Heidi Crebo-Rediker, inviting targets at think tanks, universities, and law firms to a fictitious 'AI Policy Advisory Committee' or to contribute to a fake Senate foreign relations report on AI export controls." },
+      { mark: "read", color: "var(--accent)", text: "Proofpoint has not confirmed any accounts were actually compromised. The signal is in the targeting: a lure specific enough to reference Claude's 'military integration' means whoever wrote it is tracking the AI policy conversation closely enough to spoof it convincingly." }
+    ]
+  },
+  {
     slug: "rotation-out-of-small-caps",
     date: "2026-09-29", dateLabel: "SEP 29 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "32%",
     source: "Goldman Sachs, CME FedWatch, Federal Reserve",
