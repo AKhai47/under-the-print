@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "ny-fed-private-credit-bank-loans",
+    date: "2026-10-06", dateLabel: "OCT 06 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "NY Fed",
+    source: "Semafor",
+    title: "The New York Fed is going into the big banks to look at their loans to private credit",
+    dek: "Fed officials have been visiting JPMorgan, Wells Fargo, Barclays and Morgan Stanley with questions on exposure, risk management and collateral quality.",
+    thesis: "The risk in private credit is shifting from the funds to the banks that lend to them, and the Fed is now examining that link directly.",
+    breaks: "The visits turn out to be routine and produce no change in how banks size, price or collateralize these loans, or the banks' disclosed exposure proves small relative to their capital.",
+    blocks: [
+      { mark: "4 banks", color: "var(--down)", text: "Per Semafor, the New York Fed has been visiting JPMorgan, Wells Fargo, Barclays and Morgan Stanley to review their loans to private credit firms." },
+      { mark: "asked", color: "var(--faint)", text: "The questions cover exposure, risk management and collateral quality. Those are the three things that decide whether a bank loan to a lender is safe: how much, how it is monitored, and what backs it." },
+      { mark: "why", color: "var(--faint)", text: "Banks lend to private credit firms through credit lines and other facilities. This puts bank balance sheets behind loans the banks did not originate and may not see into. Collateral quality is the point, because the bank's protection is only as good as the underlying loans." },
+      { mark: "read", color: "var(--accent)", text: "The Fed does not have direct oversight of private credit funds. It does have it over the banks funding them, so this is where it can look. Watch for what the visits change, such as tighter terms, higher haircuts or reporting requirements, not for the visits themselves." }
+    ]
+  },
+  {
     slug: "ta419-anthropic-phishing-ai-policy",
     section: "ai",
     date: "2026-10-01", dateLabel: "OCT 01 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "TA419",
