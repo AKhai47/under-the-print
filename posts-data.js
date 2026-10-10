@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "south-korea-bank-attacks-ai-claude-code",
+    section: "ai",
+    date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "ARTEX",
+    source: "CrowdStrike, via Security Affairs",
+    sourceUrl: "https://securityaffairs.com/200661/hacking/ai-driven-tool-artex-used-in-attacks-against-south-korean-banks.html",
+    title: "South Korea Probes Bank Hacks as CrowdStrike Finds Claude Code Histories on Attacker Servers",
+    dek: "President Lee Jae Myung says AI appears to have been used in recent attacks on the country's banks, and CrowdStrike's analysis of the attacker infrastructure points to an open-source AI pentest tool paired with Claude Code.",
+    blocks: [
+      { mark: "probe", color: "var(--down)", text: "President Lee Jae Myung said there are signs AI was used in some of the recent attacks on South Korean banks. Police have reportedly opened a full-scale investigation into the attacks, which led to a breach of customers' personal information. Authorities have not said which AI tools were used or how far the breaches reach." },
+      { mark: "found", color: "var(--faint)", text: "CrowdStrike analyzed open directories on attacker-controlled servers and reported finding 'Claude Code session histories, ARTEX configuration files, and Claude memory files.' Those files show how the operator worked. The infrastructure spanned a Hong Kong server for main operations and a separate ARTEX instance, with nine proxy IPs documented." },
+      { mark: "artex", color: "var(--faint)", text: "ARTEX is a recently released open-source penetration testing tool from China that lets AI agents run security assessments autonomously. The ARTEX instance used DeepSeek v4.1-flash as its main model, with Zhipu AI's GLM-5.3 and Grok 4.6 appearing in other sessions." },
+      { mark: "scope", color: "var(--faint)", text: "The campaign ran from late September to early October 2026. Industry reports name at least two compromised institutions, one through a loan inquiry service for brokers and one through an employee mobile work system. The number of affected people has not been confirmed." },
+      { mark: "actor", color: "var(--faint)", text: "CrowdStrike assesses with moderate confidence that the operator is Chinese-speaking and financially motivated, based on tool choice and Chinese-language prompts in the recovered files. The stolen data was reportedly being prepared for sale on Telegram." },
+      { mark: "read", color: "var(--accent)", text: "The notable part is the evidence trail. An attacker who works through AI agents leaves prompts, session logs and config files on their own servers, and that is what exposed the operation. For banks, the entry points were ordinary business systems, so the defense is still exposure and access control, with attacks now cheaper and faster to run." }
+    ]
+  },
+  {
     slug: "poellm-github-poem-c2",
     section: "ai",
     date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "poem",
