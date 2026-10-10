@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "security-awareness-training-needs-a-rethink",
+    section: "ai",
+    date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "training",
+    source: "SecurityWeek",
+    sourceUrl: "https://www.securityweek.com/security-awareness-training-isnt-dead-but-it-needs-a-rethink/",
+    title: "Security Awareness Training Isn't Dead, but Compliance-Driven Programs Are Failing",
+    dek: "Vendors and a cognitive psychologist told SecurityWeek the problem is how training is run: annual, generic, built for audits, and aimed at attacks that have already changed.",
+    blocks: [
+      { mark: "checkbox", color: "var(--down)", text: "Per SecurityWeek, most programs are built around compliance and insurance mandates, which push every employee through the same annual content regardless of what they already know. Mike Lyman of Black Duck calls it 'training-as-compliance-theater': checkbox completion without behavior change." },
+      { mark: "ai", color: "var(--faint)", text: "Mika Aalto of Hoxhunt reports a 14-fold surge in AI-generated phishing at the turn of 2025 to 2026, with cleaner formatting and personalization at scale. That figure is a vendor claim. Jim Dolce of Lookout argues that asking people to beat AI-written lures on a phone screen is an architecture problem, not a training problem." },
+      { mark: "memory", color: "var(--faint)", text: "Cognitive psychologist Jordan Richard Schoenherr says forgetting is memory's default state. To use training, an employee must spot the threat, retrieve the lesson, apply it in context and recall the right response, all in the moment." },
+      { mark: "asymmetry", color: "var(--faint)", text: "Defenders must be right every time and attackers once. Training also teaches yesterday's attacks, and social engineers work on deception full time while employees are doing their jobs. In Biswajit De's words, attackers need 'one distracted person on one busy afternoon.'" },
+      { mark: "read", color: "var(--accent)", text: "The article's conclusion is to redesign training, not drop it. That means more frequent, role-specific lessons, context-timed nudges at the moment of risk, and technical controls that assume someone will eventually click. For a defender, the useful metric is the damage when a click happens, not the completion rate." }
+    ]
+  },
+  {
     slug: "ny-fed-private-credit-bank-loans",
     date: "2026-10-06", dateLabel: "OCT 06 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "NY Fed",
     source: "Semafor",
