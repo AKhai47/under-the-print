@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "poellm-github-poem-c2",
+    section: "ai",
+    date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "poem",
+    source: "Black Lotus Labs (Lumen)",
+    sourceUrl: "https://www.lumen.com/blog/en-us/canto-incognito-tracking-the-poellm-malware",
+    title: "PoeLLM Malware Hides Its C2 Address in a Poem on GitHub",
+    dek: "Infected servers pull four words from a GitHub poem and convert them into the IP of the current command server, so the operator can move infrastructure by editing a file.",
+    blocks: [
+      { mark: "3,400+", color: "var(--down)", text: "Black Lotus Labs says PoeLLM has been active since at least April 2026 and has hit over 3,400 servers, mostly in the US and Western Europe. It targets exposed AI and open-source services, mainly LiteLLM, Ollama, Gotenberg and Gitea, and also Ivanti Sentry. The payload mines cryptocurrency with XMRig and Iron miners and adds the host to the botnet." },
+      { mark: "poem", color: "var(--faint)", text: "The malware fetches a poem titled 'On the Nature of Connection' from a GitHub account, stored in a file named dash.css. It pulls four words from fixed phrases in the text, maps each to a number through a hardcoded dictionary, and joins them into an IPv4 address. In the report's example, 'driver', 'diode', 'decryption' and 'string' become 92.119.165.74." },
+      { mark: "resilience", color: "var(--faint)", text: "To move servers, the operator edits four words and every victim derives the new address on its own. The poem has been changed 11 times since the first commit on April 13, 2026. Blocking one C2 IP does not cut the botnet off, and the poem looks like ordinary text on a legitimate site." },
+      { mark: "entry", color: "var(--faint)", text: "The LiteLLM foothold is CVE-2026-42271, a command injection through the /mcp-rest/test/connection endpoint. Ivanti Sentry is tracked as CVE-2026-10520. The binary also carries a remote shell, HTTP scanning and exploit modules. Help Net Security notes recent SSH brute-force experimentation." },
+      { mark: "actor", color: "var(--faint)", text: "Black Lotus Labs ties the operator to an Italian-speaking, financially motivated actor with moderate confidence, citing Italian code comments and Italy-hosted infrastructure. It has blocked C2 traffic and keeps monitoring." },
+      { mark: "read", color: "var(--accent)", text: "The initial access is exposed AI infrastructure, not a clever exploit. Lumen's advice is to audit what is internet-facing and close ports such as 4000 for LiteLLM and 3000 for Gotenberg. Because the C2 can be rotated at will, defenders get more from hardening exposure than from chasing indicator lists." }
+    ]
+  },
+  {
     slug: "term-premium-highest-since-2014",
     date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "RATES", color: "var(--accent)", mark: "0.98%",
     source: "Bloomberg",
