@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "term-premium-highest-since-2014",
+    date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "RATES", color: "var(--accent)", mark: "0.98%",
+    source: "Bloomberg",
+    title: "The Term Premium on 10-Year Treasuries Is at Its Highest Since 2014",
+    dek: "The extra yield investors demand for holding 10-year Treasuries has jumped to a level not seen in over a decade, and it drove the latest leg of the bond selloff.",
+    thesis: "The bond selloff is no longer only about rate expectations. Investors are asking to be paid more for holding duration itself, which can keep long-term yields high even if the Fed's path doesn't change.",
+    breaks: "Term premium falls back toward its prior range while the 10-year yield holds or falls, or the fiscal and geopolitical risks behind it fade and long-end auctions keep clearing without concessions.",
+    blocks: [
+      { mark: "0.98%", color: "var(--down)", text: "Per Bloomberg, the New York Fed's model puts the 10-year term premium at about 0.98%, the highest since 2014. An alternative model shows 1.08%, the highest since 2010. The 10-year yield has risen about 30 basis points since mid-September." },
+      { mark: "what", color: "var(--faint)", text: "The term premium is the extra payout investors demand for owning a 10-year Treasury instead of rolling short-term bills. It is compensation for unpredictable turns, such as geopolitical shocks or a fiscal crisis, and is separate from the outlook for inflation and Fed policy." },
+      { mark: "drivers", color: "var(--faint)", text: "Bloomberg lists macro uncertainty, a breakdown in stock-bond correlation, rising debt supply, fiscal concerns, French bond market spillover, and geopolitical risk. The backdrop includes oil above $100 a barrel and a federal deficit near $2 trillion, about 6% of GDP." },
+      { mark: "view", color: "var(--faint)", text: "Aegon's Frank Rybinski says every way of calculating it is going higher and 'this move has staying power.' NISA's Stephen Douglass says 'we are in a rising term-premium environment.' Neel Kashkari has compared the term premium to dark matter, because it cannot be observed directly and has to be estimated." },
+      { mark: "read", color: "var(--accent)", text: "Term premium comes from models, so the level depends on which one you use. The direction is the same across them. A premium that persists keeps long-term rates elevated and adds to the pressure from inflation, strong growth and heavy borrowing by companies and governments. Watch whether long-end auctions need a concession to clear." }
+    ]
+  },
+  {
     slug: "security-awareness-training-needs-a-rethink",
     section: "ai",
     date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "training",
