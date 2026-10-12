@@ -1,6 +1,27 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "lvmh-louis-vuitton-q3-luxury-signal",
+    date: "2026-10-12", dateLabel: "OCT 12 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "-5%",
+    source: "LVMH, Bloomberg",
+    sourceUrl: "https://www.globenewswire.com/news-release/2026/10/12/3379064/0/en/lvmh-continued-growth-in-the-third-quarter-of-2026.html",
+    title: "LVMH's Biggest Division Fell 5% in Q3. Is It a Consumer Signal or a China Story?",
+    dek: "Fashion and leather goods, home of Louis Vuitton, missed estimates by more than three points while the US, Europe and Japan grew. The data supports two readings, and the post leaves the choice open.",
+    thesis: "A miss at the world's largest luxury group is worth reading as a possible signal on discretionary spending. Whether it points to a weaker consumer than other data show, or to one brand's trouble in one region, is the open question.",
+    breaks: "The US, Europe and Japan keep growing at current rates while China stays the only drag, and other luxury groups report stable demand in the same period.",
+    blocks: [
+      { mark: "-5%", color: "var(--down)", text: "Organic revenue at LVMH's fashion and leather goods unit, its biggest division, fell 5% in Q3. Analysts expected a drop of 1.57%. The division was down 2% over nine months, so the decline sped up in the quarter. Group sales rose 1% organically and missed estimates. The ADRs fell as much as 3.6% in New York." },
+      { mark: "stock", color: "var(--down)", text: "LVMH shares are down more than 40% this year, on track for the worst annual performance since 2008. It is the worst performer among major luxury groups, followed by Hermes." },
+      { mark: "regions", color: "var(--up)", text: "Q3 organic growth was +5% in the US, +4% in Europe and +6% in Japan. Asia excluding Japan fell 5%, the only region that declined. LVMH's own release says only that the US, Europe and Japan 'saw good growth.'" },
+      { mark: "divisions", color: "var(--faint)", text: "Every other division grew in Q3: Selective Retailing +8%, Wines & Spirits +6%, Watches & Jewelry +6%, Perfumes & Cosmetics +1%. Fashion and leather goods was the only one to shrink." },
+      { mark: "China", color: "var(--faint)", text: "Louis Vuitton won a trademark case against Molly Tea, a much smaller local tea maker, and Chinese consumers called the suit unfair. The backlash hit sales. But LVMH's CFO described 'a more macro-led challenging consumer backdrop among Chinese clientele' and expects China to stay challenging near term, with no recovery timeline given." },
+      { mark: "backdrop", color: "var(--faint)", text: "The article lists three headwinds for luxury this year: sluggish Chinese demand, the prolonged conflict in the Middle East, and weaker consumer confidence." },
+      { mark: "for", color: "var(--faint)", text: "Hermes is the second worst performer among the major groups, so the weakness reaches beyond one company. Management itself calls the Chinese consumer backdrop macro-led, not only brand-specific. The fashion and leather decline accelerated from nine months to Q3." },
+      { mark: "against", color: "var(--faint)", text: "China was the only region that declined, and the other four divisions grew. Management said fashion and leather 'continued to benefit from the buoyant US market.' The one-off backlash gives a brand-specific reason for part of the China drop." },
+      { mark: "ask", color: "var(--accent)", text: "If the damage were only Molly Tea, China would recover once the backlash fades. If it is the consumer, US and European growth should start slipping in coming quarters. Which one are you reading?" }
+    ]
+  },
+  {
     slug: "cisco-nvidia-usfp-optics",
     date: "2026-10-12", dateLabel: "OCT 12 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "USFP",
     source: "NVIDIA Newsroom",
