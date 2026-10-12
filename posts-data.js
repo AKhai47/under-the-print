@@ -1,6 +1,25 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "cisco-nvidia-usfp-optics",
+    date: "2026-10-12", dateLabel: "OCT 12 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "USFP",
+    source: "NVIDIA Newsroom",
+    sourceUrl: "https://nvidianews.nvidia.com/news/nvidia-and-cisco-introduce-new-pluggable-optics-form-factor-to-scale-ai-factories",
+    title: "Cisco's USFP Deal With Nvidia Buys Standards Position, Not FY27 Revenue",
+    dek: "Nvidia and Cisco will co-develop a 400G per lane pluggable optic, which puts Cisco's optics inside Nvidia's reference stack ahead of the next speed upgrade.",
+    thesis: "USFP is a positioning win for Cisco, not an earnings event. It places Cisco optics inside Nvidia-centric AI builds for the 400G per lane cycle. But there is no ship date and no published spec, so the revenue lands after the $7.5bn FY27 hyperscale AI target.",
+    breaks: "The multi-source spec slips or fragments into competing 400G per lane formats. It also breaks if Nvidia moves its fabric to co-packaged optics or in-house modules and leaves pluggables out.",
+    blocks: [
+      { mark: "400G/lane", color: "var(--faint)", text: "USFP is planned, not shipping. The first modules carry 16 full-duplex lanes at 400Gb/s in an OSFP-sized footprint, 12.8Tb/s of combined send and receive. Nvidia and Cisco claim 4x the bandwidth density and about 1.3x the power efficiency of 200G per lane optics." },
+      { mark: "$9.3bn", color: "var(--up)", text: "Cisco booked $9.3bn of hyperscale AI orders in FY26, about 4.5x FY25. Q4 was $4bn, roughly 60% Silicon One systems and 40% optics, with Acacia alone above $1bn. Management guides to about $7.5bn of hyperscale AI revenue in FY27, up from about $4bn. These figures come from secondary earnings coverage." },
+      { mark: "stack", color: "var(--faint)", text: "Cisco has sold Silicon One as the non-Nvidia Ethernet option. Co-developing the module and making Spectrum-X and Silicon One Ethernet interoperate puts Cisco optics into builds that standardize on Nvidia." },
+      { mark: "open", color: "var(--faint)", text: "The spec goes to a community-led multi-source project, with TE Connectivity and Amphenol building cages, connectors and modules. That helps adoption and supply. But anyone can build modules, which pressures module margins." },
+      { mark: "margin", color: "var(--down)", text: "Cisco's non-GAAP gross margin fell to 66.3% from 68.4% on AI hardware mix, and inventory is up about 80% year over year. A new module standard costs money before it earns any." },
+      { mark: "CPO", color: "var(--faint)", text: "Pluggables keep hot-swap serviceability. The companies frame USFP as complementing co-packaged optics, not replacing it. The risk is that Nvidia's own roadmap moves faster toward CPO." },
+      { mark: "read", color: "var(--accent)", text: "Treat this as a read on FY28 and beyond. Watch the published spec, added suppliers, first interoperability demos, and any USFP mention on Cisco's next earnings call." }
+    ]
+  },
+  {
     slug: "south-korea-bank-attacks-ai-claude-code",
     section: "ai",
     date: "2026-10-10", dateLabel: "OCT 10 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "ARTEX",
