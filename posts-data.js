@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "openai-engineer-conference-room-recorder",
+    section: "ai",
+    date: "2026-10-13", dateLabel: "OCT 13 2026", tag: "CYBER", color: "var(--purple)", mark: "USB",
+    source: "U.S. Department of Justice",
+    sourceUrl: "https://www.justice.gov/opa/pr/saudi-national-arrested-installing-surreptitious-audio-recording-device-openai",
+    title: "FBI Charges OpenAI Engineer Over a Hidden Recorder in an Executive Conference Room",
+    dek: "A federal complaint alleges a USB audio recorder sat behind a TV in an executive room for two days before staff found it. The case leans on camera footage and chatbot prompts, and OpenAI says it has no sign that model weights were touched.",
+    blocks: [
+      { mark: "charge", color: "var(--down)", text: "Abdulrahman Alfozan, 35, an OpenAI engineer since July 2025, was arrested Oct 9. He is charged with using or attempting to use a device to intercept oral communications, which carries up to 5 years in prison and a $250,000 fine. All of this is allegation from a complaint. His detention hearing is set for Oct 19." },
+      { mark: "device", color: "var(--faint)", text: "The complaint describes an audio recorder plugged into a USB port on the back of a TV in an executive conference room in a San Francisco building. It was hidden in toilet paper and its contents were encrypted. It was allegedly installed around Sept 28 and found by employees on Sept 30. Prosecutors say the room is used for research, product plans and business development." },
+      { mark: "trail", color: "var(--faint)", text: "The complaint says CCTV showed him near the room on several dates without authorization. Before the install, he allegedly used an internal productivity tool to ask about building addresses, meeting rooms, capacities, calendars, and the locations of 'leadership and exec' meetings. A chatbot account tied to his spouse, sharing identifiers with his own, allegedly prompted on Sept 24 to 30 about building and installing recording devices, and on Sept 27 to 28 about the device's custom header and MAC address." },
+      { mark: "second", color: "var(--faint)", text: "On Oct 5, a photo allegedly shows him looking behind the TV. The same day, a bag left unattended in another room held his wallet, ID and a second, similar recorder." },
+      { mark: "scope", color: "var(--faint)", text: "OpenAI fired him and called the FBI. It says it has 'no indications' he accessed or exfiltrated model weights, source code or customer data. The DOJ release names no recipient. FBI Director Kash Patel said the device was meant to capture sensitive communications about the company's 'super intelligence technology.' The U.S. Attorney said, 'For us it is a matter of national security.' The prosecution includes the National Security Division's Counterintelligence and Export Control Section." },
+      { mark: "read", color: "var(--accent)", text: "The alleged target was conversation, not data. Controls on weights and source code would not stop a USB recorder in a meeting room. The catches were low tech: staff noticed a device, cameras showed someone without access, and logs showed intent. For any company whose edge is unreleased plans, the meeting room is part of the attack surface, and badge scope and room sweeps matter as much as data loss controls." }
+    ]
+  },
+  {
     slug: "lvmh-louis-vuitton-q3-luxury-signal",
     date: "2026-10-12", dateLabel: "OCT 12 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "-5%",
     source: "LVMH, Bloomberg",
