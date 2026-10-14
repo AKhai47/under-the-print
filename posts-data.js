@@ -1,6 +1,25 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "microsoft-record-1413-patch-tuesday-ai-discovery",
+    section: "ai",
+    date: "2026-10-14", dateLabel: "OCT 14 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "1,413",
+    source: "SecurityWeek",
+    sourceUrl: "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/",
+    title: "Microsoft Patches a Record 1,413 Vulnerabilities in One Month, Largely From AI-Driven Discovery",
+    dek: "October's Patch Tuesday fixed more CVEs than all of 2025, up from 137 in May. Vendors are finding the bugs before attackers do, and the volume now lands on the teams that have to deploy the fixes.",
+    blocks: [
+      { mark: "1,413", color: "var(--down)", text: "Microsoft fixed 1,413 CVEs in October, a record. Windows accounts for 1,102, Office 134, developer tools 61 and SharePoint Server 36. SecurityWeek says that is more than Microsoft patched in all of 2025, and the 2026 total is past 4,000." },
+      { mark: "ramp", color: "var(--faint)", text: "May was 137. June was 206, July 622 and August 419, per The Record. October is roughly 10x May. The previous single-year high was around 1,250, and one month has now passed it." },
+      { mark: "MDASH", color: "var(--faint)", text: "SecurityWeek calls the surge largely driven by AI. In May, Microsoft detailed MDASH, an internal system that orchestrates more than 100 specialized agents. It found 16 of that month's 137 fixes, four rated critical, including unauthenticated remote code execution in the Windows kernel TCP/IP stack and IKEv2. On pre-patch snapshots of two heavily audited Windows components, it recovered 96% and 100% of the vulnerabilities confirmed over the past five years. It is still in limited private preview." },
+      { mark: "PANW", color: "var(--faint)", text: "Palo Alto Networks showed the same pattern in May. It published 26 advisories covering 75 vulnerabilities across more than 130 products, against a typical 5 to 10 a month. Most were found internally with Claude Mythos and other frontier models. None were critical and none showed signs of exploitation. Its CISO said, 'Volume does not equal severity.'" },
+      { mark: "0-day", color: "var(--faint)", text: "The one exploited bug is old-fashioned. CVE-2026-96951 (CVSS 8.8) is a Windows shell bypass of Mark of the Web, which lets a crafted file skip SmartScreen and Protected View warnings. It was reported independently by Fujitsu, Anthropic and an independent researcher. CISA added it to KEV with an Oct 16 federal deadline. Nothing in the article ties its discovery to AI." },
+      { mark: "triage", color: "var(--faint)", text: "Microsoft is adding a triage layer to cope with the volume. It now publishes 'risk cohorts,' groups of CVEs that need a similar customer assessment and may not share a root cause or CVSS score. Its own caveat: 'Risk cohorts are a starting point, not a final decision.' Since August it also lists bug counts by product family instead of individual CVEs." },
+      { mark: "cost", color: "var(--down)", text: "The cost moves downstream. Attackers diff new patches quickly, a pattern called Exploit Wednesday, and more patches means more diffs. Five Eyes warned in June that for frontier AI reshaping cyber, 'the timeline is not years, it is months.' As of The Record's August report, widespread exploitation of the new volume had not been observed." },
+      { mark: "read", color: "var(--accent)", text: "Discovery is working for defenders. Vendors are finding bugs in their own code before attackers do, at a rate no human audit matched. The bottleneck is now deployment: testing, change windows and prioritization. Watch the exploited share (one zero-day in 1,413 here), enterprise time to patch, and whether attackers using the same models start finding what vendors miss." }
+    ]
+  },
+  {
     slug: "musk-memory-pricing-contract-caps",
     date: "2026-10-13", dateLabel: "OCT 13 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "caps",
     source: "Elon Musk on X, TrendForce",
