@@ -1,6 +1,26 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "september-cpi-gasoline-core-steady",
+    date: "2026-10-14", dateLabel: "OCT 14 2026", tag: "RATES", color: "var(--accent)", mark: "+9.1%",
+    source: "U.S. Bureau of Labor Statistics, Fox Business",
+    sourceUrl: "https://www.bls.gov/news.release/cpi.nr0.htm",
+    title: "September CPI Rises 0.6% on Gasoline, and Core Holds at 0.3% for a Second Month",
+    dek: "Headline inflation hit 3.7% year over year as gasoline jumped 9.1% in a month, while core stayed at 0.3% month over month and 2.6% year over year.",
+    thesis: "September's headline overshoot is a gasoline event. Core at 0.3% for a second month says energy has not yet spread broadly into other prices. What matters for policy is whether the gasoline move passes through to core, and September shows it only at the edges.",
+    breaks: "Core prints 0.4% or higher in the next two reports as energy passes through to transport and goods, or the 0.4% shelter reading turns out to be the start of re-acceleration instead of a one-month bump. It also breaks if gasoline reverses and headline falls back without core changing, because then the report was noise, not a signal.",
+    blocks: [
+      { mark: "3.7%", color: "var(--down)", text: "Headline CPI rose 0.6% in September, up from 0.4% in August, and 3.7% year over year, up from 3.4%. The monthly print matched consensus. The annual print beat the 3.6% consensus (LSEG, per Fox Business)." },
+      { mark: "gas", color: "var(--down)", text: "Gasoline rose 9.1% on the month, seasonally adjusted (6.5% unadjusted), and 34.2% year over year. BLS says it accounted for over half of the monthly increase. Energy overall rose 5.2% on the month, after 2.1% in August, and 20.4% on the year." },
+      { mark: "core", color: "var(--faint)", text: "Core rose 0.3% for a second month, 2.6% year over year, up from 2.4% in August. Consensus was 0.2% monthly and 2.5% annual, so core was a small miss, not a clean in-line print. The gap between headline at 3.7% and core at 2.6% is the energy effect." },
+      { mark: "pass", color: "var(--faint)", text: "Rises came in recreation (+0.5%), used cars (+0.7%), airfares (+1.2%), education (+0.6%) and apparel (+0.3%). Communication fell 0.2%. Airfares are the likeliest place for energy costs to show up, but that link is my inference, not something BLS states." },
+      { mark: "shelter", color: "var(--faint)", text: "Shelter rose 0.4%, up from 0.3% in August, and 3.2% year over year. Owners' equivalent rent rose 0.3% and rent 0.2%. Shelter at 0.4% sits above both, so another component ran hotter. The sources I used do not name it." },
+      { mark: "food", color: "var(--faint)", text: "Food was flat on the month and up 2.5% year over year. Food at home fell 0.1%, led by dairy (-0.9%) and beef (-1.0%), and is up 1.8% on the year." },
+      { mark: "medical", color: "var(--faint)", text: "Medical care rose 0.1% and 1.5% year over year, with prescription drugs down 1.2%." },
+      { mark: "read", color: "var(--accent)", text: "Watch October and November core for the pass-through test, starting with airfares and transport, then shelter's 0.4% for a repeat. If gasoline holds near these levels, headline stays high even with core steady." }
+    ]
+  },
+  {
     slug: "microsoft-record-1413-patch-tuesday-ai-discovery",
     section: "ai",
     date: "2026-10-14", dateLabel: "OCT 14 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "1,413",
