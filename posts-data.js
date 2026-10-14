@@ -1,6 +1,26 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "musk-memory-pricing-contract-caps",
+    date: "2026-10-13", dateLabel: "OCT 13 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "caps",
+    source: "Elon Musk on X, TrendForce",
+    sourceUrl: "https://www.trendforce.com/news/2026/07/02/news-sk-hynix-reportedly-removes-price-cap-in-memory-long-term-agreements-diverging-from-micron/",
+    title: "Musk Praises Micron and Calls Other Memory Makers 'Extortionate.' Is Contract Structure the Real Fight?",
+    dek: "A large memory buyer is publicly rewarding the supplier that reportedly offers capped contracts. This post is speculation about what that could mean for SK hynix and Samsung.",
+    thesis: "Musk is a large memory buyer, so praising Micron and criticizing unnamed others reads as a customer negotiating position, not just commentary. If big buyers start pushing back on uncapped, long contracts, it shows up first in contract terms, before headline prices.",
+    breaks: "Memory stays sold out through 2027 and buyers keep signing uncapped or long contracts without pushback. It also breaks if Musk's remarks prove to be posture with no change in how Samsung or SK hynix write contracts.",
+    blocks: [
+      { mark: "reply", color: "var(--faint)", text: "Musk wrote that Micron has been 'reasonable regarding future memory prices, while others have been extortionate, which is something today's customers won't forget.' He called Micron's approach 'the smart move for long-term customer loyalty.' He did not name the others. Samsung and SK hynix are the other two of the big three." },
+      { mark: "contracts", color: "var(--faint)", text: "TrendForce reported in July that SK hynix is dropping the price cap from its long-term agreements, so spot price increases in a shortage flow into contract pricing. Micron's agreements reportedly cap existing products at the Q2 2026 market price, with a floor and binding volumes. Samsung is reportedly negotiating its own long-term deals, and SK hynix and Samsung are reportedly stretching terms from one year to three to five. These terms come from Korean media and industry sources." },
+      { mark: "price", color: "var(--up)", text: "TrendForce projects average HBM prices up 121% in 2027. A 12-high 36GB HBM4 stack is estimated to rise from about $600 this year to about $1,300 next year. Samsung reportedly targeted another DRAM increase of up to 20% for Q3, after Korean media reported 60% to 70% higher server DRAM quotes for Q1." },
+      { mark: "margin", color: "var(--up)", text: "Micron's gross margin went from 2.7% in FY23 to 39.8% in FY25 to 80.7% in FY26. 'Reasonable' is relative. Micron also said 2027 HBM prices will be far higher than 2026, with most of its 2027 HBM supply already contracted." },
+      { mark: "Tesla", color: "var(--faint)", text: "In early October, Musk said Tesla cut RAM in half on its AI5 chip, to 72GB, and by a third on AI6, to 144GB. He called it 'the only way to get enough volume for Optimus production.' A day later he said AI5 would go back up to 96GB, so Tesla would not be the only company using the minimum-RAM version of LP5." },
+      { mark: "against", color: "var(--faint)", text: "On SpaceX's Q2 call, Musk argued that memory demand is rising far faster than supply, so basic economics says prices go up. That is the same fact the suppliers are pricing against, so a buyer who says it is also describing why prices rise." },
+      { mark: "SKHY", color: "var(--faint)", text: "SK hynix is the supplier reported to have no cap, and Samsung is reported to be pushing another hike, so they are the likeliest 'others.' That is my inference, not Musk's. $SKHY is the US-listed way to watch SK hynix. It listed on Nasdaq in July at $149 per ADR." },
+      { mark: "read", color: "var(--accent)", text: "The open question is whether Musk is a buyer talking his book or the first customer to say publicly what others think. Watch for more buyers asking for capped contracts, for Samsung or SK hynix moving toward caps, and for whether the next quarter's DRAM contract prices still rise. His memory remarks have moved these stocks before." }
+    ]
+  },
+  {
     slug: "openai-engineer-conference-room-recorder",
     section: "ai",
     date: "2026-10-13", dateLabel: "OCT 13 2026", tag: "CYBER", color: "var(--purple)", mark: "USB",
