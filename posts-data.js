@@ -1,6 +1,26 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "french-supermarket-refrigeration-attack-copeland-dixell",
+    section: "ai",
+    date: "2026-10-16", dateLabel: "OCT 16 2026", tag: "CYBER", color: "var(--purple)", mark: "700",
+    source: "SecurityWeek, The Register",
+    sourceUrl: "https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/",
+    title: "French Supermarket Fridge Hacks Hit About 700 Stores Across Three Controller Brands, Without a Ransom Demand",
+    dek: "Attackers altered refrigeration controller settings instead of encrypting data, and the access method is still unknown. CERT-FR's alert now covers Danfoss, Copeland and Dixell gear, much of it end-of-life and reachable from the internet.",
+    blocks: [
+      { mark: "700", color: "var(--down)", text: "Finance Minister Roland Lescure told lawmakers about 700 of France's roughly 10,000 supermarkets were affected, up from early reports of 300 to 350. Victims named include Carrefour, Coopérative U, E.Leclerc, Intermarché and Monoprix. Sekoia's Félix Aimé told Reuters stores in Spain, Portugal, Poland, Germany and Belgium were also hit, without details." },
+      { mark: "heat", color: "var(--down)", text: "Le Monde reported that defrost cycles were stretched from one hour to as many as eight, which delayed alarms. At Intermarché, about 150 stores were affected, with units running at 50°C for six hours and all food discarded. The Paris prosecutor's cybercrime unit said fires occurred alongside food losses in some cases." },
+      { mark: "cost", color: "var(--faint)", text: "Carrefour said 80 stores were impacted. Coopérative U said 80 were targeted, but only a minority had to discard products. Two Alsace supermarkets reported combined losses of €270,000 ($300,000). No nationwide loss figure has been established." },
+      { mark: "why", color: "var(--faint)", text: "What stands out is the target and the silence. The effect was spoiled stock, not locked files. There was no ransom demand, per Reuters, and no group has claimed it. The lever was a controller setting that governs a physical process. That is my read of the sources, not a conclusion from investigators." },
+      { mark: "spread", color: "var(--faint)", text: "CERT-FR flagged Danfoss AK-SM and AK-SC controllers on Oct 12, then added Copeland XWEB and Dixell XWEB on Oct 13 (CERTFR-2026-ALE-012). The sources I read do not establish whether one actor or one shared flaw is behind all three brands." },
+      { mark: "access", color: "var(--faint)", text: "SecurityWeek says it is still unclear how the attackers got in. CERT-FR has not linked the compromises to a specific vulnerability, and neither Danfoss nor French authorities have tied them to flaws Claroty disclosed. Claroty reported bugs in the Danfoss AK-SM 800A and 23 in Copeland's XWEB Pro, which Copeland patched. Per The Register, Claroty warned in August that attackers could 'defrost the food.' Nothing shows those bugs were used here." },
+      { mark: "EoL", color: "var(--faint)", text: "Danfoss said most affected devices are old AK-SM 800 and AK-SC 355 units, both end-of-life. Support for the AK-SM 800 ended in May 2021 and the AK-SC 355 was discontinued in 2016. Some current AK-SM 800A units on outdated firmware were also hit. Copeland acknowledged a vulnerability in a 'discontinued, end-of-life generation of controllers.' CERT-FR says a factory reset alone is not enough for a compromised end-of-life device." },
+      { mark: "exposed", color: "var(--faint)", text: "Censys counted nearly 3,000 internet-exposed Danfoss StoreView panels on Oct 11, over 1,800 of them in France. By Oct 14 the French count was 537. Patched and unpatched devices disappeared at about the same rate, which suggests operators are unplugging, not updating." },
+      { mark: "read", color: "var(--accent)", text: "The pattern is an internet-reachable management interface on equipment that often cannot be patched, controlling a process with real-time consequences. The fix is inventory, not a CVE queue: find the controllers, take them off the internet, put remote access behind a VPN, and budget to replace end-of-life units. Watch for the disclosed access method, any attribution or claim, confirmed incidents outside France, and US exposure. Coalition counted 50 Danfoss devices still online in the US as of Thursday, per The Register." }
+    ]
+  },
+  {
     slug: "september-cpi-gasoline-core-steady",
     date: "2026-10-14", dateLabel: "OCT 14 2026", tag: "RATES", color: "var(--accent)", mark: "+9.1%",
     source: "U.S. Bureau of Labor Statistics, Fox Business",
