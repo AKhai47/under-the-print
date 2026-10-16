@@ -1,6 +1,26 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "decision-models-soc-alert-triage-system-one",
+    section: "ai",
+    date: "2026-10-16", dateLabel: "OCT 16 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "System 1",
+    source: "Prophet Security, SuperAgent",
+    sourceUrl: "https://www.prophetsecurity.ai/blog/jev-security-operations",
+    title: "Decision Models Make Scoring Every SOC Alert Cheap, and the Risk Moves to Calibration and Hostile Input",
+    dek: "New 'System One' models return a typed answer and a probability instead of text. At one illustrative alert volume, scoring everything costs under $100 a year, but a well-formed answer can still be wrong.",
+    blocks: [
+      { mark: "new", color: "var(--faint)", text: "TypeSafe AI released Jev on Sept 15 and called it a System One model, a nod to Kahneman's fast, intuitive thinking. It does not write text. It takes state and a typed question, a choice from up to 255 options, an ordered score, or the probability a statement is true, and returns an answer with a confidence value. OpenAI opened a public beta of a Decisions API on Oct 6, per secondary reports. SuperAgent has released Security-One, a 27B open-weight model under Apache 2.0." },
+      { mark: "gate", color: "var(--faint)", text: "The output is a number you can put a threshold on. One example: close an alert as benign above 0.97, escalate below 0.6, and send the middle to an analyst. Those numbers are an illustration, not any vendor's default. Prophet's point is that each threshold should reflect the cost of a wrong action, so disabling an account needs a stricter bar than commenting on a ticket." },
+      { mark: "cost", color: "var(--up)", text: "TypeSafe prices Jev at $0.042 per million input tokens with output free, and answers in 70 to 500 milliseconds. At 450,000 alerts a year and 3,000 to 5,000 tokens each, that is 1.35 to 2.25 billion tokens, or about $57 to $95 a year. The alert volume and token counts are my assumptions. At that price, cost stops being a reason to skip low-severity alerts." },
+      { mark: "audit", color: "var(--faint)", text: "The answer space is fixed in advance and each output carries a probability, so every verdict can be logged, replayed and compared with what happened. That is easier to audit than a paragraph of generated reasoning." },
+      { mark: "wrong", color: "var(--down)", text: "'Can't hallucinate' means the output matches your schema. TrueFoundry, quoted by Prophet, put it as: 'what's been eliminated is the malformed answer, not the mistaken judgment.' SuperAgent says of its own model, 'Security-One can be confidently wrong.'" },
+      { mark: "limits", color: "var(--down)", text: "Per Prophet's reading of TypeSafe's docs, Jev handles counts and dates poorly, loses accuracy as irrelevant content grows, accepts text only, and attacker-written text 'can move the answer.' Alerts carry attacker-controlled strings such as URLs and user agents, so that last one matters for triage. That link is my inference. The jev-latest alias also changes with each release, so answers can shift without code changes." },
+      { mark: "claims", color: "var(--faint)", text: "TypeSafe's speed and cost figures are 'self-reported and not yet independently reproduced,' per TrueFoundry. SuperAgent reports Security-One caught 99.83% of 600 prompt-injection attacks on BIPIA against 62.33% for Jev at a 0.70 threshold, but had 12.39% false positives on NotInject against 2.36% for Jev. Those are the authors' own tests, limited to prompt injection, and they show the catch rate and false-alarm rate trading off." },
+      { mark: "volume", color: "var(--faint)", text: "Prophet frames this with the Jevons paradox: cheaper judgments mean more of them. Its example is 10 million events a day at a 0.1% false-positive rate, which still leaves 10,000 flags a day. Cheap scoring clears the easy items, and what stays flagged still needs investigation. Prophet sells an AI SOC analyst product, so weigh that conclusion accordingly." },
+      { mark: "read", color: "var(--accent)", text: "The strongest use is a first pass on every alert, with thresholds set per action and every verdict logged. Test before trusting: put real malicious activity in the test set, grade against confirmed outcomes instead of another model's labels, check calibration by confidence band, treat attacker-written text as hostile input, and pin model versions. Keep permissions and enforcement outside the model. Watch for independent calibration results, benchmarks from the OpenAI beta, and the first public miss caused by crafted text." }
+    ]
+  },
+  {
     slug: "french-supermarket-refrigeration-attack-copeland-dixell",
     section: "ai",
     date: "2026-10-16", dateLabel: "OCT 16 2026", tag: "CYBER", color: "var(--purple)", mark: "700",
