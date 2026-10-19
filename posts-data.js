@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "hedge-funds-cut-tech-fastest-pace-since-2016",
+    date: "2026-10-19", dateLabel: "OCT 19 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "23.5%",
+    source: "Goldman Sachs",
+    title: "Hedge funds cut tech at the fastest pace in a decade, but positioning is still concentrated in it",
+    dek: "Goldman data shows the sharpest tech de-risking since at least 2016, yet tech is still 23.5% of hedge fund portfolios.",
+    thesis: "Hedge fund positioning is heavily concentrated in tech. Even after the fastest cut in a decade, the sector is 23.5% of portfolios, so the concentration is reduced but not resolved. It is something to keep watching.",
+    breaks: "Tech weight falls well below its elevated level in the next positioning updates, which would mean the concentration has been worked off.",
+    blocks: [
+      { mark: "fastest", color: "var(--down)",   text: "Goldman reports hedge funds cut technology exposure at the fastest pace since at least 2016 over the five sessions ending October 15." },
+      { mark: "-5.5%",   color: "var(--down)",   text: "The Nasdaq 100 fell 5.5% last week. Semiconductors saw the largest dollar selling." },
+      { mark: "23.5%",   color: "var(--faint)",  text: "Even after the cut, tech is still 23.5% of hedge fund portfolios, near historically elevated levels." },
+      { mark: "watch",   color: "var(--accent)", text: "The pace of selling was extreme, but the starting point was high, so the level is still elevated. Positioning remains heavily concentrated in tech. Worth tracking whether the weight keeps falling or holds near this level in the next updates." }
+    ]
+  },
+  {
     slug: "decision-models-soc-alert-triage-system-one",
     section: "ai",
     date: "2026-10-16", dateLabel: "OCT 16 2026", tag: "AI SECURITY", color: "var(--accent)", mark: "System 1",
