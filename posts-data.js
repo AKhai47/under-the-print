@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "opencode-console-breach-provider-keys",
+    section: "ai",
+    date: "2026-10-19", dateLabel: "OCT 19 2026", tag: "CYBER", color: "var(--purple)", mark: "1.4%",
+    source: "The Hacker News",
+    sourceUrl: "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
+    title: "OpenCode Console breach may have exposed saved OpenAI, Anthropic and Google keys",
+    dek: "An intruder reached a legacy OpenCode system on October 16, and 1.4% of Console users were told to revoke the provider keys they had saved there.",
+    blocks: [
+      { mark: "1.4%", color: "var(--down)", text: "An intruder reached a legacy system at OpenCode on the night of October 16 and may have exposed third-party AI provider keys saved in OpenCode Console. The affected group is 1.4% of Console users, all with an outside provider linked, and OpenCode emailed them on October 17 under the subject 'Action Required: Potential provider key breach.' Console is the optional hosted service where a workspace saves its OpenAI, Anthropic or Google key. The CLI and desktop apps keep keys on the machine, and co-founder Dax Raad wrote that the breach involves 'the OpenCode Console, not OpenCode itself.'" },
+      { mark: "bearer", color: "var(--faint)", text: "A provider key is a bearer credential. Whoever holds a copy can run billable requests on the owner's account until the provider revokes it. Deleting the key from Console does not revoke it, and a Console budget cannot cap the use, because Console only sees requests that pass through its own gateway." },
+      { mark: "fix", color: "var(--accent)", text: "Revoke the key in the provider's own dashboard, create a new one, and update every application that used the old one. Review usage and billing at the provider back to at least October 16, since OpenCode has not said when access began. Set a spend limit or alert at the provider and give each tool its own key, so a copied key does less damage and is easier to trace." },
+      { mark: "unconfirmed", color: "var(--faint)", text: "OpenCode says the keys 'may have been exposed' and has not said any were copied or used. Users report otherwise: Dealroom cited Colin Parsons at $281 on OpenAI and $168 on Anthropic, and Preston Zeller at $1,700, while Notebookcheck cited a Reddit user at $400 on Anthropic and another at about €200 on Google. These are the users' own accounts. OpenCode called the incident ongoing, said it is working with Anthropic, OpenAI and Google, and described it as 'related to a large-scale distillation attack,' without saying who is behind it, how the two connect, what the legacy system was, how it was reached, or how many keys it held. Anthropic has said distillation campaigns run on fake accounts built from stolen cards, credentials and harvested API keys. Raad wrote on October 18 that attackers had been 'non stop trying to attack our systems for the past 48 hours.'" }
+    ]
+  },
+  {
     slug: "hedge-funds-cut-tech-fastest-pace-since-2016",
     date: "2026-10-19", dateLabel: "OCT 19 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "23.5%",
     source: "Goldman Sachs",
