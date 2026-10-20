@@ -1,6 +1,24 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "pending-sales-record-low-at-seven-forty",
+    section: "realestate",
+    date: "2026-10-20", dateLabel: "OCT 20 2026", tag: "HOUSING", color: "var(--purple)", mark: "66",
+    source: "Bloomberg",
+    sourceUrl: "https://www.bloomberg.com/news/articles/2026-10-20/us-pending-home-sales-fall-to-record-low-as-mortgage-rates-rise",
+    title: "Pending home sales fell 7.3% to 66, the lowest since 2001, and October is the first full month with the 30-year above 7%",
+    dek: "NAR's contract index fell in all four regions against a 0.5% decline in the Reuters survey. Freddie Mac's 30-year only crossed 7% on September 24, so October is the first full signing month above it.",
+    thesis: "A pending sale is a signed contract, so this index is the earliest hard count of transactions and it leads closings by one to two months. September captured a rate that crossed 7% only on the 24th, which makes this print the start of the response to 7.40%, not the whole of it. On September 9 the working view was that the buyer still in the market had already accepted a 6% handle and that rates were landing on the loan type rather than the transaction. A record low in contracts says that pre-selected pool has a limit, and it sits somewhere between 6.85% and 7.40%. The supply side has not adjusted. About 80% of outstanding mortgages sit below 6%, and delistings were running 12.6% below last year in August, so the unsold stock is not draining while the contract count falls. That lengthens the queue described in the September 14 post.",
+    breaks: "October contracts stabilize or rise with the 30-year still near 7.40%. That would make September a one-month air pocket rather than a response to the level. The other tell is closed sales: if existing home sales in the October and November reports do not fall, a 66 on the contract index overstated the loss.",
+    blocks: [
+      { mark: "66", color: "var(--down)", text: "NAR's Pending Home Sales Index fell 7.3% to 66.0 in September, the lowest since the series began in 2001 and 11.3% below a year earlier. Economists in the Reuters survey expected a 0.5% decline, and Bloomberg reports the miss was larger than any estimate in its own survey. Working back from the 7.3% drop puts August near 71." },
+      { mark: "7.40%", color: "var(--down)", text: "Freddie Mac's 30-year averaged 7.40% in the weeks of October 8 and October 15, the highest in nearly three years. It was 7.28% on October 1 and 7.03% on September 24, the first reading above 7% since January 2025. The 10-year Treasury was 5.09% on October 16. NAR chief economist Lawrence Yun attributed the weakness to rates, and Reuters quoted him: 'Market conditions weakened in September due to fast-rising mortgage rates.' Most of September's signing window sat below the current rate." },
+      { mark: "South, West", color: "var(--purple)", text: "Contracts fell in every region: Northeast 4.2%, Midwest 6.5%, South 8.2% and West 9.2%. The two largest declines are the two regions that contain all eight metros where Redfin's August data had sellers outnumbering buyers by more than two to one: Nashville, Miami, Houston, Orlando, Las Vegas, San Antonio, Austin and Dallas. The Northeast, which held most of Redfin's seller's markets, fell the least. These are regional figures, so the metro overlap is a reading of the geography, not a measured link." },
+      { mark: "1 to 2 months", color: "var(--faint)", text: "Contracts close in one to two months, so this is the forward number for October and November existing home sales, less whatever cancels. The sell side does not offset it. Roughly 80% of outstanding mortgages are below 6% per FHFA, so a 7.40% rate widens the gap between the loan an owner holds and the loan a move requires. Owners who need to sell stay listed, and the ones who don't need to sell don't list. Contracts fall and the unsold stock does not drain." },
+      { mark: "read", color: "var(--accent)", text: "The September 9 view was that purchase applications were flat because the buyer was pre-selected for a 6% handle, and the tell would be purchase starting to track the rate. This is a contract-level version of that test, and it came back weak. The ARM share is the other half of that test and is not in this print. Three things to watch: October pending sales as the first full month above 7%, the weekly MBA purchase index, and sale to list. The September 14 post had it at 98.5% and rising, and a falling ratio would mean the queue has started clearing on price." }
+    ]
+  },
+  {
     slug: "opencode-console-breach-provider-keys",
     section: "ai",
     date: "2026-10-19", dateLabel: "OCT 19 2026", tag: "CYBER", color: "var(--purple)", mark: "1.4%",
