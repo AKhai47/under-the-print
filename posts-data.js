@@ -1,6 +1,24 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "context-bombs-cut-ai-attack-success-fake-targets",
+    section: "ai",
+    date: "2026-10-21", dateLabel: "OCT 21 2026", tag: "CYBER", color: "var(--purple)", mark: "91%",
+    source: "SecurityWeek",
+    sourceUrl: "https://www.securityweek.com/context-bombs-cut-ai-attack-success-by-misleading-agents-with-fake-targets/",
+    title: "Tracebit's 'context bombs' cut AI attack success by feeding attacking agents fake targets",
+    dek: "Hidden prompts planted in a target cut Claude Opus 5's attack success by 91% in Tracebit's tests, and raised the cost of each successful attack 23-fold.",
+    blocks: [
+      { mark: "91%", color: "var(--down)", text: "Tracebit, a security firm based in London and New York, tested 'context bombs,' crafted prompts hidden in a target that an attacking AI agent ingests while it crawls. Against Claude Opus 5, attack success fell 91%. Against GPT-6 Astra it fell 54%, and each attack cost nearly four times as much." },
+      { mark: "inverse", color: "var(--faint)", text: "This is roughly the opposite of prompt injection. The defender plants text to misdirect the attacker's agent with fake targets and deceptively complex problems. Tracebit built nine bombs, including an unending web service, apparent passwords locked behind layers of encryption, and an endless database where every page points to another page." },
+      { mark: "58%", color: "var(--faint)", text: "The best single bomb was a fake pen testing report. It presented itself as a recent assessment, labeled real attack paths as canaries, and described decoys as valuable targets already exploited. It cut achieved objectives by 58%. In many cases the agent decided the defender's real systems were traps and avoided them, and some agents stopped early, leaving exploitable targets untouched." },
+      { mark: "39/40 to 2/40", color: "var(--down)", text: "Against GPT 5.6 Cyber, Kimi K3, Qwen 3.8 Max and DeepSeek V4 Pro, runs reaching an objective fell from 39 of 40 at baseline to 2 of 40. With all nine bombs deployed, none of the models from Moonshot, Alibaba and DeepSeek achieved their objectives." },
+      { mark: "23x", color: "var(--faint)", text: "Even when a bomb failed to stop an attack, it raised the cost of each success 23 times. GLM-5.3 crawled 825 pages in 55 minutes, spotted the trap, tried other leads, and still came back for one more try." },
+      { mark: "read", color: "var(--accent)", text: "Deception is an old defensive tool, but this applies it to a new attacker, an agent that reads everything it crawls and acts on it. Tracebit CEO Andy Smith says the best defense is to beat attackers at their own game, and that agents sent down rabbit holes run erratically, which makes them more likely to trigger alarms and gives defenders more time. A decoy now taxes the attacker's time and compute as well as flagging them." },
+      { mark: "gaps", color: "var(--faint)", text: "These are Tracebit's own tests as reported by SecurityWeek. The article names no benchmark or environment and gives sample sizes only for the 39 of 40 and 2 of 40 figures. It says the bombs stopped all attacks by four models yet reports 2 of 40 for them, and does not reconcile the two. It does not say whether the results hold against real attackers." }
+    ]
+  },
+  {
     slug: "pending-sales-record-low-at-seven-forty",
     section: "realestate",
     date: "2026-10-20", dateLabel: "OCT 20 2026", tag: "HOUSING", color: "var(--purple)", mark: "66",
