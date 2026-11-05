@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "smh-selloff-capex-narrative-us-buildout-overseas",
+    date: "2026-11-04", dateLabel: "NOV 04 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "capex",
+    title: "SMH is selling off on a policy narrative while no one has cut capex",
+    dek: "Semiconductors and AI-linked valuations are falling on the expectation that Democratic gubernatorial wins slow the US buildout, but no capex guidance has changed yet.",
+    thesis: "The sell-off is pricing a forward capex path, not a reported one. Chip orders follow data center starts, and starts follow power, siting and permitting, which state governments influence. A slowdown in the buildout would reach chip demand a few quarters later, so it would show up in guidance before earnings. The market is front-running that guidance. The open question is whether the spend slows or only changes location.",
+    breaks: "The next round of hyperscaler and neocloud guidance holds or raises capex and no state-level policy change follows. That would make this positioning, not fundamentals. The thesis also fails if the buildout relocates without any change in total chip orders, because then the earnings hit to semis is zero.",
+    blocks: [
+      { mark: "no cuts", color: "var(--down)", text: "SMH is falling and pulling valuations lower across AI-linked equities. No company has announced a capex cut." },
+      { mark: "narrative", color: "var(--faint)", text: "The driver is an expectation that Democratic gubernatorial flips slow the pace of the US buildout. That is a forecast of policy, not a policy change. Holders are selling ahead of it, and the selling is what makes the narrative look like the market." },
+      { mark: "lag", color: "var(--faint)", text: "Chips are the first derivative of the buildout. Power, interconnection and siting come first, then construction, then equipment orders. A policy slowdown reaches semis last, so a fall in the stocks now is a bet on guidance cuts that have not been made." },
+      { mark: "path 1", color: "var(--faint)", text: "The US slowdown shows up in earnings. Capex guidance gets cut or deferred and chip revenue follows with a lag. Then the sell-off was early, not wrong." },
+      { mark: "path 2", color: "var(--faint)", text: "The buildout moves overseas. Chip demand holds, but the geography changes. A country needs three things: energy that can be added at scale, political will, and the technical infrastructure to run it (grid, fiber, cooling, skilled operators). Few places have all three at once." },
+      { mark: "read", color: "var(--accent)", text: "Watch for the first capex guidance change that cites state policy. Until then, the move in SMH is a policy forecast sitting on top of unchanged spending plans. The country shortlist is the open work: which places clear all three filters decides whether this is a US earnings story or a relocation story." }
+    ]
+  },
+  {
     slug: "context-bombs-cut-ai-attack-success-fake-targets",
     section: "ai",
     date: "2026-10-21", dateLabel: "OCT 21 2026", tag: "CYBER", color: "var(--purple)", mark: "91%",
