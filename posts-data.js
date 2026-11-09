@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "hyperscaler-fcf-negative-q3-microsoft-last-positive",
+    date: "2026-11-09", dateLabel: "NOV 09 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "FCF",
+    source: "CNBC", sourceUrl: "https://www.cnbc.com/2026/10/30/tech-giants-alphabet-meta-microsoft-amazon-ai-buildouts.html",
+    title: "Hyperscaler free cash flow turned negative in Q3, and Microsoft is the last one still positive",
+    dek: "Capex now outruns operating cash at the largest cloud spenders, so the buildout is being funded by bond, equity and lease markets instead of internal cash.",
+    thesis: "The AI buildout has moved from self-funded to externally funded. Once free cash flow stops covering capex, the marginal dollar comes from capital markets, and the constraint becomes what those markets will absorb.",
+    breaks: "Operating cash growth catches up to capex, either through cloud revenue accelerating or 2027 capex guides coming in below the analyst projections of $210bn at Meta and $280bn at Amazon.",
+    blocks: [
+      { mark: "-$9.1bn", color: "var(--down)", text: "Alphabet's Q3 free cash flow was negative. Meta's was -$2.1bn. Amazon's outflow reached $42.4bn, driven by a $94.8bn year over year rise in net property and equipment purchases." },
+      { mark: "+$18.6bn", color: "var(--faint)", text: "Microsoft is the only one of Microsoft, Alphabet, Amazon, Meta and Oracle still positive. That figure fell 27%, its second straight quarterly decline, and Microsoft said it will turn to the bond market to fund AI spending." },
+      { mark: "funding", color: "var(--faint)", text: "Meta plans to raise $95bn in stock for its AI investments. Meta's 2026 capex is guided as high as $145bn and Amazon's to $220bn, with analysts at $210bn and $280bn for 2027." },
+      { mark: "AAPL", color: "var(--faint)", text: "Apple is the contrast. It generated more free cash than Microsoft, Meta, Alphabet and Amazon combined, because it is not building AI capacity at this scale." },
+      { mark: "read", color: "var(--accent)", text: "The question is no longer whether the spending is large, but who funds it. Equity issuance, bonds and leases all add supply that someone has to buy, and Microsoft's cushion is shrinking too." }
+    ]
+  },
+  {
     slug: "smh-selloff-capex-narrative-us-buildout-overseas",
     date: "2026-11-04", dateLabel: "NOV 04 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "capex",
     title: "SMH is selling off on a policy narrative while no one has cut capex",
