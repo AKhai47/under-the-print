@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "softbank-7bn-loss-openai-mark-is-the-collateral",
+    date: "2026-11-10", dateLabel: "NOV 10 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "$7bn",
+    source: "CNBC", sourceUrl: "https://www.cnbc.com/2026/11/10/softbank-2q-earnings-tech-selloff.html",
+    title: "SoftBank swung to a $7bn loss, and its $99.6bn OpenAI stake is a private mark",
+    dek: "The loss came from a data center equipment charge and falling listed holdings, but the larger exposure is an unrealized OpenAI gain that SoftBank's balance sheet now leans on.",
+    thesis: "SoftBank is a levered claim on OpenAI's private valuation. Most of its OpenAI gain is a mark, not cash, and any borrowing secured against that stake ties debt capacity to a price set by funding rounds, not a market. A lower OpenAI valuation hits the stake, the collateral and financing capacity at once.",
+    breaks: "The new OpenAI funding round prices above the September mark and lifts SoftBank's net asset value. SoftBank could also show that the loans secured against OpenAI and Arm shares are small relative to the stakes.",
+    blocks: [
+      { mark: "-$7bn", color: "var(--down)", text: "SoftBank swung to a net loss of 1.12 trillion yen ($7bn) in fiscal Q2, from a 2.5 trillion yen profit a year earlier." },
+      { mark: "$3.7bn", color: "var(--down)", text: "A 597.2 billion yen loss came from changed procurement plans for power generation equipment for US AI data center projects, over the six months to Sept 30. SoftBank said it made bridge investments in advance to secure equipment ahead of an expected shortage. Cumulative payments for that equipment were $9.48bn at end September." },
+      { mark: "VF", color: "var(--faint)", text: "The Vision Fund segment lost 81.58 billion yen, against a 2.38 trillion yen profit a year earlier. Vision Fund 1 lost $20mn despite a $1.3bn ByteDance gain, as Coupang and Grab fell." },
+      { mark: "$99.6bn", color: "var(--faint)", text: "SoftBank has put $54.6bn into OpenAI, for roughly 13%. At end September that stake had a fair value of $99.6bn, a $45bn cumulative gain. A new funding round is not yet reflected in the results." },
+      { mark: "tape", color: "var(--faint)", text: "The stock closed 13.9% higher Tuesday, so the market is not treating the loss as the whole story." },
+      { mark: "read", color: "var(--accent)", text: "About 45% of the stake's value is an unrealized mark on a private company. The new funding round, not yet in the results, decides whether that mark rises or falls, and the size of the loans secured against it decides how much that matters." }
+    ]
+  },
+  {
     slug: "core-cpi-2-8-core-pce-3-3-fed-targets-pce",
     date: "2026-11-10", dateLabel: "NOV 10 2026", tag: "RATES", color: "var(--accent)", mark: "3.3%",
     title: "Core CPI at 2.8% looks contained, but core PCE is running 3.3% and the Fed targets PCE",
