@@ -1,6 +1,20 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "core-cpi-2-8-core-pce-3-3-fed-targets-pce",
+    date: "2026-11-10", dateLabel: "NOV 10 2026", tag: "RATES", color: "var(--accent)", mark: "3.3%",
+    title: "Core CPI at 2.8% looks contained, but core PCE is running 3.3% and the Fed targets PCE",
+    dek: "Core PCE is running an estimated 50 bps above core CPI, so a CPI print that reads as manageable understates how far the Fed's own gauge sits from target.",
+    thesis: "The market reads the CPI print against the wrong benchmark. The Fed's mandate is written in PCE terms, and core PCE is running above core CPI. A 3.3% core PCE leaves the Fed with a bigger inflation gap than the CPI headline suggests, which keeps a 50 bp hike on the table.",
+    breaks: "Core PCE comes in below the 3.3% estimate and the gap to core CPI closes. A Fed communication that points to 25 bps or a hold would also break it.",
+    blocks: [
+      { mark: "2.8%", color: "var(--down)", text: "Core CPI printed at an estimated 2.8%. That is hot, but it is not the number the Fed targets." },
+      { mark: "3.3%", color: "var(--down)", text: "Core PCE is running an estimated 3.3%, a consistent 50 bps above core CPI. That is 130 bps above the Fed's 2% goal." },
+      { mark: "target", color: "var(--faint)", text: "The Fed targets PCE, not CPI. Core PCE normally runs below core CPI, so a premium of this size means the gauge the Fed watches is the hotter one." },
+      { mark: "read", color: "var(--accent)", text: "A 50 bp hike is firmly on the table. Judge the next move by the PCE gap to 2%, not by the CPI headline." }
+    ]
+  },
+  {
     slug: "hyperscaler-fcf-negative-q3-microsoft-last-positive",
     date: "2026-11-09", dateLabel: "NOV 09 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "FCF",
     source: "CNBC", sourceUrl: "https://www.cnbc.com/2026/10/30/tech-giants-alphabet-meta-microsoft-amazon-ai-buildouts.html",
