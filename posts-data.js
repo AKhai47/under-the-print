@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "household-debt-auto-delinquencies-record-student-loans-10-9",
+    date: "2026-11-16", dateLabel: "NOV 16 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "5.7%",
+    title: "Auto loan serious delinquencies hit a record 5.7%, above the post-2008 peak",
+    dek: "Student loan delinquencies rose for a fourth straight quarter to 10.9%, and credit cards sit at 12.9%, so household stress now shows up in all three categories.",
+    thesis: "Household credit stress is broad, not isolated. Auto loans are already past their post-2008 peak, student loans have risen four quarters in a row, and card delinquencies are near a 15-year high.",
+    breaks: "The Q4 2026 data shows these rates flattening or falling. The same applies if the increases prove to be confined to one borrower cohort rather than spread across the three categories.",
+    blocks: [
+      { mark: "5.7%", color: "var(--down)", text: "Auto loan 90+ day serious delinquencies rose 0.2 percentage points in Q3 2026, to 5.7%, the highest level on record. The post-2008 Financial Crisis peak was 5.3% in Q4 2010." },
+      { mark: "10.9%", color: "var(--down)", text: "Student loan serious delinquencies rose 0.3 percentage points to 10.9%, the highest since Q4 2019. It is the fourth consecutive quarterly increase, a cumulative gain of 1.5 percentage points." },
+      { mark: "12.9%", color: "var(--down)", text: "Credit card 90+ day delinquencies stood at 12.9%, the second-highest level since Q1 2011." },
+      { mark: "why", color: "var(--faint)", text: "The three categories sit at different points in their cycles. Autos are at a record, student loans are at a six-year high, and cards are near a post-crisis high. When all three rise together, the cause is probably household cash flow, not a problem in any single market." },
+      { mark: "read", color: "var(--accent)", text: "Auto is the clearest signal because it has already passed the level reached in the 2008 crisis. The line to watch is whether Q4 shows a fifth straight rise in student loans and a new record in autos." }
+    ]
+  },
+  {
     slug: "nvidia-off-balance-sheet-commitments",
     date: "2026-11-16", dateLabel: "NOV 16 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "10x",
     title: "Nvidia's off-balance-sheet commitments are up 10x in five quarters, to $530.5B",
