@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "nvidia-off-balance-sheet-commitments",
+    date: "2026-11-16", dateLabel: "NOV 16 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "10x",
+    title: "Nvidia's off-balance-sheet commitments are up 10x in five quarters, to $530.5B",
+    dek: "Commitments went from $50.9B to $530.5B, and the fastest-growing piece is guarantees, led by $105B backing OpenAI's Ohio data center.",
+    thesis: "Nvidia's balance sheet is increasingly standing behind its own customers' projects. The growth is in guarantees, so the exposure is to the credit of the same buyers who drive its demand.",
+    breaks: "Guarantees stop growing, or the large ones roll off without being drawn. The same happens if projects like the Ohio site secure third-party financing that doesn't rely on Nvidia.",
+    blocks: [
+      { mark: "$530.5B", color: "var(--down)", text: "Off-balance-sheet commitments are up from $50.9B five quarters ago, a 10x increase. They more than doubled in the latest quarter alone." },
+      { mark: "$100B+", color: "var(--down)", text: "Guarantees are the fastest-growing piece. They went from almost nothing to over $100B in a single quarter." },
+      { mark: "$105B", color: "var(--down)", text: "OpenAI's Ohio data center leads the guarantees, backed by $105B from Nvidia." },
+      { mark: "why", color: "var(--faint)", text: "A guarantee stays off the balance sheet until it is called. Nvidia's exposure is to the borrower's ability to pay, and the borrower is also a buyer of its chips. The risk and the demand come from the same place." },
+      { mark: "read", color: "var(--accent)", text: "The headline figure is a contingent claim, not debt. The line to watch is how much of the $530.5B converts from commitment to funded obligation, and which counterparties it sits with." }
+    ]
+  },
+  {
     slug: "softbank-7bn-loss-openai-mark-is-the-collateral",
     date: "2026-11-10", dateLabel: "NOV 10 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "$7bn",
     source: "CNBC", sourceUrl: "https://www.cnbc.com/2026/11/10/softbank-2q-earnings-tech-selloff.html",
