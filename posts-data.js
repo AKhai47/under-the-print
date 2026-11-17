@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "japan-manufacturer-sentiment-27-highest-since-2021",
+    date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "27",
+    title: "Japanese manufacturer sentiment rises to 27, the highest since August 2021, led by memory chip demand",
+    dek: "The index has risen four months in a row for a total of 14 points, and non-manufacturer sentiment jumped 12 points to 35, the highest since June 2018.",
+    thesis: "Japanese business confidence is turning up on AI-linked demand, with memory chips the clearest channel, and the improvement is no longer confined to manufacturers.",
+    breaks: "The December reading falls back, or the electronics index gives up its 14-point gain. The thesis also weakens if the survey strength does not show up in orders, exports or capex, because this is a sentiment survey and not a measure of output.",
+    blocks: [
+      { mark: "27", color: "var(--up)", text: "The Sentiment Index for Japanese manufacturers rose 5 points in November to 27, the highest since August 2021. It is the fourth consecutive monthly increase, totaling 14 points. Setting August 2021 aside, it is the strongest reading in eight years." },
+      { mark: "+14", color: "var(--up)", text: "The Electronics Sector Index rose 14 points to 39, driven by rising memory chip demand. The Precision Machinery Index rose 4 points to 42, supported by strong domestic and overseas orders." },
+      { mark: "35", color: "var(--up)", text: "Sentiment among non-manufacturers rose 12 points in November to 35, the highest since June 2018. That is a bigger move than the 5 points for manufacturers, so the improvement extends beyond the sectors tied to chips and machinery." },
+      { mark: "why", color: "var(--faint)", text: "The source attributes the improvement to AI investment. The data supports this most directly in electronics, where memory chip demand is named as the driver. The non-manufacturer jump has no stated cause in the data, so the AI link there is the source's reading, not something the survey shows." },
+      { mark: "read", color: "var(--accent)", text: "A sentiment index shows what firms expect, not what they are shipping. The line to watch is whether the electronics reading holds in December and whether the orders and capex data confirm it." }
+    ]
+  },
+  {
     slug: "confluence-cve-2026-90436-unauth-rce-active-exploitation",
     section: "ai",
     date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CYBER", color: "var(--purple)", mark: "9.3",
