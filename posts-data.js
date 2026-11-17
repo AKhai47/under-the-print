@@ -1,6 +1,19 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "confluence-cve-2026-90436-unauth-rce-active-exploitation",
+    section: "ai",
+    date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CYBER", color: "var(--purple)", mark: "9.3",
+    title: "Attackers are exploiting a critical Confluence Data Center flaw, CVE-2026-90436, with no login required",
+    dek: "Rapid7 first detected attacks on November 13 against a CVSS 9.3 remote code execution bug, and Atlassian says to upgrade to 9.2.28 or disable the Remote API.",
+    blocks: [
+      { mark: "9.3", color: "var(--down)", text: "Rapid7 has confirmed active exploitation of CVE-2026-90436, a critical remote code execution flaw in Atlassian Confluence Data Center, and first detected attacks on November 13. The CVSS score is 9.3. An unauthenticated attacker can run commands on a vulnerable server when the XML-RPC and SOAP Remote API is enabled." },
+      { mark: "no login", color: "var(--faint)", text: "Unauthenticated means the attacker needs no account, no stolen credential and no phishing step. A reachable server with the Remote API on is the only precondition. That puts the exposure on a configuration setting, and exploitation was already underway before this note." },
+      { mark: "1.2M", color: "var(--down)", text: "Censys identified more than 1.2 million internet-facing Confluence web properties. Not all are confirmed vulnerable, since exposure depends on the version and on whether the Remote API is enabled, so the count is an upper bound on the population to check, not the number of victims." },
+      { mark: "fix", color: "var(--accent)", text: "Atlassian has released security updates and urges administrators to upgrade to version 9.2.28 or later. Where an upgrade cannot happen immediately, the other option is to disable the affected Remote API functionality. Check whether the API is enabled on every internet-facing instance, and review those servers for compromise back to at least November 13, the earliest attack Rapid7 has reported. Attackers may have used the flaw earlier." }
+    ]
+  },
+  {
     slug: "household-debt-auto-delinquencies-record-student-loans-10-9",
     date: "2026-11-16", dateLabel: "NOV 16 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "5.7%",
     title: "Auto loan serious delinquencies hit a record 5.7%, above the post-2008 peak",
