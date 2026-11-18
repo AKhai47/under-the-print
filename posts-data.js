@@ -1,6 +1,21 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "fed-minutes-set-up-december-hike",
+    date: "2026-11-18", dateLabel: "NOV 18 2026", tag: "RATES", color: "var(--accent)", mark: "hike",
+    title: "The Fed minutes set up a December hike",
+    dek: "Almost all officials saw further action as appropriate, and a couple argued December may call for more than 25 basis points.",
+    thesis: "The minutes make a December hike the base case. Direction is near consensus, the October hold was a close call, and the hawkish wing is already debating size.",
+    breaks: "Incoming inflation data cools enough that the officials who called October a close call stay on hold, or the hawks lose the argument that inflation is persistent.",
+    blocks: [
+      { mark: "almost all", color: "var(--down)", text: "Almost all officials saw 'further action' as appropriate. That is near consensus on direction, which leaves the debate on timing and size." },
+      { mark: "oct", color: "var(--faint)", text: "Some officials favored a 25 basis point hike in October. A few who supported no change called it a 'close call.' The hold was narrow, not a verdict against tightening." },
+      { mark: ">25bp", color: "var(--down)", text: "A couple of officials believe a hike of more than 25 basis points may be warranted in December. The hawkish tail is on size, not on whether." },
+      { mark: "why", color: "var(--faint)", text: "Returning inflation to 2% in a 'timely manner' remains the top priority, and a few officials think inflation could prove more persistent than expected. Persistence is what pulls hikes forward." },
+      { mark: "read", color: "var(--accent)", text: "A close-call hold, a hawkish wing already asking for more than 25, and near-unanimous support for further action. The path points to December." }
+    ]
+  },
+  {
     slug: "nvidia-q3-neocloud-commitments-contingent-on-financing",
     date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "$32B",
     source: "NVIDIA Q3 FY27 results", sourceUrl: "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
