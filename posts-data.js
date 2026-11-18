@@ -1,6 +1,23 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "nvidia-q3-neocloud-commitments-contingent-on-financing",
+    date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "$32B",
+    source: "NVIDIA Q3 FY27 results", sourceUrl: "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+    title: "Nvidia's $32B of neocloud commitments take effect only if the neoclouds raise financing",
+    dek: "Nvidia's CFO commentary ties its neocloud commitments to its customers' ability to borrow and says many are growing faster than their balance sheets and credit profiles can support.",
+    thesis: "Nvidia's neocloud demand now depends on outside financing, and Nvidia says so. If neocloud funding slows, the contingent commitments shrink first, ahead of any change in reported revenue.",
+    breaks: "Neocloud financing keeps closing and next quarter's commitments rise above $32B with the compute deployed and accepted. The thesis also fails if the guarantees stay uncalled while Q1 revenue guidance keeps climbing.",
+    blocks: [
+      { mark: "$32B", color: "var(--down)", text: "The CFO commentary lists $32B of neocloud commitments as of October 25. They take effect only if the neoclouds secure financing to buy the data center infrastructure, and the related compute capacity is deployed, made operational and accepted by Nvidia. The stated maximum assumes those contingencies are resolved, and the commentary says certain commitments could be reduced or eliminated." },
+      { mark: "credit", color: "var(--down)", text: "The same section says neoclouds and frontier labs are seeing extraordinary demand for AI infrastructure, yet many are 'growing faster than their balance sheets and long-term credit profiles can support.' Nvidia's response is arrangements that help select customers secure land, power and data center capacity." },
+      { mark: "$118B", color: "var(--down)", text: "Maximum gross exposure on guarantees is $118.0B as of October 25. That is $105.0B of credit support tied to the OpenAI Ohio campus, $9.5B for power and systems, and $3.5B for land, power and shell at neoclouds. Nvidia has made no payments on its guarantees, and the Ohio exposure builds as each building comes online." },
+      { mark: "$102B", color: "var(--down)", text: "Cloud service agreements and data center lease commitments total $102B, up from $74B last quarter. Supply commitments rose from $279B to $390B. Receivables were $81.0B at 64 days outstanding, up from 60, and Nvidia cites extended payment terms on large multi-quarter agreements with investment-grade customers." },
+      { mark: "why", color: "var(--faint)", text: "The quarter shows no slowdown. Revenue was $115.8B, up 103%, data center was $107.6B, up 110%, and the Q4 outlook is $130.0B, plus or minus 3%. The $32B schedule starts at nothing for the rest of 2027, then $6B in 2028, $7B in 2029, $6B in 2030, $5B in 2031 and $8B after that. The document has no prior-quarter neocloud figure, so it does not show whether the total is rising or falling." },
+      { mark: "read", color: "var(--accent)", text: "A funding slowdown would show up in the contingent commitments before it showed up in revenue, because those depend on a financing event and revenue on the upfront sale does not. The line to watch is the neocloud commitment total next quarter against $32B, and whether the 'reduced or eliminated' language starts to bite." }
+    ]
+  },
+  {
     slug: "japan-manufacturer-sentiment-27-highest-since-2021",
     date: "2026-11-17", dateLabel: "NOV 17 2026", tag: "CROSS-ASSET", color: "var(--accent)", mark: "27",
     title: "Japanese manufacturer sentiment rises to 27, the highest since August 2021, led by memory chip demand",
