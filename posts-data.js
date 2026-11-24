@@ -1,6 +1,22 @@
 // Source-grounded post archive. Every date and figure traces to reporting cited in the note body.
 const POSTS = [
   {
+    slug: "jensen-return-sentiment-catalyst-structure-repair-incomplete",
+    date: "2026-11-23", dateLabel: "NOV 23 2026", tag: "MKT STRUCTURE", color: "var(--purple)", mark: "catalyst",
+    title: "Jensen's return is a sentiment catalyst for oversold AI stocks, but structure repair is not complete",
+    dek: "The selling in AI stocks started months before Jensen's resignation, so his return does not fix the cost of capital and political issues behind it, but it can still move sentiment.",
+    thesis: "Jensen's return can be enough of a sentiment catalyst for oversold AI and momentum stocks, but it does not solve the cost of capital and political issues that started the selloff. Real conviction needs more structure repair on the major indexes, and how this week closes decides it.",
+    breaks: "The major indexes fail to follow through into the end of the week and give back today's move. That would make it a relief bounce, not structure repair.",
+    blocks: [
+      { mark: "months", color: "var(--down)", text: "The selling in AI stocks preceded Jensen's resignation, and his return, by months. His return does not obviously solve the cost of capital and political issues that prompted the selling in the first place." },
+      { mark: "oversold", color: "var(--faint)", text: "Sentiment is a separate question. With AI and momentum stocks this oversold, the return could absolutely be enough of a catalyst. Today's action was powerful." },
+      { mark: "structure", color: "var(--faint)", text: "Structure repair is not complete on the major indexes. Many high-growth AI names now trade at decent valuations after severe selloffs, so they are fundamentally dislocated, and they are technically dislocated too. Conviction and confluence need more structure repair, and the way this week closes will dictate that." },
+      { mark: "white house", color: "var(--down)", text: "The White House directly intervened in Jensen's return. President Trump was willing to speak to the board of a private company and advocate for an outcome, which reflects how important AI development is to the White House on national security grounds." },
+      { mark: "put", color: "var(--faint)", text: "The White House put, in terms of Trump's tweets and Bessent's Treasury actions, has been largely ineffective over the last several months. This is a new version of it, and it is a feather in the cap for AI bulls." },
+      { mark: "read", color: "var(--accent)", text: "A sentiment catalyst on oversold stocks, with structure still unrepaired. Follow-through into the end of the week is what turns it into conviction." }
+    ]
+  },
+  {
     slug: "fed-minutes-set-up-december-hike",
     date: "2026-11-18", dateLabel: "NOV 18 2026", tag: "RATES", color: "var(--accent)", mark: "hike",
     title: "The Fed minutes set up a December hike",
